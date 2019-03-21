@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#55000000"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:id="@+id/addclassmyelementlayout"
+    >
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/selectdeletemylayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.12"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/deleteselectedaddmy"
+                android:layout_marginLeft="12dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@mipmap/circle"
+                />
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="15dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.75"
+        android:weightSum="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.28"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:id="@+id/addclassmynameTV"
+                android:gravity="center_vertical"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumgodic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="이승철 수1 심화"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.24"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_marginLeft="3dp"
+                android:layout_height="match_parent"
+                android:src="@mipmap/clock"/>
+
+            <TextView
+                android:id="@+id/addclassmytimeTV"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:textSize="11sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumgodic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="월 15:00~17:00 / 수: 15:30~17:30"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.24"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_marginLeft="3dp"
+                android:layout_height="match_parent"
+                android:src="@mipmap/location"/>
+
+            <TextView
+                android:id="@+id/addclassmyacademyTV"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:textColor="#ffffff"
+                android:textSize="11sp"
+                android:fontFamily="@font/nanumgodic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="대찬학원"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.24"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_marginLeft="3dp"
+                android:layout_height="match_parent"
+                android:src="@mipmap/category"/>
+
+            <TextView
+                android:id="@+id/addclassmyinfoTV"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:textSize="11sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumgodic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="수학, 고1 대상"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.25"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/addclassmyTV"
+            android:textColor="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="13sp"
+            android:paddingTop="3dp"
+            android:fontFamily="@font/nanumgodic"
+            android:gravity="center"
+            android:text="+ 추가하기"/>
+
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:layout_alignParentBottom="true"
+        android:background="#DCDCDC"
+        android:layout_marginRight="10dp"/>
+
+    <View
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:layout_alignParentTop="true"
+        android:background="#DCDCDC"
+        android:layout_marginRight="10dp"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.softfinger.seunghyun.daechilife.PageShow.ViewPagerAll
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_above="@id/tablayout"/>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tablayout">
+
+                <android.support.design.widget.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/tab_layout1"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                    >
+
+                    <android.support.design.widget.CollapsingToolbarLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                        <android.support.v7.widget.Toolbar
+                            android:layout_alignParentBottom="true"
+                            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                            android:background="@android:color/white"
+                            android:id="@+id/toolbarbottom"
+                            android:layout_width="match_parent"
+                            android:layout_gravity="bottom"
+                            android:layout_height="?attr/actionBarSize"
+                            android:contentInsetLeft="0dp"
+                            android:contentInsetStart="0dp"
+                            app:contentInsetLeft="0dp"
+                            app:contentInsetStart="0dp"
+                            android:contentInsetRight="0dp"
+                            android:contentInsetEnd="0dp"
+                            app:contentInsetRight="0dp"
+                            app:contentInsetEnd="0dp"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0.5dp"
+                                    android:background="#BEBEBE"/>
+
+
+                                <LinearLayout
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="4dp"
+                                    android:layout_marginBottom="2dp"
+                                    android:orientation="horizontal"
+                                    android:background="@android:color/white"
+                                    android:weightSum="1">
+
+                                    <LinearLayout
+                                        android:id="@+id/hometaplayout"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="0.20"
+                                        android:gravity="center"
+                                        android:background="@android:color/white"
+                                        android:orientation="vertical"
+                                        android:weightSum="1">
+
+                                        <ImageView
+                                            android:id="@+id/hometapimage"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginLeft="3dp"
+                                            android:layout_marginRight="3dp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="0.6"
+                                            android:src="@drawable/home"/>
+
+                                        <TextView
+                                            android:id="@+id/hometaptext"
+                                            android:layout_marginTop="2dp"
+                                            android:layout_width="match_parent"
+                                            android:gravity="center_horizontal"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="0.4"
+                                            android:textSize="11.5sp"
+                                            android:textColor="#000000"
+                                            android:text="@string/hometap"/>
+
+                                    </LinearLayout>
+
+
+
+                                    <LinearLayout
+                                        android:id="@+id/searchtaplayout"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="0.20"
+                                        android:gravity="center"
+                                        android:background="@android:color/white"
+                                        android:orientation="vertical"
+                                        android:weightSum="1">
+
+                                        <ImageView
+                                            android:id="@+id/findtapimage"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginLeft="3dp"
+                                            android:layout_marginRight="3dp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="0.6"
+                                            android:src="@drawable/searchtap"/>
+
+                                        <TextView
+                                            android:id="@+id/findtaptext"
+                                            android:layout_marginTop="2dp"
+                                            android:layout_width="match_parent"
+                                            android:gravity="center_horizontal"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="0.4"
+                                            android:textSize="11.5sp"
+                                            android:textColor="#000000"
+                                            android:text="@string/classsearchtap"/>
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/timetabletaplayout"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="0.20"
+                                        android:gravity="center"
+                                        android:background="@android:color/white"
+                                        android:orientation="vertical"
+                                        android:weightSum="1">
+
+                                        <ImageView
+                                            android:id="@+id/timetabletapimage"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginLeft="3dp"
+                                            android:layout_marginRight="3dp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="0.6"
+                                            android:src="@drawable/schedule"/>
+
+                                        <TextView
+                                            android:id="@+id/timetabletaptext"
+                                            android:layout_marginTop="2dp"
+                                            android:layout_width="match_parent"
+                                            android:gravity="center_horizontal"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="0.4"
+                                            android:textSize="11.5sp"
+                                            android:textColor="#000000"
+                                            android:text="@string/timetabletap"/>
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/boardtaplayout"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="0.20"
+                                        android:gravity="center"
+                                        android:background="@android:color/white"
+                                        android:orientation="vertical"
+                                        android:weightSum="1">
+
+                                        <ImageView
+                                            android:id="@+id/boardtapimage"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginLeft="3dp"
+                                            android:layout_marginRight="3dp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="0.6"
+                                            android:src="@drawable/boardtap"/>
+
+                                        <TextView
+                                            android:id="@+id/boardtaptext"
+                                            android:layout_marginTop="2dp"
+                                            android:layout_width="match_parent"
+                                            android:gravity="center_horizontal"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="0.4"
+                                            android:textSize="11.5sp"
+                                            android:textColor="#000000"
+                                            android:text="@string/boardtap"/>
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/mypagetaplayout"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="0.20"
+                                        android:gravity="center"
+                                        android:background="@android:color/white"
+                                        android:orientation="vertical"
+                                        android:weightSum="1">
+
+                                        <ImageView
+                                            android:id="@+id/mypagetapimage"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginLeft="3dp"
+                                            android:layout_marginRight="3dp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="0.6"
+                                            android:src="@drawable/mypagetap"/>
+
+                                        <TextView
+                                            android:id="@+id/mypagetaptext"
+                                            android:layout_marginTop="2dp"
+                                            android:layout_width="match_parent"
+                                            android:gravity="center_horizontal"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="0.4"
+                                            android:textSize="11.5sp"
+                                            android:textColor="#000000"
+                                            android:text="MY"/>
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+                        </android.support.v7.widget.Toolbar>
+                    </android.support.design.widget.CollapsingToolbarLayout>
+
+
+
+                </android.support.design.widget.AppBarLayout>
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+    </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>

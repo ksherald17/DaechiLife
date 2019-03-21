@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/hotboardelementlayout2"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:background="#ffffff"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="0.6"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#FAB617"
+                android:fontFamily="@font/nanumgodic"
+                android:textStyle="bold"
+                android:text="Q"/>
+
+        <TextView
+            android:id="@+id/hotboardelementtitle2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:paddingTop="5dp"
+            android:layout_marginLeft="7dp"
+            android:textColor="#181818"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/nanumgodic"
+            android:text="대찬학원 김선화 선생님은 어떤가요?"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/hotboardelementtime2"
+                android:layout_marginLeft="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:fontFamily="@font/nanumgodic"
+                android:text="19.03.06."/>
+
+            <ImageView
+                android:layout_marginLeft="9dp"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:src="@mipmap/comment"
+                android:gravity="top"/>
+
+            <TextView
+                android:id="@+id/hotboardelementcomment2"
+                android:layout_marginLeft="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:textSize="12sp"
+                android:fontFamily="@font/nanumgodic"
+                android:text="4"/>
+
+            <ImageView
+                android:layout_marginLeft="9dp"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:src="@mipmap/visit"
+                android:gravity="top"/>
+
+            <TextView
+                android:id="@+id/hotboardelementwatch2"
+                android:layout_marginLeft="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:textSize="12sp"
+                android:fontFamily="@font/nanumgodic"
+                android:text="304"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/hotboardelementimage12"
+        android:background="#B0B0B0"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25dp"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/hotboardelementimage22"
+            android:background="#ffffff"
+            android:layout_margin="1dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/hotboardelementimage2"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

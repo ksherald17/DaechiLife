@@ -1,0 +1,22 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/timecelllayout"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:background="#DCDCDC">
+
+    <TextView
+        android:id="@+id/timecellTV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="10sp"
+        android:fontFamily="@font/nanumgodic"
+        android:textColor="#181818"
+        android:background="#ffffff"
+        android:gravity="right|top"
+        android:paddingTop="2dp"
+        android:paddingRight="1dp"
+        android:layout_margin="0.5dp">
+    </TextView>
+
+</RelativeLayout>

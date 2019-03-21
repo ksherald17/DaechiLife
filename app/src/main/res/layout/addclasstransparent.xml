@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.design.widget.AppBarLayout
+                android:background="#E0E0E0"
+                android:layout_width="match_parent"
+                android:id="@+id/tab_layout1"
+                android:layout_height="90dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_toLeftOf="@id/addsetting"
+                        android:id="@+id/addsearchlayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="#E0E0E0"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:background="#E0E0E0"
+                            android:id="@+id/getoutaddclass"
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@mipmap/backblack"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#E0E0E0"
+                            android:layout_marginLeft="15dp"
+                            android:padding="2dp"
+                            android:hint="수업 검색"
+                            android:textSize="17sp"
+                            android:textColor="#000000"
+                            android:textColorHint="#888888"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/addsetting"
+                        android:text="편집"
+                        android:textColor="#0288d1"
+                        android:fontFamily="@font/nanumgodic"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:padding="2dp"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/addclasstablayout"
+                    android:fontFamily="@font/nanumgodic"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:tabSelectedTextColor="#ff8f00"
+                    app:tabIndicatorColor="#ff8f00"
+                    app:tabTextColor="#888888"
+                    android:background="@android:color/transparent"
+                    app:tabGravity="fill"
+                    app:tabMode="fixed"
+                    />
+
+            </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/addclassviewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+        </android.support.v4.view.ViewPager>
+
+        </LinearLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>

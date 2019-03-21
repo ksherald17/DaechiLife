@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DaechiLife</string>
+    <string name="logo_name">대치라이프</string>
+    <string name="hometap">홈</string>
+    <string name="classsearchtap">수업검색</string>
+    <string name="boardtap">게시판</string>
+    <string name="timetabletap">시간표</string>
+</resources>

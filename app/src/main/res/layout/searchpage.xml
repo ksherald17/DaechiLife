@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f3f4f6"
+        android:orientation="vertical"
+        >
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView
+                app:cardBackgroundColor="#ffffff"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tablayout">
+
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:id="@+id/tab_layoutsearch"
+                android:layout_height="wrap_content"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                >
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:background="#ffffff"
+                app:contentScrim="@android:color/transparent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <android.support.v7.widget.Toolbar
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                android:background="@android:color/white"
+                android:id="@+id/toolbarbottom"
+                android:layout_width="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_height="90dp"
+                android:contentInsetLeft="0dp"
+                android:contentInsetStart="0dp"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                android:contentInsetRight="0dp"
+                android:contentInsetEnd="0dp"
+                app:contentInsetRight="0dp"
+                app:contentInsetEnd="0dp"
+
+                >
+
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="1"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_marginTop="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.4"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/gohomefromsearch"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:layout_width="wrap_content"
+                            android:textSize="23sp"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/titlebold"
+                            android:text="DL"/>
+
+                        <TextView
+                            android:id="@+id/titlekumsek"
+                            android:layout_toRightOf="@id/gohomefromsearch"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:layout_marginLeft="4dp"
+                            android:layout_width="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="19sp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumgodic"
+                            android:text="검색"/>
+
+                        <TextView
+                            android:id="@+id/titlekumsek2"
+                            android:layout_toRightOf="@id/titlekumsek"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"
+                            android:textColor="@android:color/darker_gray"
+                            android:layout_marginLeft="8dp"
+                            android:layout_width="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumgodic"
+                            android:text="수업검색"/>
+
+                        <TextView
+                            android:id="@+id/searchfilter"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:gravity="center_vertical|right"
+                            android:textColor="#000000"
+                            android:layout_marginRight="15dp"
+                            android:layout_width="wrap_content"
+                            android:textSize="15dp"
+                            android:padding="5dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nanumgodic"
+                            android:background="@drawable/searchfiltertap"
+                            android:text="검색필터"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.6">
+
+                        <EditText
+                            android:id="@+id/searchresulttext"
+                            android:layout_marginRight="15dp"
+                            android:hint="선생님, 학원명, 학교명"
+                            android:paddingLeft="10dp"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="15dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            android:textColor="#000000"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/searchtext"/>
+
+                        <ImageView
+                            android:id="@+id/searchimgicon"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginRight="25dp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/searchtap"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.Toolbar>
+            </android.support.design.widget.CollapsingToolbarLayout>
+            </android.support.design.widget.AppBarLayout>
+            </android.support.v7.widget.CardView>
+
+        </android.support.design.widget.CoordinatorLayout>
+
+    <FrameLayout
+        android:id="@+id/searchcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+</LinearLayout>
+
+
