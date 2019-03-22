@@ -33,7 +33,7 @@ import User.UserClass;
 
 //변경된 개발 사항: 로그인 전과 로그인 후가 분류되어야만 함.
 //해당 클래스는 처음 어플 시작되는 경우 계속 유지되는 Activity. Identity사진 보여주고 메인 어플화면으로 전환.
-
+//최승현 바보
 public class FirstActivity extends AppCompatActivity {
 
     public static AmazonClientManager clientManager = null;
