@@ -33,6 +33,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 //개발 유의사항: TimeTableFragment에 ArrayList<LectureClass>에 해당하는 시간표에 저장된 함수는 TimeTable로 부터 가져와야하며 DB에서 꺼내오는 함수.
+//추가 개발필요사항: 검색창, 새로운 시간표 창, 삭제 코드
 
 public class TimeTableFragment extends android.support.v4.app.Fragment {
 

@@ -1,5 +1,6 @@
 package com.softfinger.seunghyun.daechilife.SearchFragment;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ImageView;
@@ -93,6 +95,7 @@ public class SearchFragment extends android.support.v4.app.Fragment {
         transaction = manager.beginTransaction();
         transaction.replace(R.id.searchcontainer, searchResultFragment);
         transaction.commit();
+        hideKeyboard(FirstActivity.getActivity()); //keyboard가리는 효과
 
     }
 
@@ -137,6 +140,7 @@ public class SearchFragment extends android.support.v4.app.Fragment {
             @Override
             public void onClick(View v){
 
+                hideKeyboard(FirstActivity.getActivity());
                 startHomeMain();
 
             }
@@ -146,6 +150,7 @@ public class SearchFragment extends android.support.v4.app.Fragment {
             @Override
             public void onClick(View v){
 
+                hideKeyboard(FirstActivity.getActivity());
                 startHomeMain();
 
             }
@@ -168,5 +173,16 @@ public class SearchFragment extends android.support.v4.app.Fragment {
         //페이지 전환 담당
         setSearchPageShifter();
 
+    }
+
+    public static void hideKeyboard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        //Find the currently focused view, so we can grab the correct window token from it.
+        View view = activity.getCurrentFocus();
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = new View(activity);
+        }
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }
