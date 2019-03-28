@@ -1,0 +1,85 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/searchresultclasslayout"
+    android:background="#ffffff"
+    android:layout_width="match_parent"
+    android:layout_height="70dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="4dp"
+        android:layout_height="1dp"
+        android:background="#DCDCDC"
+        android:layout_alignParentBottom="true"/>
+
+    <FrameLayout
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="3dp"
+        android:id="@+id/imageframe3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#808080">
+
+        <LinearLayout
+            android:layout_margin="0.5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffffff">
+
+            <ImageView
+                android:id="@+id/academypicture"
+                android:layout_margin="1dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/kns"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="7dp"
+        android:layout_alignTop="@id/imageframe3"
+        android:layout_alignBaseline="@id/imageframe3"
+        android:layout_toRightOf="@id/imageframe3"
+        android:layout_width="match_parent"
+        android:weightSum="1"
+        android:layout_height="52dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lecturename"
+            android:textColor="#181818"
+            android:textSize="14sp"
+            android:fontFamily="@font/nanumgodic"
+            android:layout_width="wrap_content"
+            android:layout_height="0sp"
+            android:layout_weight="0.36"
+            android:text="휘문고 영어내신반"/>
+
+        <TextView
+            android:id="@+id/lectureacademy"
+            android:textColor="#606060"
+            android:textSize="13sp"
+            android:fontFamily="@font/nanumgodic"
+            android:layout_width="wrap_content"
+            android:layout_height="0sp"
+            android:layout_weight="0.32"
+            android:text="KNS어학원"/>
+
+        <TextView
+            android:id="@+id/lecturetime"
+            android:textColor="#606060"
+            android:textSize="13sp"
+            android:fontFamily="@font/nanumgodic"
+            android:layout_width="wrap_content"
+            android:layout_height="0sp"
+            android:layout_weight="0.32"
+            android:text="수 6:30PM~8:00PM / 토 11:00AM~2:30PM"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

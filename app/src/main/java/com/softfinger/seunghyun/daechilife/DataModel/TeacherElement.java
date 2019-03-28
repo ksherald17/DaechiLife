@@ -8,12 +8,17 @@ import javax.security.auth.Subject;
 public class TeacherElement {
     String teachername;
     List<String> academylist;
+    ArrayList<LectureClass> lectureClassess;
+
     String academyname;
+    String description;
     String subject;
     int expand = 1;
+    int watch = 0;
 
     /*constructor*/
     public TeacherElement(String teachername, String subject){
+        lectureClassess = new ArrayList<>();
         this.teachername = teachername;
         academylist = new ArrayList<String>();
         this.subject = subject;
@@ -23,6 +28,7 @@ public class TeacherElement {
         this.teachername = teachername;
         this.academyname = academyname;
         academylist = new ArrayList<String>();
+        lectureClassess = new ArrayList<>();
         academylist.add(this.academyname);
         this.subject = subject;
     }
@@ -30,6 +36,7 @@ public class TeacherElement {
     public TeacherElement(String teachername, List<String> academylist, String subject){
         this.teachername = teachername;
         academylist = new ArrayList<String>();
+        lectureClassess = new ArrayList<>();
         this.academylist = academylist;
         this.subject = subject;
     }
@@ -73,4 +80,43 @@ public class TeacherElement {
         return expand;
     }
 
+    public ArrayList<LectureClass> getLectureClassess() {
+        return lectureClassess;
+    }
+
+    public void setLectureClassess(ArrayList<LectureClass> lectureClassess) {
+        this.lectureClassess = lectureClassess;
+    }
+
+    public void addLecture(LectureClass lecture){
+        lectureClassess.add(lecture);
+    }
+
+    public void removeLecture(LectureClass lecture){
+        lectureClassess.remove(lecture);
+    }
+
+    public String getAcademyname() {
+        return academyname;
+    }
+
+    public int getWatch() {
+        return watch;
+    }
+
+    public void setWatch(int watch) {
+        this.watch = watch;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setAcademyname(String academyname) {
+        this.academyname = academyname;
+    }
 }
