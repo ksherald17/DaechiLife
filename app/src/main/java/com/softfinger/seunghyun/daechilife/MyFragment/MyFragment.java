@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import com.softfinger.seunghyun.daechilife.R;
 
 public class MyFragment extends android.support.v4.app.Fragment {
-
     /*액티비티, 콘텍스트*/
     static Context context;
     View homepage;
+    int a;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
