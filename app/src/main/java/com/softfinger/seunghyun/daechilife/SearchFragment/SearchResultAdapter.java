@@ -2,6 +2,7 @@ package com.softfinger.seunghyun.daechilife.SearchFragment;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.softfinger.seunghyun.daechilife.DataModel.BoardHotElement;
 import com.softfinger.seunghyun.daechilife.DataModel.LectureClass;
 import com.softfinger.seunghyun.daechilife.DataModel.TeacherElement;
 import com.softfinger.seunghyun.daechilife.HomeFragment.DLBoardHotElementAdapter;
+import com.softfinger.seunghyun.daechilife.HomeFragment.DLBoardIkMyungAdapter;
 import com.softfinger.seunghyun.daechilife.HomeFragment.DLHomeChartAdapter;
 import com.softfinger.seunghyun.daechilife.R;
 
@@ -23,15 +25,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
-public class SearchResultAdapter {
-}//데이터와 아이템에 대한 뷰를 생성하는 역할
-/*
-    static List<LectureClass> lectures_real;
-    private List<LectureClass> lectures_list;
-    Context context;
-    static int pos1 = 0;
+public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapter.LectureViewHolder> {
 
-    SearchResultAdapter(List<LectureClass> lectures, Context context){
+    static List<TeacherElement> lectures_real;
+    private List<TeacherElement> lectures_list;
+    Context context;
+
+    SearchResultAdapter(List<TeacherElement> lectures, Context context){
         this.lectures_real = lectures; //get DB
         this.context = context;
         this.lectures_list = lectures;
@@ -43,23 +43,18 @@ public class SearchResultAdapter {
 
     public class LectureViewHolder extends RecyclerView.ViewHolder{ //모든 서브 뷰를 보유한다.
 
-        TextView title, writer, watch, comments, time;
-        RelativeLayout teacherimagelayout, elementlayout;
-        LinearLayout imagelayout2;
-        ImageView teacherimage;
-
+        TextView teachername, notice, teacherdescription, teacherwatch, morelecture, review;
+        RecyclerView classRV;
         LectureViewHolder(View itemView){ //전개할 item 정의
 
             super(itemView);
-            title = itemView.findViewById(R.id.hotboardelementtitle);
-            writer = itemView.findViewById(R.id.hotboardelementwriter);
-            watch = itemView.findViewById(R.id.hotboardelementwatch);
-            comments = itemView.findViewById(R.id.hotboardelementcomment);
-            time = itemView.findViewById(R.id.hotboardelementtime);
-            imagelayout1 = itemView.findViewById(R.id.hotboardelementimage1);
-            teacherimagelayout = itemView.findViewById(R.id.searchresultimagelayout);
-            teacherimage = itemView.findViewById(R.id.searchresultimage);
-            elementlayout = itemView.findViewById(R.id.hotboardelementlayout);
+            teachername = itemView.findViewById(R.id.teachersearchresult);
+            notice = itemView.findViewById(R.id.teachernotice);
+            teacherwatch = itemView.findViewById(R.id.teacherwatch);
+            teacherdescription = itemView.findViewById(R.id.teacherdescription);
+            morelecture = itemView.findViewById(R.id.seemorelecture);
+            review = itemView.findViewById(R.id.seereview);
+            classRV = itemView.findViewById(R.id.searchresultclassRV);
 
         }
 
@@ -74,72 +69,80 @@ public class SearchResultAdapter {
 
     @Override
     public int getItemCount() { //number of items presented in data
-        if(boards_real == null){
+        if(lectures_real == null){
             return 0;
         };
-        return boards_real.size();
+        return lectures_real.size();
     }
 
     @Override
-    public DLBoardHotElementAdapter.BoardViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) { //time when viewholder needs to be initialized
+    public SearchResultAdapter.LectureViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) { //time when viewholder needs to be initialized
         context = viewGroup.getContext();
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.homehotboardelement, viewGroup, false); //layoutInfalter
-        DLBoardHotElementAdapter.BoardViewHolder lvh = new DLBoardHotElementAdapter.BoardViewHolder(v);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.searchresult_teacher, viewGroup, false); //layoutInfalter
+        SearchResultAdapter.LectureViewHolder lvh = new SearchResultAdapter.LectureViewHolder(v);
         return lvh;
     }
 
     //need to change code here
     @Override
-    public void onBindViewHolder(@NonNull DLBoardHotElementAdapter.BoardViewHolder boardViewHolder, final int position) { //specify contents of each item
+    public void onBindViewHolder(@NonNull SearchResultAdapter.LectureViewHolder lectureViewHolder, final int position) { //specify contents of each item
 
-        final BoardHotElement boardHotElement = boards_list.get(position);
-        final TextView title = boardViewHolder.title;
-        final TextView writer = boardViewHolder.writer;
-        final TextView watch = boardViewHolder.watch;
-        final TextView comment = boardViewHolder.comments;
-        final TextView time = boardViewHolder.time;
-        final ImageView image = boardViewHolder.image;
-        final RelativeLayout imagelayout1 = boardViewHolder.imagelayout1;
-        final LinearLayout imagelayout2 = boardViewHolder.imagelayout2;
-        final RelativeLayout elementlayout = boardViewHolder.elementlayout;
+        final TeacherElement result = lectures_list.get(position);
+        final TextView teachername = lectureViewHolder.teachername;
+        final TextView notice = lectureViewHolder.notice;
+        final TextView teacherdescription = lectureViewHolder.teacherdescription;
+        final TextView teacherwatch = lectureViewHolder.teacherwatch;
+        final TextView morelecture = lectureViewHolder.morelecture;
+        final TextView seereview = lectureViewHolder.review;
+        final RecyclerView classRV = lectureViewHolder.classRV;
         final int pos = position;
 
-        elementlayout.setOnClickListener(new View.OnClickListener(){
+        teachername.setText(result.getTeachername() + " 선생님");
+
+        classRV.setHasFixedSize(true); //recyclerView has fixed size
+        LinearLayoutManager llm = new LinearLayoutManager(context); //리스트를 생성하는 역할을 한다.
+        classRV.setLayoutManager(llm);
+        InResultClassAdapter searchResultAdapter = new InResultClassAdapter(result.getLectureClassess(), context);
+        classRV.setAdapter(searchResultAdapter);
+
+        notice.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
 
+                if(notice.getText().toString().equals("알림 ON")){
+                    notice.setText("알림 해제");
+                }
+
+                else {
+                    notice.setText("알림 ON");
+                }
 
                 notifyDataSetChanged();
             }
         });
 
-        title.setText(boardHotElement.getTitle());
-        writer.setText(boardHotElement.getWriterid());
-        watch.setText(Integer.toString(boardHotElement.getWatch()));
-        comment.setText(Integer.toString(boardHotElement.getComments()));
+        teacherdescription.setText(result.getDescription());
+        teacherwatch.setText("조회수 " + Integer.toString(result.getWatch())+ "회");
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yy.MM.dd");
-        sdf.setTimeZone(TimeZone.getDefault());
+        morelecture.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
 
-        //날짜가 동일하면 시간을, 날짜가 동일하지 않다면 날짜를 기록
-        String currentday = sdf.format(new Date());
-        if(currentday.equals(boardHotElement.getDay())){
-            time.setText(boardHotElement.getCurrenttime());
-        }else{
-            time.setText(boardHotElement.getDay());
-        }
 
-        //이미지
-        if(boardHotElement.getImageexist() == 1){
-            imagelayout1.setVisibility(View.VISIBLE);
-            imagelayout2.setVisibility(View.VISIBLE);
-            image.setVisibility(View.VISIBLE);
-        }else{
-            imagelayout1.setVisibility(View.INVISIBLE);
-            imagelayout2.setVisibility(View.INVISIBLE);
-            image.setVisibility(View.INVISIBLE);
-        }
+
+            }
+        });
+
+        seereview.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+
+
+            }
+        });
+
 
     }
 
-}*/
+}
