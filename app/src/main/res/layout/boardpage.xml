@@ -1,13 +1,393 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:orientation="vertical">
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/colorWhite">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="게시판"/>
+        android:text="게시판"
+        android:layout_toRightOf="@id/settingback_text"
+        android:textSize="20sp"
+        android:layout_marginLeft="32dp"
+        android:textColor="@color/colorDark"
+        android:layout_centerVertical="true"
+        android:fontFamily="@font/nanumgodic"
+        android:textStyle="bold"
+        />
+
+</RelativeLayout>
+    <View
+    android:layout_width="match_parent"
+    android:layout_height="0.5dp"
+    android:background="@color/gray_line"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/gray_background">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+
+            >
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+                android:orientation="horizontal"
+                android:background="@color/colorWhite"
+                android:weightSum="1">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/board_myimage1"
+                            android:layout_marginTop="24dp"
+                            android:layout_centerHorizontal="true"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                            android:src="@drawable/academyboard"
+                        />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_centerHorizontal="true"
+                        android:text="내가 쓴 글"
+                        android:textColor="@color/colorDark"
+                        android:textSize="12dp"/>
+                    </RelativeLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_line"/>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/board_myimage2"
+                            android:layout_marginTop="24dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/academyboard"
+                            />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_centerHorizontal="true"
+                            android:text="댓글 단 글"
+                            android:textColor="@color/colorDark"
+                            android:textSize="12dp"/>
+                    </RelativeLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_line"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/board_myimage3"
+                            android:layout_marginTop="24dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/academyboard"
+                            />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_centerHorizontal="true"
+                            android:text="댓글"
+                            android:textColor="@color/colorDark"
+                            android:textSize="12dp"/>
+                    </RelativeLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_line"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/board_myimage4"
+                            android:layout_marginTop="24dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/academyboard"
+                            />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_centerHorizontal="true"
+                            android:text="좋아요 한 글"
+                            android:textColor="@color/colorDark"
+                            android:textSize="12dp"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="vertical"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:background="@color/colorWhite"
+                >
+            <RelativeLayout
+                android:id="@+id/freeboard_layout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                >
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/freeboard_imageview"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/freeboard" />
+
+
+                <TextView
+                    android:id="@+id/freeboard_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/freeboard_imageview"
+                    android:layout_marginLeft="32dp"
+                    android:text="자유게시판"
+                    android:fontFamily="@font/nanumgodic"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorDark"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/teacherboard_layout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                >
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/teacherboard_imageview"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/teacherboard" />
+
+
+                <TextView
+                    android:id="@+id/teacherboard_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/teacherboard_imageview"
+                    android:layout_marginLeft="32dp"
+                    android:text="선생님게시판"
+                    android:fontFamily="@font/nanumgodic"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorDark"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/lectureboard_layout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="20dp"
+                >
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/lectureboard_imageview"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/lectureboard" />
+
+
+                <TextView
+                    android:id="@+id/lectureboard_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/lectureboard_imageview"
+                    android:layout_marginLeft="32dp"
+                    android:text="설명회게시판"
+                    android:fontFamily="@font/nanumgodic"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorDark"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/academyboard_layout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="20dp"
+                >
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/academyboard_imageview"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/academyboard" />
+
+
+                <TextView
+                    android:id="@+id/academyboard_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/academyboard_imageview"
+                    android:layout_marginLeft="32dp"
+                    android:text="학원게시판"
+                    android:fontFamily="@font/nanumgodic"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorDark"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/foodboard_layout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="16dp"
+                >
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/foodboard_imageview"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/foodboard" />
+
+
+                <TextView
+                    android:id="@+id/foodboard_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/foodboard_imageview"
+                    android:layout_marginLeft="32dp"
+                    android:fontFamily="@font/nanumgodic"
+                    android:textStyle="bold"
+                    android:text="맛집게시판"
+                    android:textColor="@color/colorDark"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/schoolboard_layout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                >
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/schoolboard_imageview"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/schoolboard" />
+
+
+                <TextView
+                    android:id="@+id/schoolboard_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/schoolboard_imageview"
+                    android:layout_marginLeft="32dp"
+                    android:text="학교게시판"
+                    android:fontFamily="@font/nanumgodic"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorDark"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
+
+
