@@ -47,6 +47,9 @@ public class SearchFragment extends android.support.v4.app.Fragment {
     static SearchMainPage searchmainfragment;
     static SearchResultFragment searchResultFragment;
 
+    /*검색 결과와 관련된 코드*/
+    static String searchquery;
+
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -78,7 +81,7 @@ public class SearchFragment extends android.support.v4.app.Fragment {
 
     //메인검색화면으로 복귀
     public static void startHomeMain( ){
-
+        setSearchquery("");
         searchfragmentTransaction = searchfragmentManager.beginTransaction();
         searchmainfragment = new SearchMainPage();
         transaction = manager.beginTransaction();
@@ -89,14 +92,13 @@ public class SearchFragment extends android.support.v4.app.Fragment {
 
     //검색 결과 페이지로 전환
     public static void startHomeResult(String searchtag){
-
+        setSearchquery(searchtag);
         searchfragmentTransaction = searchfragmentManager.beginTransaction();
         searchResultFragment = new SearchResultFragment();
         transaction = manager.beginTransaction();
         transaction.replace(R.id.searchcontainer, searchResultFragment);
         transaction.commit();
         hideKeyboard(FirstActivity.getActivity()); //keyboard가리는 효과
-
     }
 
     /* 페이지 전환과 관련된 모든 함수를 담당하는 부분 */
@@ -155,8 +157,6 @@ public class SearchFragment extends android.support.v4.app.Fragment {
 
             }
         });
-
-
     }
 
     /* 검색하는 화면 창 정교 컨트롤 : x표시로 삭제, 글씨 제한 기능 if possible 자동완성? */
@@ -184,5 +184,15 @@ public class SearchFragment extends android.support.v4.app.Fragment {
             view = new View(activity);
         }
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    /*Getter Setter*/
+
+    public static String getSearchquery() {
+        return searchquery;
+    }
+
+    public static void setSearchquery(String searchquery) {
+        SearchFragment.searchquery = searchquery;
     }
 }

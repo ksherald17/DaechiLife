@@ -21,8 +21,8 @@ public class SearchEngine {
 
     String query;
     List<DynamoDB_TeacherClass> teacherresultDBlist;
-
     TeacherElement teacherResult = null;
+    static List<TeacherElement> teacherresultlist;
 
     /* Thread */
     Thread datathread;
@@ -36,11 +36,11 @@ public class SearchEngine {
     public SearchEngine(String query){
         this.query = query;
         teacherresultDBlist = new ArrayList<>();
+        teacherresultlist = new ArrayList<>();
     }
 
     //결과를 가져오는 함수
-    private void setResult(String query){
-
+    public void setResult(){
         /* 결과값 초기화 */
         teacherResult = null;
 
@@ -173,6 +173,7 @@ public class SearchEngine {
 
                 teacherResult = new TeacherElement(resultmap.getTeacherName(), subjectlist.get(0));
                 teacherResult.setLectureClassess(teacherlectures);
+                teacherresultlist.add(teacherResult);
             }
 
             else{ //만약 3글자인데 선생님이 아니라면 다음을 시도
@@ -180,19 +181,24 @@ public class SearchEngine {
             }
         }
 
-
-
         /* 다0 이라면 공백제거한 상태로 재계산*/
+
     }
 
-
     /* Getter& Setter */
+    //teacherresult
+    public static List<TeacherElement> getTeacherresultlist() {
+        return teacherresultlist;
+    }
+    public static void setTeacherresultlist(List<TeacherElement> teacherresultlist) {
+        SearchEngine.teacherresultlist = teacherresultlist;
+    }
 
+    //query
     public String getQuery() {
 
         return query;
     }
-
     public void setQuery(String query) {
         this.query = query;
     }
