@@ -27,6 +27,10 @@
             android:theme="@style/Theme.AppCompat.Translucent" ></activity>
         <activity android:name=".TimeTableFragment.AddClassTimeTableActivity"
             android:theme="@style/noAnimTheme"></activity>
+        <activity android:name=".BoardFragment.board"></activity>
+        <activity android:name=".BoardFragment.articledetail"></activity>
+        <activity android:name=".BoardFragment.board_newarticle"></activity>
+        <activity android:name=".MyFragment.mypage_setting"></activity>
     </application>
 
 </manifest>

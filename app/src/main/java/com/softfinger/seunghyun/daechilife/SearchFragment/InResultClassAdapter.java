@@ -116,13 +116,13 @@ public class InResultClassAdapter extends RecyclerView.Adapter<InResultClassAdap
 
         /*sample pictures*/
         if(result.getAcademyname().equals("미래탐구")){
-            academyimage.setImageResource(R.mipmap.miraetamgu);
+           // academyimage.setImageResource(R.mipmap.miraetamgu);
         }
         else if(result.getAcademyname().equals("개념상상")){
-            academyimage.setImageResource(R.mipmap.gaenyumsangsang);
+         //   academyimage.setImageResource(R.mipmap.gaenyumsangsang);
         }
         else if(result.getAcademyname().equals("KNS어학원")){
-            academyimage.setImageResource(R.mipmap.kns);
+           // academyimage.setImageResource(R.mipmap.kns);
         }
 
 

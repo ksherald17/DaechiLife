@@ -32,8 +32,7 @@
                 android:id="@+id/academypicture"
                 android:layout_margin="1dp"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@mipmap/kns"/>
+                android:layout_height="50dp"/>
 
         </LinearLayout>
 

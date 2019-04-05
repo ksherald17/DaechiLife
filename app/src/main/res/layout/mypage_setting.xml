@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/gray_background"
+    android:weightSum="1">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.08"
+        android:background="@color/colorWhite">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/settingback_text"
+            android:src="@drawable/back_arrow"
+            android:layout_marginLeft="8dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="설정"
+            android:layout_toRightOf="@id/settingback_text"
+            android:textSize="20sp"
+            android:fontFamily="@font/nanumgodic"
+            android:textStyle="bold"
+            android:layout_marginLeft="18dp"
+            android:textColor="@color/colorDark"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.92">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentPadding="4dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/colorWhite"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="푸쉬 알림 설정"
+                android:fontFamily="@font/nanumgodic"
+                android:textColor="@color/gray_text"
+
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/pushsetting_notice">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pushsetting_notice_text"
+                    android:text="공지사항"
+                    android:fontFamily="@font/nanumgodic"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorDark"
+                    android:textSize="19.2sp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="14.4dp"
+                    android:layout_marginBottom="14.4dp"/>
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="8dp"
+                    android:thumb="@drawable/switch_thumb_selector"
+                    android:track="@drawable/switch_track_selector"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/pushsetting_comment">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pushsetting_comment_text"
+                    android:text="댓글 달림"
+                    android:fontFamily="@font/nanumgodic"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorDark"
+                    android:textSize="19.2sp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="14.4dp"
+                    android:layout_marginBottom="14.4dp"/>
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="8dp"
+                    android:thumb="@drawable/switch_thumb_selector"
+                    android:track="@drawable/switch_track_selector"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/pushsetting_teacher">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pushsetting_teacher_text"
+                    android:text="추천 강사"
+                    android:fontFamily="@font/nanumgodic"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorDark"
+                    android:textSize="19.2sp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="14.4dp"
+                    android:layout_marginBottom="14.4dp"/>
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="8dp"
+                    android:thumb="@drawable/switch_thumb_selector"
+                    android:track="@drawable/switch_track_selector"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        app:contentPadding="4dp"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:cardElevation="0dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="고객센터"
+                android:fontFamily="@font/nanumgodic"
+                android:textColor="@color/gray_text"
+
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/center_notice">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/center_notice_text"
+                    android:text="공지사항"
+                    android:fontFamily="@font/nanumgodic"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorDark"
+                    android:textSize="19.2sp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="14.4dp"
+                    android:layout_marginBottom="14.4dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow_right_black_18"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="8dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/center_help">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/center_help_text"
+                    android:text="도움말"
+                    android:fontFamily="@font/nanumgodic"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorDark"
+                    android:textSize="19.2sp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="14.4dp"
+                    android:layout_marginBottom="14.4dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow_right_black_18"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="8dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/center_question">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/center_question_text"
+                    android:text="1:1 문의"
+                    android:fontFamily="@font/nanumgodic"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorDark"
+                    android:textSize="19.2sp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="14.4dp"
+                    android:layout_marginBottom="14.4dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow_right_black_18"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="8dp"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        app:contentPadding="4dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/colorWhite"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="프로그램 정보"
+                android:fontFamily="@font/nanumgodic"
+                android:textColor="@color/gray_text"
+
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/program_term">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/program_term_text"
+                    android:text="이용약관"
+                    android:fontFamily="@font/nanumgodic"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorDark"
+                    android:textSize="19.2sp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="14.4dp"
+                    android:layout_marginBottom="14.4dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow_right_black_18"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="8dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/program_ver">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/program_ver_text"
+                    android:text="버전 확인"
+                    android:fontFamily="@font/nanumgodic"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorDark"
+                    android:textSize="19.2sp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="14.4dp"
+                    android:layout_marginBottom="14.4dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow_right_black_18"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="8dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/program_service">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/program_service_text"
+                    android:text="서비스 이용 동의"
+                    android:fontFamily="@font/nanumgodic"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorDark"
+                    android:textSize="19.2sp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="14.4dp"
+                    android:layout_marginBottom="14.4dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow_right_black_18"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="8dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/program_opensource">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/program_opensource_text"
+                    android:text="오픈 소스 라이센스"
+                    android:fontFamily="@font/nanumgodic"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorDark"
+                    android:textSize="19.2sp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="14.4dp"
+                    android:layout_marginBottom="14.4dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow_right_black_18"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="8dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/program_private">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/program_private_text"
+                    android:text="개인정보 처리 방침"
+                    android:fontFamily="@font/nanumgodic"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorDark"
+                    android:textSize="19.2sp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="14.4dp"
+                    android:layout_marginBottom="14.4dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow_right_black_18"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="8dp"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
