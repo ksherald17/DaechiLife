@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray_background"
+    android:orientation="vertical"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:id="@+id/comment_profile"
+        android:src="@drawable/user"/>
+    <LinearLayout
+        android:layout_toRightOf="@id/comment_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="8dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+            <TextView
+                android:id="@+id/comment_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최승현"
+                android:textSize="16sp"
+                android:textColor="@color/colorDark"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"/>
+            <TextView
+                android:id="@+id/comment_time"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/comment_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/colorDark"
+                android:text="3월 26일 오후 6:42"
+                android:textSize="12sp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp">
+            <TextView
+                android:id="@+id/comment_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="댓글 내용
+댓글 내용
+댓글 내용"
+                android:textColor="@color/colorDark"
+                android:textSize="12sp"
+                android:layout_alignParentLeft="true"/>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
