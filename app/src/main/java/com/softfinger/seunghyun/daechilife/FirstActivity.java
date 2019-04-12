@@ -69,7 +69,7 @@ public class FirstActivity extends AppCompatActivity {
         activity = this;
         compatActivity = this;
         context = getApplicationContext();
-        //clientManager = new AmazonClientManager(this);
+        clientManager = new AmazonClientManager(this);
 
         super.onCreate(savedInstanceState);
         setTheme(R.style.AppTheme);
