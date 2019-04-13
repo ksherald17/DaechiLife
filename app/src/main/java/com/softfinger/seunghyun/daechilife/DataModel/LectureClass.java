@@ -5,7 +5,7 @@ public class LectureClass {
     //int로 저장하는 방법은 좋은 방법이 아님. 관심목록에 있으면서, 내 시간표에 저장될 수 있음.
     //따라서 변수를 6개 선언하여 각 변수의 값을 받아서 눌린 상태인지 아닌지를 확인. 검색결과 목록에 출력됨을 나타내는 변수, 관심목록에 나타남, 관심목록에서 눌림...
 
-    String lecturename, subject, age, time, academyname, teachername, description, category;
+    String lecturename, subject, age, time, academyname, teachername, description, category, academyenglishname;
 
     //이 정보들은 USERDB에서 가져와서 비교하여 입력해놓아야 할 정보들임
     /* 수업 추가와 관련된 변수 */
@@ -122,6 +122,14 @@ public class LectureClass {
         this.ADD_OnMAINTABLELIST_TOUCHED = ADD_OnMAINTABLELIST_TOUCHED;
     }
 
+    public String getAcademyenglishname() {
+        return academyenglishname;
+    }
+
+    public void setAcademyenglishname(String academyenglishname) {
+        this.academyenglishname = academyenglishname;
+    }
+
     public int getADD_OnMAINTABLELIST_DELETE() {
         return ADD_OnMAINTABLELIST_DELETE;
     }
@@ -154,4 +162,6 @@ public class LectureClass {
     public void setCategory(String category) {
         this.category = category;
     }
+
+
 }

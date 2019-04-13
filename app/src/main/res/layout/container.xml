@@ -15,28 +15,21 @@
             android:id="@+id/firstshowlayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#FAB617"
+            android:background="#81d4fa"
             android:gravity="center">
 
 
             <TextView
                 android:layout_marginTop="30dp"
-                android:layout_below="@id/a11"
                 android:id="@+id/a12"
-                android:text="대라 -ing"
+                android:text="대치라이프"
                 android:textStyle="bold"
-                android:textSize="32dp"
+                android:textSize="48dp"
                 android:textColor="#ffffff"
                 android:gravity="center_horizontal"
                 android:fontFamily="@font/miseng"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
-            <ImageView
-                android:id="@+id/a11"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:src="@mipmap/loading"/>
 
             <TextView
                 android:layout_below="@id/a12"
@@ -44,9 +37,9 @@
                 android:layout_width="match_parent"
                 android:gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text=": 대치동의 모든 수업을 담는 행위"
+                android:text="대치동 수업시스템에 혁신을 가져오다"
                 android:fontFamily="@font/miseng"
-                android:textSize="32dp"/>
+                android:textSize="38dp"/>
 
 
 

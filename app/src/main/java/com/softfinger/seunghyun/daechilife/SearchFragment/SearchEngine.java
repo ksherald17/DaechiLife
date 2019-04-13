@@ -20,6 +20,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.softfinger.seunghyun.daechilife.DataModel.DynamoDB_TeacherClass;
 import com.softfinger.seunghyun.daechilife.DataModel.LectureClass;
 import com.softfinger.seunghyun.daechilife.DataModel.TeacherElement;
 import com.softfinger.seunghyun.daechilife.FirstActivity;
@@ -39,6 +40,7 @@ public class SearchEngine {
     String query;
     TeacherElement teacherResult = null;
     static List<TeacherElement> teacherresultlist;
+    List<DynamoDB_TeacherClass> dbteachertempresult;
 
     /* TABLE */
     static String lecture_teacherTableName = "LectureDB_Teacher";
@@ -47,12 +49,9 @@ public class SearchEngine {
     Thread datathread;
 
     //Get TeacherResult
-    GetItemResult getItemResult;
     public TeacherElement getTeacherResult() {
         return teacherResult;
     }
-
-
 
     public SearchEngine(String query){
         this.query = query;
@@ -63,6 +62,7 @@ public class SearchEngine {
     public void setResult() {
         /* 결과값 초기화 */
         teacherResult = null;
+        dbteachertempresult = new ArrayList<>();
 
         /* query characteristic determination */
         int determineSituation = 0;
@@ -114,11 +114,17 @@ public class SearchEngine {
                 datathread = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        Map<String, AttributeValue> key = new HashMap<String, AttributeValue>();
-                        key.put("TeacherName", new AttributeValue().withS(inputquery));
 
-                        GetItemRequest getItemRequest = new GetItemRequest().withTableName(lecture_teacherTableName).withKey(key);
-                        getItemResult = ddb.getItem(getItemRequest);
+                        DynamoDBQueryExpression<DynamoDB_TeacherClass> query2 =
+                                new DynamoDBQueryExpression<>();
+                        DynamoDB_TeacherClass hashKeyValues = new DynamoDB_TeacherClass();
+                        hashKeyValues.setTeacherName(inputquery);
+                        Log.e("SearchEngine", inputquery);
+                        query2.setHashKeyValues(hashKeyValues);
+                        // getMapper() returns a DynamoDBMapper object with the appropriate
+                        // AmazonDynamoDBClient object.
+                        dbteachertempresult = mapper.query(DynamoDB_TeacherClass.class, query2);
+                        Log.e("선생님 데이터 가져오기", "성공적으로 학원 index를 받아왔습니다.");
 
                     }
                 });
@@ -134,7 +140,7 @@ public class SearchEngine {
             try {
                 datathread.join();
 
-                if(getItemResult == null || getItemResult.getItem().get("TeacherName") == null){
+                if(dbteachertempresult == null || dbteachertempresult.size() == 0){
                     determineSituation = 0;
                     Log.e("선생님 데이터 가져오기", "검색결과 없음");
                 }else{
@@ -144,44 +150,43 @@ public class SearchEngine {
                 //만약 선생님 검색에서 등장했다면 선생님 랙쳐클래스로 변환
                 if (determineSituation != 0) {
 
-                    Log.e("선생님 데이터 이름", getItemResult.getItem().get("TeacherName").getS());
+                    Log.e("선생님 데이터 이름", dbteachertempresult.get(0).getTeacherName());
 
-                    List subjectlist = getItemResult.getItem().get("subjectlist").getL();
-                    List academylist = getItemResult.getItem().get("academynamelist").getL();
-                    List timelist = getItemResult.getItem().get("timelist").getL();
-                    List attendlist = getItemResult.getItem().get("attendlist").getL();
-                    List categorylist = getItemResult.getItem().get("categorylist").getL();
-                    List namelist = getItemResult.getItem().get("namelist").getL();
-                    List descriptionlist = getItemResult.getItem().get("descriptionlist").getL();
+                    List<String> subjectlist = dbteachertempresult.get(0).getSubjectlist();
+                    List<String> academylist = dbteachertempresult.get(0).getAcademynamelist();
+                    List<String> timelist = dbteachertempresult.get(0).getTimelist();
+                    List<String> attendlist = dbteachertempresult.get(0).getAttendlist();
+                    List<String> categorylist = dbteachertempresult.get(0).getCategorylist();
+                    List<String> namelist = dbteachertempresult.get(0).getNamelist();
+                    List<String> descriptionlist = dbteachertempresult.get(0).getDescriptionlist();
+                    List<String> englishnamelist = dbteachertempresult.get(0).getAcademyenglishlist();
 
                     ArrayList<LectureClass> teacherlectures = new ArrayList<>();
 
                     for (int i = 0; i < academylist.size(); i++) {
 
-                        LectureClass lectureClass = new LectureClass(getItemResult.getItem().get("TeacherName").toString().replace("{S:", "").replace(",}", ""),
-                                academylist.get(i).toString().replace("{S:", "").replace(",}", ""));
-                        lectureClass.setLecturename(namelist.get(i).toString().replace("{S:", "").replace(",}", ""));
-                        lectureClass.setSubject(subjectlist.get(i).toString().replace("{S:", "").replace(",}", ""));
-                        lectureClass.setTime(timelist.get(i).toString().replace("{S:", "").replace(",}", ""));
-                        lectureClass.setAge(attendlist.get(i).toString().replace("{S:", "").replace(",}", ""));
-                        lectureClass.setCategory(categorylist.get(i).toString().replace("{S:", "").replace(",}", ""));
-                        lectureClass.setDescription(descriptionlist.get(i).toString().replace("{S:", "").replace(",}", ""));
+                        LectureClass lectureClass = new LectureClass(dbteachertempresult.get(0).getTeacherName(),
+                                academylist.get(i));
+                        lectureClass.setLecturename(namelist.get(i));
+                        lectureClass.setSubject(subjectlist.get(i));
+                        lectureClass.setTime(timelist.get(i));
+                        lectureClass.setAge(attendlist.get(i));
+                        lectureClass.setCategory(categorylist.get(i));
+                        lectureClass.setDescription(descriptionlist.get(i));
+                        lectureClass.setAcademyenglishname(englishnamelist.get(i));
                         teacherlectures.add(lectureClass);
-                        }
-
-                        teacherResult = new TeacherElement(getItemResult.getItem().get("TeacherName").toString().replace("{S:", "").replace(",}", ""),
-                                subjectlist.get(0).toString().replace("{S:", "").replace(",}", ""));
-                        teacherResult.setLectureClassess(teacherlectures);
-                        teacherresultlist.add(teacherResult);
                     }
 
+                    teacherResult = new TeacherElement(dbteachertempresult.get(0).getTeacherName(), subjectlist.get(0));
+                    teacherResult.setLectureClassess(teacherlectures);
+                    teacherresultlist.add(teacherResult);
+
+                }
                 } catch (InterruptedException ex) {
             }
         }
         /* 다0 이라면 공백제거한 상태로 재계산*/
     }
-
-
 
     /* Getter& Setter */
     //teacherresult
@@ -201,14 +206,4 @@ public class SearchEngine {
         this.query = query;
     }
 
-    /*DynamoDBQueryExpression<DynamoDB_TeacherClass> query2 =
-                                new DynamoDBQueryExpression<DynamoDB_TeacherClass>();
-                        DynamoDB_TeacherClass hashKeyValues = new DynamoDB_TeacherClass();
-                        hashKeyValues.setTeacherName(inputquery);
-                        Log.e("SearchEngine", inputquery);
-                        query2.setHashKeyValues(hashKeyValues);
-                        // getMapper() returns a DynamoDBMapper object with the appropriate
-                        // AmazonDynamoDBClient object.
-                        teacherresultDBlist = mapper.query(DynamoDB_TeacherClass.class, query2);
-                        Log.e("선생님 데이터 가져오기", "성공적으로 학원 index를 받아왔습니다.");*/
 }

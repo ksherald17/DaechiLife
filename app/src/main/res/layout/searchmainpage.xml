@@ -18,10 +18,20 @@
                 android:textColor="#606060"
                 android:layout_width="match_parent"
                 android:layout_marginTop="30dp"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="조건 설정해서 수업 검색하기"/>
+                android:text="조건으로 수업 검색하기"/>
+
+            <TextView
+                android:textColor="#606060"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:textSize="12sp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="검색어가 없으면 해당 조건에 부합되는 수업들이 정렬됩니다."/>
+
 
             <LinearLayout
                 android:layout_marginTop="15dp"
@@ -276,319 +286,179 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textSize="15dp"
+                    android:paddingLeft="7dp"
+                    android:paddingRight="7dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="#181818"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="분류:"
+                    android:fontFamily="@font/nanumgodic"
+                    />
+
+                <LinearLayout
+                    android:layout_marginLeft="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/naeshinfilterall"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="15dp"
+                        android:paddingLeft="7dp"
+                        android:paddingRight="7dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="#000000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="전체"
+                        android:fontFamily="@font/nanumgodic"
+                        android:background="@drawable/selectedfiltertap"
+                        />
+
+                    <TextView
+                        android:id="@+id/naeshinfilter1"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="15dp"
+                        android:paddingLeft="7dp"
+                        android:paddingRight="7dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="#000000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="내신대비"
+                        android:fontFamily="@font/nanumgodic"
+                        android:background="@drawable/popularsearch"
+                        />
+
+                    <TextView
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/naeshinfilter2"
+                        android:textSize="15dp"
+                        android:paddingLeft="7dp"
+                        android:paddingRight="7dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="#000000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="수능대비"
+                        android:fontFamily="@font/nanumgodic"
+                        android:background="@drawable/popularsearch"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textSize="15dp"
+                    android:paddingLeft="7dp"
+                    android:paddingRight="7dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="#181818"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="정규:"
+                    android:fontFamily="@font/nanumgodic"
+                    />
+
+                <LinearLayout
+                    android:layout_marginLeft="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/categoryfilterall"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="15dp"
+                        android:paddingLeft="7dp"
+                        android:paddingRight="7dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="#000000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="전체"
+                        android:fontFamily="@font/nanumgodic"
+                        android:background="@drawable/selectedfiltertap"
+                        />
+
+                    <TextView
+                        android:id="@+id/categoryfilter1"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="15dp"
+                        android:paddingLeft="7dp"
+                        android:paddingRight="7dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="#000000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="정규반"
+                        android:fontFamily="@font/nanumgodic"
+                        android:background="@drawable/popularsearch"
+                        />
+
+                    <TextView
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/categoryfilter2"
+                        android:textSize="15dp"
+                        android:paddingLeft="7dp"
+                        android:paddingRight="7dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="#000000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="특강반"
+                        android:fontFamily="@font/nanumgodic"
+                        android:background="@drawable/popularsearch"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
             <TextView
-                android:textColor="#606060"
+                android:layout_marginTop="15dp"
+                android:id="@+id/searchlecturego"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textSize="15dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
                 android:layout_width="match_parent"
-                android:layout_marginTop="20dp"
-                android:textSize="16sp"
-                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="인기검색어"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/popular1"
-                    android:textSize="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="김선화"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-                <TextView
-                    android:id="@+id/popular2"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="이승철"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-                <TextView
-                    android:id="@+id/popular3"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시대인재"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-                <TextView
-                    android:id="@+id/popular4"
-                    android:layout_marginLeft="15dp"
-                    android:textSize="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="이지정"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/popular5"
-                    android:textSize="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="미강학원"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-                <TextView
-                    android:id="@+id/popular6"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="강민찬"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-                <TextView
-                    android:id="@+id/popular7"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="깊은생각"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-                <TextView
-                    android:id="@+id/popular8"
-                    android:layout_marginLeft="15dp"
-                    android:textSize="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="개념상상"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/popular9"
-                    android:textSize="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="강민찬"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-                <TextView
-                    android:id="@+id/popular10"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="홍문"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-                <TextView
-                    android:id="@+id/popular11"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="세정"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-                <TextView
-                    android:id="@+id/popular12"
-                    android:layout_marginLeft="15dp"
-                    android:textSize="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="공형준"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-                <TextView
-                    android:id="@+id/popular13"
-                    android:layout_marginLeft="15dp"
-                    android:textSize="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="이창무"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/popular14"
-                    android:textSize="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="경기고"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-                <TextView
-                    android:id="@+id/popular15"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="러셀"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-                <TextView
-                    android:id="@+id/popular16"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="김종성"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-                <TextView
-                    android:id="@+id/popular17"
-                    android:layout_marginLeft="15dp"
-                    android:textSize="15dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="JS747"
-                    android:fontFamily="@font/nanumgodic"
-                    android:background="@drawable/popularsearch"
-                    />
-
-
-            </LinearLayout>
+                android:text="수업찾기"
+                android:fontFamily="@font/nanumgodic"
+                android:background="#81d4fa"
+                />
 
         </LinearLayout>
 
