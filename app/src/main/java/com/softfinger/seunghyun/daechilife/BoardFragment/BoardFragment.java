@@ -47,4 +47,5 @@ public class BoardFragment extends android.support.v4.app.Fragment {
         });
         return boardpage;
     }
+
 }

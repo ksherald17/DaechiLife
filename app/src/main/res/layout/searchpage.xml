@@ -118,7 +118,7 @@
                             android:layout_marginRight="15dp"
                             android:layout_width="wrap_content"
                             android:textSize="15dp"
-                            android:padding="5dp"
+                            android:padding="4dp"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/nanumgodic"
                             android:background="@drawable/searchfiltertap"
@@ -136,7 +136,7 @@
                         <EditText
                             android:id="@+id/searchresulttext"
                             android:layout_marginRight="15dp"
-                            android:hint="선생님, 학원명, 학교명"
+                            android:hint="선생님, 학원명, 학교명을 입력하세요."
                             android:paddingLeft="7dp"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="15dp"
@@ -149,8 +149,8 @@
 
                         <ImageView
                             android:id="@+id/searchimgicon"
-                            android:layout_width="15dp"
-                            android:layout_height="15dp"
+                            android:layout_width="17dp"
+                            android:layout_height="17dp"
                             android:layout_marginRight="25dp"
                             android:layout_centerVertical="true"
                             android:layout_alignParentRight="true"
