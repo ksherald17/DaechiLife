@@ -41,6 +41,8 @@ public class SearchResultFragment extends android.support.v4.app.Fragment {
         setSearchresult();
         setRecyclerView();
 
+        SearchFragment.onScroll(searchResultPage);
+
         return searchResultPage;
     }
 

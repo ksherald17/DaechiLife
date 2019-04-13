@@ -22,14 +22,11 @@ public class SearchMainPage extends android.support.v4.app.Fragment{
         LayoutInflater myInflater = LayoutInflater.from(getContext());
         SearchMainPage = myInflater.inflate(R.layout.searchmainpage, null);
 
-        //인기검색어 누르면 해당 검색결과로 출력되는 코드가 존재헤야 함.
+        SearchFragment.onScroll(SearchMainPage);
 
         return SearchMainPage;
 
     }
 
-    //인기검색어 setting
-    public void setHotKeyWords(){
 
-    }
 }

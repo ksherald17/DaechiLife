@@ -18,29 +18,27 @@
             android:background="#81d4fa"
             android:gravity="center">
 
-
             <TextView
-                android:layout_marginTop="30dp"
-                android:id="@+id/a12"
-                android:text="대치라이프"
-                android:textStyle="bold"
-                android:textSize="48dp"
-                android:textColor="#ffffff"
-                android:gravity="center_horizontal"
-                android:fontFamily="@font/miseng"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
+                android:layout_marginTop="5dp"
                 android:layout_below="@id/a12"
                 android:textColor="#ffffff"
                 android:layout_width="match_parent"
                 android:gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text="대치동 수업시스템에 혁신을 가져오다"
+                android:text="대치동 모든 수업과 생활이 여기 다!!!!"
                 android:fontFamily="@font/miseng"
-                android:textSize="38dp"/>
+                android:textSize="30dp"/>
 
+            <TextView
+                android:layout_marginTop="30dp"
+                android:id="@+id/a12"
+                android:text="대치라이프"
+                android:textSize="45dp"
+                android:textColor="#ffffff"
+                android:gravity="center_horizontal"
+                android:fontFamily="@font/miseng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
 
 
