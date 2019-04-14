@@ -24,7 +24,7 @@
             <android.support.design.widget.AppBarLayout
                 android:layout_width="match_parent"
                 android:id="@+id/tab_layoutsearch"
-                android:layout_height="wrap_content"
+                android:layout_height="110dp"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark"
                 >
 
@@ -39,10 +39,10 @@
             <android.support.v7.widget.Toolbar
                 android:theme="@style/ThemeOverlay.AppCompat.Dark"
                 android:background="@android:color/white"
-                android:id="@+id/toolbarbottom"
+                android:id="@+id/searchtoolbarbottom"
                 android:layout_width="match_parent"
                 android:layout_gravity="bottom"
-                android:layout_height="wrap_content"
+                android:layout_height="90dp"
                 android:contentInsetLeft="0dp"
                 android:contentInsetStart="0dp"
                 app:contentInsetLeft="0dp"

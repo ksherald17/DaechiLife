@@ -6,6 +6,9 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -17,6 +20,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -43,6 +47,8 @@ public class SearchFragment extends android.support.v4.app.Fragment {
     static ImageView searchimage;
     static RelativeLayout searchtoplayout, searchbelowlayout;
     static android.support.design.widget.CollapsingToolbarLayout searchtoolbar;
+    static android.support.v7.widget.Toolbar toolbarbottom;
+    static android.support.design.widget.AppBarLayout tab_layoutsearch;
 
     static android.support.v4.app.FragmentManager manager;
     static android.support.v4.app.FragmentTransaction transaction;
@@ -50,6 +56,7 @@ public class SearchFragment extends android.support.v4.app.Fragment {
     static FragmentTransaction searchfragmentTransaction;
     static SearchMainPage searchmainfragment;
     static SearchResultFragment searchResultFragment;
+    static FrameLayout searchcontainer;
 
     /*검색 결과와 관련된 코드*/
     static String searchquery;
@@ -84,6 +91,9 @@ public class SearchFragment extends android.support.v4.app.Fragment {
         searchtoplayout = searchpage.findViewById(R.id.searchtaptoplayout);
         searchbelowlayout = searchpage.findViewById(R.id.searchtapbelow);
         searchtoolbar = searchpage.findViewById(R.id.searchtoolbarlayout);
+        toolbarbottom = searchpage.findViewById(R.id.searchtoolbarbottom);
+        tab_layoutsearch = searchpage.findViewById(R.id.tab_layoutsearch);
+        searchcontainer = searchpage.findViewById(R.id.searchcontainer);
     }
 
     //스크롤 반응
@@ -97,22 +107,33 @@ public class SearchFragment extends android.support.v4.app.Fragment {
 
                 if (motionEvent.getAction() == MotionEvent.ACTION_MOVE) {
                     y0 = motionEvent.getY();
-                    if (y1 - y0 > 5) {
-                        searchtoolbar.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                                dpToPx(60)));
+                    /* 다른방식
+                    if (y1 - y0 > 0) {
+                        tab_layoutsearch.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                dpToPx(50)));
+                        searchtoolbar.setLayoutParams(new AppBarLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                dpToPx(50)));
+                        toolbarbottom.setLayoutParams(new CollapsingToolbarLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                dpToPx(50)));
                         searchbelowlayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 0, 0.0f));
                         searchtoplayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 0, 1.0f));
-                    } else if (y1 - y0 < 5) {
-                        searchtoolbar.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                    } else if (y1 - y0 < 0) {
+                        searchcontainer.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.MATCH_PARENT));
+                        tab_layoutsearch.setLayoutParams(new AppBarLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 dpToPx(110)));
+                        searchtoolbar.setLayoutParams(new CollapsingToolbarLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                dpToPx(110)));
+                        toolbarbottom.setLayoutParams(new Toolbar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                dpToPx(90)));
                         searchbelowlayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 0, 0.6f));
                         searchtoplayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                                 0, 0.4f));
                     }
-                    y1 = motionEvent.getY();
+                    y1 = motionEvent.getY();*/
                 }
 
                 return false;
@@ -123,6 +144,8 @@ public class SearchFragment extends android.support.v4.app.Fragment {
     //메인검색화면으로 복귀
     public static void startHomeMain( ){
         setSearchquery("");
+        searchtext.setText("");
+        searchtext.setHint("선생님, 학원명, 학교명을 입력하세요.");
         searchfragmentTransaction = searchfragmentManager.beginTransaction();
         searchmainfragment = new SearchMainPage();
         transaction = manager.beginTransaction();
