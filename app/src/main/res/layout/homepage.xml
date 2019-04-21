@@ -69,6 +69,17 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="215dp"
+                    android:background="@mipmap/hot30first"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_marginLeft="10dp"
@@ -78,7 +89,7 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:weightSum="1">
-                
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -87,7 +98,7 @@
                     android:gravity="center"
                     android:textColor="#e26e6e"
                     android:textSize="15sp"
-                    android:text="HOT10"/>
+                    android:text="HOT5"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -141,28 +152,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="210dp"
-                    android:layout_weight="0"
-                    android:background="#f5f5f5">
-
-                    <com.smarteist.autoimageslider.SliderLayout
-                        android:id="@+id/bannerSlider"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#cccccc"
-                        />
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -188,13 +177,6 @@
 
                         </android.support.v7.widget.RecyclerView>
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:fontFamily="@font/kbizr"
-                            android:textSize="15sp"
-                            android:gravity="center"
-                            android:text="더 보기"/>
 
                     </LinearLayout>
 

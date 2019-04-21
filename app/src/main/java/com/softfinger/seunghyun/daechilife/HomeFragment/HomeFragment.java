@@ -186,7 +186,7 @@ public class HomeFragment extends android.support.v4.app.Fragment {
         @Override
         protected void onPreExecute() {
 
-            slider = homepage.findViewById(R.id.bannerSlider);
+            //slider = homepage.findViewById(R.id.bannerSlider);
             homedlchart = homepage.findViewById(R.id.dlhomechart);
             homedlclassrecommend = homepage.findViewById(R.id.homedlclassrecommendRV);
             homedlHotBoard = homepage.findViewById(R.id.homeboardhotRV);
@@ -200,7 +200,7 @@ public class HomeFragment extends android.support.v4.app.Fragment {
 
         @Override
         protected void onPostExecute(Boolean result) {
-            setSlider();
+            //setSlider();
         }
 
         @Override
