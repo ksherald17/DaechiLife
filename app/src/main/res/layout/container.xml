@@ -8,55 +8,40 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffd11a"
+        android:background="#ff3333"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:id="@+id/container">
 
         <LinearLayout
-            android:layout_marginBottom="70dp"
+            android:layout_marginBottom="40dp"
             android:id="@+id/firstshowlayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#ffd11a"
+            android:background="#ff3333"
             android:gravity="center"
             android:orientation="vertical">
 
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@mipmap/building"/>
+
             <TextView
-                android:id="@+id/a13"
-                android:layout_marginTop="1dp"
+                android:id="@+id/a15"
+                android:layout_marginTop="15dp"
                 android:textColor="#ffffff"
                 android:layout_width="match_parent"
                 android:gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text="대치동 수업들이 __에 모였다."
+                android:text="Daechi IT!"
                 android:fontFamily="@font/kbizr"
-                android:textSize="26sp"/>
+                android:textSize="33sp"/>
 
-            <TextView
-                android:id="@+id/a15"
-                android:layout_marginTop="1dp"
-                android:textColor="#f5f5f5"
-                android:layout_width="match_parent"
-                android:gravity="center_horizontal"
-                android:layout_height="wrap_content"
-                android:text="답: 대라"
-                android:fontFamily="@font/kbizr"
-                android:textSize="26sp"/>
+
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/a14"
-            android:layout_marginTop="1dp"
-            android:textColor="#f5f5f5"
-            android:layout_width="match_parent"
-            android:layout_gravity="bottom"
-            android:gravity="center_horizontal"
-            android:layout_height="wrap_content"
-            android:text="대치'라이프"
-            android:layout_marginBottom="105dp"
-            android:fontFamily="@font/godomaum"
-            android:textSize="45sp"/>
+
 
     </FrameLayout>
 

@@ -19,73 +19,56 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:weightSum="1"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="0dp"
             android:orientation="vertical">
             
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:background="#ffd11a"
+                android:paddingTop="3dp"
+                android:paddingBottom="5dp"
+                android:background="#ff1000"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
-                
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="5dp"
+                    android:src="@mipmap/building"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="D"
-                    android:layout_marginLeft="15dp"
-                    android:paddingTop="3dp"
-                    android:fontFamily="@font/bm"
+                    android:text="대칫"
+                    android:layout_marginLeft="5dp"
+                    android:padding="2dp"
+                    android:fontFamily="@font/kbizr"
                     android:textColor="#ffffff"
-                    android:textSize="30dp"
+                    android:textSize="22dp"
                     android:gravity="center_horizontal"/>
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_height="36dp"
-                    android:layout_gravity="center_vertical"
-                    >
+                    android:layout_height="match_parent">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="15dp"
+                        android:gravity="right"
                         android:layout_height="match_parent"
-                        android:background="#ffffff"
-                        android:layout_margin="1dp">
+                        android:src="@drawable/searchwhite"/>
 
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginTop="1dp"
-                            android:layout_marginBottom="1dp"
-                            android:layout_marginRight="8dp"
-                            android:textSize="14sp"
-                            android:focusedByDefault="false"
-                            android:hint="학원명, 선생님명, 학교명으로 수업을 검색하세요."
-                            android:background="@android:color/transparent"/>
+                </RelativeLayout>
 
-                        <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="16dp"
-                            android:src="@mipmap/mic"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="7dp"/>
 
-                    </RelativeLayout>
 
-                </LinearLayout>
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#c68c53"/>
 
             <LinearLayout
                 android:layout_marginLeft="10dp"
@@ -100,10 +83,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
-                    android:textStyle="bold"
                     android:fontFamily="@font/kbizb"
                     android:gravity="center"
-                    android:textColor="#c68c53"
+                    android:textColor="#e26e6e"
                     android:textSize="15sp"
                     android:text="HOT10"/>
 
