@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="3dp"
                 android:paddingBottom="5dp"
-                android:background="#ff1000"
+                android:background="#ffffff"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
@@ -35,8 +35,8 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginTop="5dp"
-                    android:src="@mipmap/building"/>
+                    android:layout_marginTop="1dp"
+                    android:src="@mipmap/buildingred"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
                     android:layout_marginLeft="5dp"
                     android:padding="2dp"
                     android:fontFamily="@font/kbizr"
-                    android:textColor="#ffffff"
+                    android:textColor="#e26e6e"
                     android:textSize="22dp"
                     android:gravity="center_horizontal"/>
 
@@ -60,7 +60,7 @@
                         android:layout_marginRight="15dp"
                         android:gravity="right"
                         android:layout_height="match_parent"
-                        android:src="@drawable/searchwhite"/>
+                        android:src="@mipmap/searchred"/>
 
                 </RelativeLayout>
 
