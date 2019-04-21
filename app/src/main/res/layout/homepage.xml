@@ -45,7 +45,7 @@
                     android:layout_marginLeft="5dp"
                     android:padding="2dp"
                     android:fontFamily="@font/kbizr"
-                    android:textColor="#e26e6e"
+                    android:textColor="#ff3333"
                     android:textSize="22dp"
                     android:gravity="center_horizontal"/>
 
@@ -77,7 +77,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="215dp"
-                    android:background="@mipmap/hot30first"/>
+                    android:background="@mipmap/hot5"/>
 
             </LinearLayout>
 
