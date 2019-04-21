@@ -12,6 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#f5f5f5"
         android:orientation="vertical">
 
         <LinearLayout
@@ -78,7 +79,84 @@
                     </RelativeLayout>
 
                 </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#c68c53"/>
+
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:weightSum="1">
                 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.15"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/kbizb"
+                    android:gravity="center"
+                    android:textColor="#c68c53"
+                    android:textSize="15sp"
+                    android:text="HOT10"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="0.12"
+                    android:fontFamily="@font/kbizb"
+                    android:textColor="#adad85"
+                    android:textSize="15sp"
+                    android:text="국어"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="0.12"
+                    android:fontFamily="@font/kbizb"
+                    android:textColor="#adad85"
+                    android:textSize="15sp"
+                    android:text="수학"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="0.12"
+                    android:fontFamily="@font/kbizb"
+                    android:textColor="#adad85"
+                    android:textSize="15sp"
+                    android:text="영어"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="0.12"
+                    android:fontFamily="@font/kbizb"
+                    android:textColor="#adad85"
+                    android:textSize="15sp"
+                    android:text="과탐"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="0.12"
+                    android:fontFamily="@font/kbizb"
+                    android:textColor="#adad85"
+                    android:textSize="15sp"
+                    android:text="사탐"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -88,7 +166,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="180dp"
+                    android:layout_height="210dp"
                     android:layout_weight="0"
                     android:background="#f5f5f5">
 

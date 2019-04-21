@@ -68,9 +68,9 @@ public class HomeFragment extends android.support.v4.app.Fragment {
 
     //이미지 광고 배너 전환 설정 함수
     public void setSlider(){
-        slider.setIndicatorAnimation(IndicatorAnimations.THIN_WORM); //set indicator animation by using SliderLayout.Animations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        slider.setIndicatorAnimation(IndicatorAnimations.SCALE_DOWN); //set indicator animation by using SliderLayout.Animations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         slider.setSliderTransformAnimation(SliderAnimations.FADETRANSFORMATION);
-        slider.setScrollTimeInSec(3);
+        slider.setScrollTimeInSec(5);
 
         for (int i = 0; i <= 2; i++) {
 
@@ -78,17 +78,16 @@ public class HomeFragment extends android.support.v4.app.Fragment {
 
             switch (i) {
                 case 0:
-                    sliderView.setImageUrl("https://daechilife.s3.ap-northeast-2.amazonaws.com/mainslide/firstpic.png");
+                    sliderView.setImageUrl("https://daechilife.s3.ap-northeast-2.amazonaws.com/mainslide/top.png");
                     break;
                 case 1:
                     sliderView.setImageUrl("https://daechilife.s3.ap-northeast-2.amazonaws.com/mainslide/example.jpg");
                     break;
                 case 2:
                     sliderView.setImageUrl("https://daechilife.s3.ap-northeast-2.amazonaws.com/mainslide/example2.jpg");
-                break;
-
+                    break;
             }
-            sliderView.setImageScaleType(ImageView.ScaleType.CENTER_CROP);
+            sliderView.setImageScaleType(ImageView.ScaleType.CENTER);
 
             slider.addSliderView(sliderView);
         }
