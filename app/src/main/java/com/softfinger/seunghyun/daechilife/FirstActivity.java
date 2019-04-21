@@ -52,7 +52,7 @@ public class FirstActivity extends AppCompatActivity {
     static boolean loginstatus = false;
 
     /*첫 광고*/
-    static RelativeLayout firstshowlayout;
+    static LinearLayout firstshowlayout;
     int readytime = 0;
 
     /*페이지 클릭시 여기서 전환*/

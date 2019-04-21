@@ -82,11 +82,11 @@
                         android:textSize="12sp"/>
                     </RelativeLayout>
                 </LinearLayout>
+
                 <View
                     android:layout_width="0.5dp"
                     android:layout_height="match_parent"
                     android:background="@color/gray_line"/>
-
 
                 <LinearLayout
                     android:layout_width="0dp"

@@ -40,7 +40,7 @@ public class DLHomeChartAdapter extends RecyclerView.Adapter<DLHomeChartAdapter.
     }
 
     public class TeacherViewHolder extends RecyclerView.ViewHolder{ //모든 서브 뷰를 보유한다.
-        TextView teachername, number, subject, academy;
+        TextView teachername, number, academy;
         CardView chartcard;
         ImageView updown, expand;
         RelativeLayout elementlayout;
@@ -54,7 +54,6 @@ public class DLHomeChartAdapter extends RecyclerView.Adapter<DLHomeChartAdapter.
             elementlayout = itemView.findViewById(R.id.dlchartelementlayout);
             updown = itemView.findViewById(R.id.dlchartchangeimage);
             number = itemView.findViewById(R.id.dlchartnumbertext);
-            subject = itemView.findViewById(R.id.dlchartsubjecttext);
             teachername = itemView.findViewById(R.id.dlchartteachername);
             academy = itemView.findViewById(R.id.dlchartacademyname);
             expand = itemView.findViewById(R.id.chartelementexpand);
@@ -96,7 +95,6 @@ public class DLHomeChartAdapter extends RecyclerView.Adapter<DLHomeChartAdapter.
         final TextView number = teacherViewHolder.number;
         final RelativeLayout elementlayout = teacherViewHolder.elementlayout;
         //final TextView subjectbackground = teacherViewHolder.subjectbackground;
-        final TextView subject = teacherViewHolder.subject;
         final TextView academy = teacherViewHolder.academy;
         final ImageView updown = teacherViewHolder.updown;
         final ImageView expand = teacherViewHolder.expand;
@@ -133,8 +131,7 @@ public class DLHomeChartAdapter extends RecyclerView.Adapter<DLHomeChartAdapter.
         });
 
         number.setText(Integer.toString(pos + 1));
-        teachername.setText(teacherElement.getTeachername() + "쌤");
-        subject.setText(teacherElement.getSubject());
+        teachername.setText(teacherElement.getTeachername() + " 선생님");
 
         //need function
         academy.setText(teacherElement.getAcademylist().get(0));
