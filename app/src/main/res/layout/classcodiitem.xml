@@ -22,7 +22,7 @@
             android:fontFamily="@font/nanumgodic"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
-            android:text="최근 검색한 "/>
+            android:text="검색하신 "/>
 
         <TextView
             android:textSize="15sp"
@@ -34,7 +34,7 @@
             android:fontFamily="@font/nanumgodic"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
-            android:text="'이승철'"/>
+            android:text="'이승철 선생님'"/>
 
         <TextView
             android:textSize="15sp"
@@ -46,7 +46,7 @@
             android:fontFamily="@font/nanumgodic"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
-            android:text="느낌으로 추천해 봤어요."/>
+            android:text="느낌으로 추천해 드립니다."/>
 
     </LinearLayout>
 

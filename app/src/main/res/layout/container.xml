@@ -19,24 +19,71 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/a13"
                 android:layout_marginTop="5dp"
-                android:layout_below="@id/a12"
                 android:textColor="#ffffff"
                 android:layout_width="match_parent"
                 android:gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text="대치동 모든 수업과 생활이 여기 다!!!!"
-                android:fontFamily="@font/miseng"
-                android:textSize="30dp"/>
+                android:text="대치동의 수업들이"
+                android:fontFamily="@font/yanolzabold"
+                android:textSize="60sp"/>
 
             <TextView
-                android:layout_marginTop="30dp"
-                android:id="@+id/a12"
-                android:text="대치라이프"
-                android:textSize="45dp"
+                android:id="@+id/a14"
+                android:layout_below="@id/a13"
+                android:layout_marginTop="10dp"
                 android:textColor="#ffffff"
+                android:layout_width="match_parent"
                 android:gravity="center_horizontal"
-                android:fontFamily="@font/miseng"
+                android:layout_height="wrap_content"
+                android:text="드디어 모였다"
+                android:fontFamily="@font/yanolzabold"
+                android:layout_marginBottom="30dp"
+                android:textSize="60sp"/>
+
+            <TextView
+                android:id="@+id/a15"
+                android:layout_below="@id/a14"
+                android:paddingBottom="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="30dp"
+                android:textColor="#f5f5f5"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:text="현 서울대 공대생들이 이 앱을 바칩니다."
+                android:fontFamily="@font/yanolzabold"
+                android:textSize="30sp"/>
+
+            <TextView
+                android:id="@+id/a16"
+                android:layout_below="@id/a15"
+                android:paddingBottom="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="3dp"
+                android:textColor="#f5f5f5"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:text="대치동 후배님 대-라로 꽃길만 걸으세요!!!"
+                android:fontFamily="@font/yanolzabold"
+                android:textSize="30sp"/>
+
+
+            <TextView
+                android:layout_marginTop="8dp"
+                android:id="@+id/a12"
+                android:text="대치`라이프"
+                android:paddingBottom="0dp"
+                android:layout_below="@id/a16"
+                android:textSize="80sp"
+                android:textColor="#3333ff "
+                android:textStyle=""
+                android:gravity="center_horizontal"
+                android:fontFamily="@font/godomaum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
