@@ -13,8 +13,10 @@ import android.widget.TextView;
 
 import com.softfinger.seunghyun.daechilife.DataModel.LectureClass;
 import com.softfinger.seunghyun.daechilife.DataModel.TeacherElement;
+import com.softfinger.seunghyun.daechilife.FirstActivity;
 import com.softfinger.seunghyun.daechilife.HomeFragment.DLHomeChartAdapter;
 import com.softfinger.seunghyun.daechilife.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -114,17 +116,8 @@ public class InResultClassAdapter extends RecyclerView.Adapter<InResultClassAdap
             }
         });
 
-        /*sample pictures*/
-        if(result.getAcademyname().equals("미래탐구")){
-            academyimage.setImageResource(R.mipmap.miraetamgu);
-        }
-        else if(result.getAcademyname().equals("개념상상")){
-            academyimage.setImageResource(R.mipmap.gaenyumsangsang);
-        }
-        else if(result.getAcademyname().equals("KNS어학원")){
-            academyimage.setImageResource(R.mipmap.kns);
-        }
-
+        String imageurl = "https://daechilife.s3.ap-northeast-2.amazonaws.com/academylogo/" + result.getAcademyenglishname() + ".PNG";
+        Picasso.with(FirstActivity.getActivity()).load(imageurl).into(academyimage);
 
     }
 

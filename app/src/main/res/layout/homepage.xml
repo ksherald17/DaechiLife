@@ -3,383 +3,364 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:layout_marginTop="-1200dp"
+    tools:layout_marginTop="-0dp"
     android:layout_width="match_parent"
+    android:scrollbars="vertical"
+    android:scrollbarFadeDuration="2"
     android:layout_height="match_parent">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:background="#f5f5f5"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_marginTop="1dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:weightSum="1"
+            android:layout_marginTop="0dp"
             android:orientation="vertical">
-
-            <RelativeLayout
+            
+            <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="3dp"
+                android:paddingBottom="5dp"
                 android:background="#ffffff"
-                android:layout_height="50dp">
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="1dp"
+                    android:src="@mipmap/buildingred"/>
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:textColor="#000000"
-                    android:fontFamily="@font/titlefinal0"
-                    android:layout_centerVertical="true"
-                    android:layout_height="match_parent"
-                    android:textSize="22sp"
-                    android:gravity="center"
-                    android:text="DaechiLife"/>
-
-                <LinearLayout
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:src="@drawable/alarmbell"
-                        android:layout_marginRight="15dp"/>
-
-                    <ImageView
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:src="@drawable/searchtap"
-                        android:layout_marginRight="15dp"/>
-
-                    <TextView
-                        android:layout_width="29dp"
-                        android:padding="4dp"
-                        android:gravity="center"
-                        android:textSize="10sp"
-                        android:textColor="#ffffff"
-                        android:layout_height="29dp"
-                        android:fontFamily="@font/nanumgodic"
-                        android:background="@drawable/roundoval"
-                        android:layout_marginRight="10dp"
-                        android:text="승현"/>
-
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="220dp">
+                    android:layout_height="wrap_content"
+                    android:text="대칫"
+                    android:layout_marginLeft="5dp"
+                    android:padding="2dp"
+                    android:fontFamily="@font/kbizr"
+                    android:textColor="#ff3333"
+                    android:textSize="22dp"
+                    android:gravity="center_horizontal"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.smarteist.autoimageslider.SliderLayout
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="15dp"
+                        android:gravity="right"
                         android:layout_height="match_parent"
-                        android:layout_alignParentTop="true"
-                        android:id="@+id/bannerSlider"/>
-
+                        android:src="@mipmap/searchred"/>
 
                 </RelativeLayout>
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="215dp"
+                    android:background="@mipmap/hot5"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.15"
+                    android:fontFamily="@font/kbizb"
+                    android:gravity="center"
+                    android:textColor="#e26e6e"
+                    android:textSize="15sp"
+                    android:text="HOT5"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="0.12"
+                    android:fontFamily="@font/kbizb"
+                    android:textColor="#adad85"
+                    android:textSize="15sp"
+                    android:text="국어"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="0.12"
+                    android:fontFamily="@font/kbizb"
+                    android:textColor="#adad85"
+                    android:textSize="15sp"
+                    android:text="수학"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="0.12"
+                    android:fontFamily="@font/kbizb"
+                    android:textColor="#adad85"
+                    android:textSize="15sp"
+                    android:text="영어"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="0.12"
+                    android:fontFamily="@font/kbizb"
+                    android:textColor="#adad85"
+                    android:textSize="15sp"
+                    android:text="과탐"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="0.12"
+                    android:fontFamily="@font/kbizb"
+                    android:textColor="#adad85"
+                    android:textSize="15sp"
+                    android:text="사탐"/>
 
             </LinearLayout>
 
             <android.support.v7.widget.CardView
-                app:cardBackgroundColor="#ffffff"
-                android:layout_marginTop="0dp"
                 android:layout_width="match_parent"
-                app:cardElevation="0dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardElevation="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <RelativeLayout
-                        android:layout_marginTop="20dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
-
-                        <TextView
-                            android:id="@+id/titletext2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="대라차트"
-                            android:textStyle="bold"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="20dp"
-                            android:textColor="#000000"
-                            android:textSize="16sp"
-                            android:fontFamily="@font/nanumgodic"/>
-
-
-                        <TextView
-                            android:layout_alignParentRight="true"
-                            android:id="@+id/godlchart"
-                            android:text="더 보기"
-                            android:textStyle="bold"
-                            android:layout_marginTop="4dp"
-                            android:paddingBottom="2dp"
-                            android:textSize="11sp"
-                            android:layout_marginRight="10dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <View
-                            android:layout_marginLeft="14dp"
-                            android:layout_marginRight="14dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:background="#ededed"
-                            android:layout_alignParentTop="true"/>
-
-                    <android.support.v7.widget.RecyclerView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/dlhomechart">
-
-                    </android.support.v7.widget.RecyclerView>
-
-                    </RelativeLayout>
-
-
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="250dp"
-                        android:background="#F8F8F8"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:orientation="vertical">
 
-                        <RelativeLayout
-                            android:layout_marginTop="20dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
-
-                            <TextView
-                                android:id="@+id/titletext3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="수업추천"
-                                android:textStyle="bold"
-                                android:layout_centerVertical="true"
-                                android:layout_marginLeft="20dp"
-                                android:textColor="#000000"
-                                android:textSize="16sp"
-                                android:fontFamily="@font/nanumgodic"/>
-
-
-                        </RelativeLayout>
-
                         <android.support.v7.widget.RecyclerView
-                            android:id="@+id/homedlclassrecommendRV"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
+                            android:id="@+id/dlhomechart"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        </android.support.v7.widget.RecyclerView>
 
 
                     </LinearLayout>
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#DCDCDC">
+                        android:layout_height="200dp"
+                        android:background="#F8F8F8"
+                        android:orientation="vertical"
+                        android:gravity="center">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/homedlclassrecommendRV"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="1dp"
-                            android:layout_marginBottom="1dp">
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal"
+                            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="100dp"
-                                android:background="@mipmap/hansukone"/>
 
-                        </LinearLayout>
-
-                    </RelativeLayout>
+                    </LinearLayout>
 
                     <LinearLayout
-                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:background="#cccccc"/>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:background="#ffffff"
                         android:orientation="vertical">
 
                         <LinearLayout
-                            android:layout_marginTop="20dp"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp">
 
                             <TextView
                                 android:id="@+id/titletext4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="대라 수다방"
-                                android:textStyle="bold"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/godoroundedl"
+                                android:text="대라 수다방"
                                 android:textColor="#000000"
-                                android:textSize="16sp"
-                                android:fontFamily="@font/nanumgodic"/>
+                                android:textSize="18sp"
+                                 />
 
                             <TextView
                                 android:id="@+id/titletext5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="전날 가장 핫한 게시물"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="10dp"
+                                android:fontFamily="@font/godoroundedl"
+                                android:text="전날 가장 핫한 게시물"
                                 android:textColor="#424242"
-                                android:textSize="13sp"
-                                android:fontFamily="@font/nanumgodic"/>
+                                android:textSize="13sp" />
 
                         </LinearLayout>
 
                         <android.support.v7.widget.RecyclerView
                             android:id="@+id/homeboardhotRV"
-                            android:layout_marginTop="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            />
+                            android:layout_marginTop="10dp" />
 
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:background="#ffffff">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="더보기"
-                            android:textStyle="bold"
-                            android:textColor="#FAB617"
-                            android:textSize="14sp"
-                            android:padding="8dp"
-                            android:fontFamily="@font/nanumgodic"
-                            android:gravity="center"
                             android:layout_marginLeft="18dp"
                             android:layout_marginRight="18dp"
-                            android:background="@drawable/seemoretext"/>
+                            android:background="@drawable/seemoretext"
+                            android:fontFamily="@font/nanumgodic"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="더보기"
+                            android:textColor="#FAB617"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_marginTop="25dp"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp">
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="#DCDCDC"/>
+                            android:background="#DCDCDC" />
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_marginTop="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
                         android:background="#ffffff"
                         android:orientation="vertical">
 
                         <RelativeLayout
-                            android:layout_marginTop="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            >
+                            android:layout_marginTop="10dp">
 
                             <TextView
                                 android:id="@+id/titlehometalk"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="익명토크"
-                                android:textStyle="bold"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/godoroundedl"
+                                android:text="익명토크"
                                 android:textColor="#000000"
-                                android:textSize="16sp"
-                                android:fontFamily="@font/nanumgodic"/>
+                                android:textSize="18sp"
+                                />
 
                             <TextView
-                                android:layout_toRightOf="@id/titlehometalk"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="따끈따근한 익명 질문들"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@id/titlehometalk"
+                                android:fontFamily="@font/godoroundedl"
+                                android:text="따끈따근한 익명 질문들"
                                 android:textColor="#424242"
-                                android:textSize="13sp"
-                                android:fontFamily="@font/nanumgodic"/>
+                                android:textSize="13sp" />
 
 
                         </RelativeLayout>
 
                         <android.support.v7.widget.RecyclerView
                             android:id="@+id/hometalkRV"
-                            android:layout_marginTop="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            />
+                            android:layout_marginTop="10dp" />
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:background="#ffffff">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="더보기"
-                            android:textStyle="bold"
-                            android:textColor="#FAB617"
-                            android:textSize="14sp"
-                            android:padding="8dp"
-                            android:fontFamily="@font/nanumgodic"
-                            android:gravity="center"
                             android:layout_marginLeft="18dp"
                             android:layout_marginRight="18dp"
-                            android:background="@drawable/seemoretext"/>
+                            android:background="@drawable/seemoretext"
+                            android:fontFamily="@font/nanumgodic"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="더보기"
+                            android:textColor="#FAB617"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_marginTop="25dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp">
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="#DCDCDC"/>
+                            android:background="#DCDCDC" />
 
                     </LinearLayout>
 
@@ -390,33 +371,25 @@
                         android:orientation="vertical">
 
                         <RelativeLayout
-                            android:layout_marginTop="25dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            >
+                            android:layout_marginTop="25dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="추천 선생님"
-                                android:textStyle="bold"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/nanumgodic"
+
                                 android:textColor="#000000"
                                 android:textSize="16sp"
-                                android:fontFamily="@font/nanumgodic"/>
+                                android:textStyle="bold" />
 
 
                         </RelativeLayout>
 
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/teacherrecommendRV"
-                            android:layout_marginTop="10dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-                            />
+
 
 
                     </LinearLayout>
@@ -429,7 +402,6 @@
 
 
         </LinearLayout>
-
 
 
     </LinearLayout>

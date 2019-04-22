@@ -52,7 +52,7 @@ public class FirstActivity extends AppCompatActivity {
     static boolean loginstatus = false;
 
     /*첫 광고*/
-    RelativeLayout firstshowlayout;
+    static LinearLayout firstshowlayout;
     int readytime = 0;
 
     /*페이지 클릭시 여기서 전환*/
@@ -69,7 +69,7 @@ public class FirstActivity extends AppCompatActivity {
         activity = this;
         compatActivity = this;
         context = getApplicationContext();
-        //clientManager = new AmazonClientManager(this);
+        clientManager = new AmazonClientManager(this);
 
         super.onCreate(savedInstanceState);
         setTheme(R.style.AppTheme);
@@ -92,7 +92,6 @@ public class FirstActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if(readytime == 1){
-                    firstshowlayout.setVisibility(View.INVISIBLE);
                     startHomeContainer(); //준비가 됐지만 시간이 5초가 지나지 않았을 때 작동 시작.
                     readytime = 3; //실행됐으니 실행안해두 됨.
                 }
@@ -113,6 +112,7 @@ public class FirstActivity extends AppCompatActivity {
         transaction = manager.beginTransaction();
         transaction.replace(R.id.container, myfragment);
         transaction.commit();
+        firstshowlayout.setVisibility(View.INVISIBLE);
 
     }
 
@@ -131,7 +131,6 @@ public class FirstActivity extends AppCompatActivity {
                 readytime = 1; //데이터가 미리 준비됐으므로 광고시간 증가
             }
             else if(readytime == 2){
-                firstshowlayout.setVisibility(View.INVISIBLE);
                 startHomeContainer(); //데이터가 3초보다 늦게 준비됐으므로 이때 실행
             }
 
@@ -165,6 +164,8 @@ public class FirstActivity extends AppCompatActivity {
         AddClassActivity.finishActivity();
         AddClassTimeTableActivity.finishactivity();
     }
+
+
 
     public static Fragment getHomefragment(){
         return homefragment;

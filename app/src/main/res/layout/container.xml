@@ -8,50 +8,40 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#ff3333"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:id="@+id/container">
 
-        <RelativeLayout
+        <LinearLayout
+            android:layout_marginBottom="40dp"
             android:id="@+id/firstshowlayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#FAB617"
-            android:gravity="center">
-
-
-            <TextView
-                android:layout_marginTop="30dp"
-                android:layout_below="@id/a11"
-                android:id="@+id/a12"
-                android:text="대라 -ing"
-                android:textStyle="bold"
-                android:textSize="32dp"
-                android:textColor="#ffffff"
-                android:gravity="center_horizontal"
-                android:fontFamily="@font/miseng"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            android:background="#ff3333"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/a11"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:src="@mipmap/loading"/>
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@mipmap/building"/>
 
             <TextView
-                android:layout_below="@id/a12"
+                android:id="@+id/a15"
+                android:layout_marginTop="15dp"
                 android:textColor="#ffffff"
                 android:layout_width="match_parent"
                 android:gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:text=": 대치동의 모든 수업을 담는 행위"
-                android:fontFamily="@font/miseng"
-                android:textSize="32dp"/>
+                android:text="Daechi IT!"
+                android:fontFamily="@font/kbizr"
+                android:textSize="33sp"/>
 
 
 
+        </LinearLayout>
 
-        </RelativeLayout>
+
 
     </FrameLayout>
 

@@ -24,11 +24,12 @@
             <android.support.design.widget.AppBarLayout
                 android:layout_width="match_parent"
                 android:id="@+id/tab_layoutsearch"
-                android:layout_height="wrap_content"
+                android:layout_height="110dp"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark"
                 >
 
             <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/searchtoolbarlayout"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:background="#ffffff"
@@ -38,7 +39,7 @@
             <android.support.v7.widget.Toolbar
                 android:theme="@style/ThemeOverlay.AppCompat.Dark"
                 android:background="@android:color/white"
-                android:id="@+id/toolbarbottom"
+                android:id="@+id/searchtoolbarbottom"
                 android:layout_width="match_parent"
                 android:layout_gravity="bottom"
                 android:layout_height="90dp"
@@ -62,6 +63,7 @@
                     android:orientation="vertical">
 
                     <RelativeLayout
+                        android:id="@+id/searchtaptoplayout"
                         android:layout_marginTop="8dp"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
@@ -118,7 +120,7 @@
                             android:layout_marginRight="15dp"
                             android:layout_width="wrap_content"
                             android:textSize="15dp"
-                            android:padding="5dp"
+                            android:padding="4dp"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/nanumgodic"
                             android:background="@drawable/searchfiltertap"
@@ -127,6 +129,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/searchtapbelow"
                         android:layout_width="match_parent"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
@@ -136,21 +139,23 @@
                         <EditText
                             android:id="@+id/searchresulttext"
                             android:layout_marginRight="15dp"
-                            android:hint="선생님, 학원명, 학교명"
+                            android:hint="선생님, 학원명, 학교명을 입력하세요."
                             android:paddingLeft="7dp"
                             android:textColorHint="@android:color/darker_gray"
                             android:textSize="15dp"
                             android:layout_marginTop="6dp"
                             android:layout_marginBottom="6dp"
-                            android:textColor="#000000"
+                            android:textColor="#757575"
                             android:layout_width="match_parent"
+                            android:imeOptions="actionSearch"
+                            android:inputType="text"
                             android:layout_height="match_parent"
                             android:background="@drawable/searchtext"/>
 
                         <ImageView
                             android:id="@+id/searchimgicon"
-                            android:layout_width="15dp"
-                            android:layout_height="15dp"
+                            android:layout_width="17dp"
+                            android:layout_height="17dp"
                             android:layout_marginRight="25dp"
                             android:layout_centerVertical="true"
                             android:layout_alignParentRight="true"

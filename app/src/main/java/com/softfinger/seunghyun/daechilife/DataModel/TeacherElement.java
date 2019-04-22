@@ -6,6 +6,7 @@ import java.util.List;
 import javax.security.auth.Subject;
 
 public class TeacherElement {
+
     String teachername;
     List<String> academylist;
     ArrayList<LectureClass> lectureClassess;
