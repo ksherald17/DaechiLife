@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:layout_marginTop="-0dp"
+    tools:layout_marginTop="0dp"
     android:layout_width="match_parent"
     android:scrollbars="vertical"
     android:scrollbarFadeDuration="2"
@@ -12,7 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#f5f5f5"
+        android:background="#EEF2F9"
         android:orientation="vertical">
 
         <LinearLayout
@@ -21,14 +21,19 @@
             android:weightSum="1"
             android:layout_marginTop="0dp"
             android:orientation="vertical">
-            
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="1dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="3dp"
-                android:paddingBottom="5dp"
                 android:background="#ffffff"
                 android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:gravity="center_vertical">
 
                 <ImageView
@@ -42,12 +47,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="대칫"
-                    android:layout_marginLeft="5dp"
-                    android:padding="2dp"
+                    android:layout_marginLeft="8dp"
                     android:fontFamily="@font/kbizr"
                     android:textColor="#ff3333"
-                    android:textSize="22dp"
-                    android:gravity="center_horizontal"/>
+                    android:textSize="21dp"
+                    android:gravity="center"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -65,9 +69,9 @@
                 </RelativeLayout>
 
 
-
-
             </LinearLayout>
+
+            </android.support.v7.widget.CardView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -76,88 +80,93 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="215dp"
+                    android:layout_height="175dp"
                     android:background="@mipmap/hot5"/>
 
             </LinearLayout>
 
+            <android.support.v7.widget.CardView
+                android:layout_marginTop="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="0dp"
+                >
+
             <LinearLayout
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff">
+
+                <android.support.design.widget.TabLayout
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="350dp"
                 android:layout_height="35dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
+                app:tabIndicatorColor="#e26e6e"
+                app:tabIndicatorHeight="2dp"
+                app:tabTextColor="#A0A0A0"
+                app:tabMode="fixed"
+                app:tabGravity="fill"
+                app:tabSelectedTextColor="#e26e6e"
+                app:tabTextAppearance="@style/tab_text"
                 android:weightSum="1">
 
-                <TextView
+                <android.support.design.widget.TabItem
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.15"
-                    android:fontFamily="@font/kbizb"
+                    android:layout_weight="0.25"
                     android:gravity="center"
-                    android:textColor="#e26e6e"
-                    android:textSize="15sp"
-                    android:text="HOT5"/>
+                    android:text="TOP"/>
 
-                <TextView
+                <android.support.design.widget.TabItem
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_weight="0.12"
-                    android:fontFamily="@font/kbizb"
-                    android:textColor="#adad85"
-                    android:textSize="15sp"
                     android:text="국어"/>
 
-                <TextView
+                <android.support.design.widget.TabItem
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_weight="0.12"
-                    android:fontFamily="@font/kbizb"
-                    android:textColor="#adad85"
-                    android:textSize="15sp"
+
                     android:text="수학"/>
 
-                <TextView
+                <android.support.design.widget.TabItem
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_weight="0.12"
-                    android:fontFamily="@font/kbizb"
-                    android:textColor="#adad85"
-                    android:textSize="15sp"
                     android:text="영어"/>
 
-                <TextView
+                <android.support.design.widget.TabItem
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_weight="0.12"
-                    android:fontFamily="@font/kbizb"
-                    android:textColor="#adad85"
-                    android:textSize="15sp"
                     android:text="과탐"/>
 
-                <TextView
+                <android.support.design.widget.TabItem
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_weight="0.12"
-                    android:fontFamily="@font/kbizb"
-                    android:textColor="#adad85"
-                    android:textSize="15sp"
                     android:text="사탐"/>
+
+            </android.support.design.widget.TabLayout>
 
             </LinearLayout>
 
-            <android.support.v7.widget.CardView
+            </android.support.v7.widget.CardView>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                app:cardBackgroundColor="#ffffff"
-                app:cardElevation="0dp">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -167,8 +176,9 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="vertical">
+                        android:paddingTop="5dp"
+                        android:orientation="vertical"
+                        android:background="#ffffff">
 
                         <android.support.v7.widget.RecyclerView
                             android:id="@+id/dlhomechart"
@@ -181,9 +191,10 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:layout_marginTop="2dp"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:background="#F8F8F8"
+                        android:layout_height="155dp"
+                        android:background="#EEF2F9"
                         android:orientation="vertical"
                         android:gravity="center">
 
@@ -191,9 +202,8 @@
                             android:id="@+id/homedlclassrecommendRV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="5dp"
                             android:orientation="horizontal"
+                            android:layout_marginLeft="5dp"
                             app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
 
@@ -201,76 +211,78 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="10dp"
-                        android:background="#cccccc"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:background="#ffffff"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp">
+                            android:layout_marginTop="2dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/titletext4"
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp">
+
+                                <TextView
+                                    android:id="@+id/titletext4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="20dp"
+                                    android:fontFamily="@font/godoroundedl"
+                                    android:text="대칫 수다방"
+                                    android:textColor="#000000"
+                                    android:textSize="18sp"
+                                     />
+
+                                <TextView
+                                    android:id="@+id/titletext5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:fontFamily="@font/godoroundedl"
+                                    android:text="전날 가장 핫했던 게시물"
+                                    android:textColor="#424242"
+                                    android:textSize="13sp" />
+
+                            </LinearLayout>
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/homeboardhotRV"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_marginLeft="20dp"
-                                android:fontFamily="@font/godoroundedl"
-                                android:text="대라 수다방"
-                                android:textColor="#000000"
-                                android:textSize="18sp"
-                                 />
+                                android:layout_marginTop="10dp" />
 
-                            <TextView
-                                android:id="@+id/titletext5"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_marginLeft="10dp"
-                                android:fontFamily="@font/godoroundedl"
-                                android:text="전날 가장 핫한 게시물"
-                                android:textColor="#424242"
-                                android:textSize="13sp" />
 
                         </LinearLayout>
 
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/homeboardhotRV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp" />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:background="#ffffff">
-
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
-                            android:background="@drawable/seemoretext"
-                            android:fontFamily="@font/nanumgodic"
-                            android:gravity="center"
-                            android:padding="8dp"
-                            android:text="더보기"
-                            android:textColor="#FAB617"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
+                            android:layout_marginTop="5dp"
+                            android:background="#ffffff">
 
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="18dp"
+                                android:layout_marginRight="18dp"
+                                android:background="@drawable/seemoretext"
+                                android:fontFamily="@font/nanumgodic"
+                                android:gravity="center"
+                                android:padding="8dp"
+                                android:text="더보기"
+                                android:textColor="#FAB617"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -281,6 +293,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:background="#DCDCDC" />
+
+                    </LinearLayout>
 
                     </LinearLayout>
 
@@ -315,10 +329,9 @@
                                 android:layout_marginLeft="10dp"
                                 android:layout_toRightOf="@id/titlehometalk"
                                 android:fontFamily="@font/godoroundedl"
-                                android:text="따끈따근한 익명 질문들"
+                                android:text="따끈따끈한 익명 질문들"
                                 android:textColor="#424242"
                                 android:textSize="13sp" />
-
 
                         </RelativeLayout>
 
@@ -328,69 +341,39 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp" />
 
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="#ffffff">
-
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="18dp"
-                            android:layout_marginRight="18dp"
-                            android:background="@drawable/seemoretext"
-                            android:fontFamily="@font/nanumgodic"
-                            android:gravity="center"
-                            android:padding="8dp"
-                            android:text="더보기"
-                            android:textColor="#FAB617"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
+                            android:layout_marginTop="10dp"
+                            android:background="#ffffff">
 
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="18dp"
+                                android:layout_marginRight="18dp"
+                                android:background="@drawable/seemoretext"
+                                android:fontFamily="@font/nanumgodic"
+                                android:gravity="center"
+                                android:padding="8dp"
+                                android:text="질문하러 가기"
+                                android:textColor="#FAB617"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="25dp">
+                        </LinearLayout>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="#DCDCDC" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="250dp"
-                        android:background="#F8F8F8"
-                        android:orientation="vertical">
-
-                        <RelativeLayout
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="25dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_marginLeft="20dp"
-                                android:fontFamily="@font/nanumgodic"
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#DCDCDC" />
 
-                                android:textColor="#000000"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-
-                        </RelativeLayout>
-
-
-
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -398,7 +381,7 @@
                 </LinearLayout>
 
 
-            </android.support.v7.widget.CardView>
+            </LinearLayout>
 
 
         </LinearLayout>

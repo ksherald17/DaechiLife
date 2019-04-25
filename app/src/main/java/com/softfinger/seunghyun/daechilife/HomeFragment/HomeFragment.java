@@ -116,9 +116,9 @@ public class HomeFragment extends android.support.v4.app.Fragment {
     //메인 홈 수업 추천 함수
     public void sethomeDLClassRecommend(){
         samplecrdb = new ArrayList<>();
-        String a1 = "현재 가장 인기있는 고1 수학 선생님들입니다.";
+        String a1 = "인기많은 고1 수학 선생님들입니다.";
         ArrayList<String> result = new ArrayList<>();
-        result.add("#현우진");result.add("#이창무");result.add("#권경수");result.add("#현우진");result.add("#김종성");
+        result.add("#현우진");result.add("#이창무");result.add("#권경수");result.add("#현우진");
         samplecrdb.add(new ClassRecommendElement("이승철", a1, result));
         samplecrdb.add(new ClassRecommendElement("남예진", a1, result));
 

@@ -2,11 +2,12 @@
 <LinearLayout
     android:id="@+id/classcodilayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="155dp"
+    android:layout_width="260dp"
+    android:layout_height="150dp"
     android:background="@drawable/classcordi"
     android:orientation="vertical"
-    android:layout_margin="10dp">
+    android:layout_marginRight="5dp"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,16 +26,16 @@
             android:text="검색하신 "/>
 
         <TextView
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:id="@+id/codisecondtext"
             android:layout_toRightOf="@id/codifirsttext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#FAB617"
+            android:textColor="#a1887f"
             android:fontFamily="@font/kbizr"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
-            android:text="'이승철 선생님'"/>
+            android:text="'이승철'"/>
 
         <TextView
             android:textSize="16sp"
@@ -46,7 +47,7 @@
             android:fontFamily="@font/kbizr"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
-            android:text="느낌으로 추천해 드립니다."/>
+            android:text="느낌으로 추천한"/>
 
     </LinearLayout>
 
@@ -63,14 +64,14 @@
             android:fontFamily="@font/kbizr"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
-            android:text="현재 가장 인기있는 고1 수학 선생님들입니다."/>
+            android:text="인기많은 고1 수학 선생님들입니다."/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
-        android:layout_height="40dp">
+        android:layout_height="30dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -85,7 +86,7 @@
                 android:textSize="14sp"
                 android:fontFamily="@font/kbizr"
                 android:layout_marginLeft="15dp"
-                android:text="총 5명"/>
+                android:text="총 4명"/>
 
             <LinearLayout
                 android:layout_alignParentRight="true"
@@ -93,30 +94,24 @@
                 android:layout_width="wrap_content"
                 android:background="@drawable/codisave"
                 android:gravity="center_vertical"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="15dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="14dp"
-                    android:layout_height="15dp"
-                    android:src="@mipmap/star"/>
-
                 <TextView
-                    android:layout_marginLeft="5dp"
-                    android:paddingTop="6dp"
-                    android:paddingBottom="6dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="3dp"
                     android:layout_centerVertical="true"
-                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_gravity="center"
                     android:id="@+id/codisaveteachers"
                     android:layout_width="wrap_content"
-                    android:textSize="11sp"
+                    android:textSize="13sp"
                     android:layout_height="wrap_content"
-                    android:textColor="#181818"
-                    android:fontFamily="@font/kbizr"
-                    android:layout_marginRight="10dp"
-                    android:text="모두 저장"/>
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/kbizb"
+                    android:text="수업보기"/>
 
 
             </LinearLayout>
@@ -126,22 +121,19 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
         <LinearLayout
-            android:layout_alignParentBottom="true"
             android:layout_marginLeft="12dp"
             android:layout_marginBottom="8dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/codiresultfirst"
-                android:paddingLeft="6dp"
-                android:paddingRight="6dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
                 android:background="@drawable/codiresult"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
@@ -149,17 +141,14 @@
                 android:layout_width="wrap_content"
                 android:textSize="12sp"
                 android:layout_height="wrap_content"
-                android:textColor="#181818"
+                android:textColor="#a1887f"
                 android:fontFamily="@font/nanumgodic"
                 android:text="#김종성"/>
 
             <TextView
                 android:id="@+id/codiresultsecond"
                 android:layout_marginLeft="5dp"
-                android:paddingLeft="6dp"
-                android:paddingRight="6dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
+
                 android:background="@drawable/codiresult"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
@@ -167,17 +156,13 @@
                 android:layout_width="wrap_content"
                 android:textSize="12sp"
                 android:layout_height="wrap_content"
-                android:textColor="#181818"
+                android:textColor="#a1887f"
                 android:fontFamily="@font/nanumgodic"
                 android:text="#현우진"/>
 
             <TextView
                 android:id="@+id/codiresultthird"
                 android:layout_marginLeft="5dp"
-                android:paddingLeft="6dp"
-                android:paddingRight="6dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
                 android:background="@drawable/codiresult"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
@@ -185,17 +170,13 @@
                 android:layout_width="wrap_content"
                 android:textSize="12sp"
                 android:layout_height="wrap_content"
-                android:textColor="#181818"
+                android:textColor="#a1887f"
                 android:fontFamily="@font/nanumgodic"
                 android:text="#한석원"/>
 
             <TextView
                 android:id="@+id/codiresultfourth"
                 android:layout_marginLeft="5dp"
-                android:paddingLeft="6dp"
-                android:paddingRight="6dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
                 android:background="@drawable/codiresult"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
@@ -203,27 +184,9 @@
                 android:layout_width="wrap_content"
                 android:textSize="12sp"
                 android:layout_height="wrap_content"
-                android:textColor="#181818"
+                android:textColor="#a1887f"
                 android:fontFamily="@font/nanumgodic"
                 android:text="#이창무"/>
-
-            <TextView
-                android:id="@+id/codiresultfifth"
-                android:layout_marginLeft="5dp"
-                android:paddingLeft="6dp"
-                android:paddingRight="6dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
-                android:background="@drawable/codiresult"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:textSize="12sp"
-                android:layout_height="wrap_content"
-                android:textColor="#181818"
-                android:fontFamily="@font/nanumgodic"
-                android:text="#권경수"/>
 
 
         </LinearLayout>

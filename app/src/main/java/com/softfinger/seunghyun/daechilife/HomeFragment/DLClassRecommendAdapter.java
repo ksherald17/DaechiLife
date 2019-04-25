@@ -42,7 +42,7 @@ public class DLClassRecommendAdapter extends RecyclerView.Adapter<DLClassRecomme
     }
 
     public class ClassViewHolder extends RecyclerView.ViewHolder{ //모든 서브 뷰를 보유한다.
-        TextView searchtext, description, r1, r2, r3, r4, r5;
+        TextView searchtext, description, r1, r2, r3, r4;
         LinearLayout classcodilayout;
 
         ClassViewHolder(View itemView){ //전개할 item 정의
@@ -54,7 +54,6 @@ public class DLClassRecommendAdapter extends RecyclerView.Adapter<DLClassRecomme
             r2 = itemView.findViewById(R.id.codiresultsecond);
             r3 = itemView.findViewById(R.id.codiresultthird);
             r4 = itemView.findViewById(R.id.codiresultfourth);
-            r5 = itemView.findViewById(R.id.codiresultfifth);
             classcodilayout = itemView.findViewById(R.id.classcodilayout);
         }
 
@@ -94,7 +93,6 @@ public class DLClassRecommendAdapter extends RecyclerView.Adapter<DLClassRecomme
         final TextView r2 = classViewHolder.r2;
         final TextView r3 = classViewHolder.r3;
         final TextView r4 = classViewHolder.r4;
-        final TextView r5 = classViewHolder.r5;
         final int pos = position;
         final LinearLayout recommendlayout = classViewHolder.classcodilayout;
 
@@ -112,7 +110,6 @@ public class DLClassRecommendAdapter extends RecyclerView.Adapter<DLClassRecomme
         r2.setText(classRecommendElement.getResult().get(1));
         r3.setText(classRecommendElement.getResult().get(2));
         r4.setText(classRecommendElement.getResult().get(3));
-        r5.setText(classRecommendElement.getResult().get(4));
     }
 
 }
