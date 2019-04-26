@@ -123,27 +123,27 @@ public class MainPage extends android.support.v4.app.Fragment {
         switch(next){
             case 0:
                 hometaptext.setTypeface(null, Typeface.BOLD);
-                hometaptext.setTextColor(Color.parseColor("#FAB617"));
+                hometaptext.setTextColor(Color.parseColor("#e26e6e"));
                 hometapimage.setImageResource(R.drawable.homeorange);
                 break;
             case 1:
                 searchtaptext.setTypeface(null, Typeface.BOLD);
-                searchtaptext.setTextColor(Color.parseColor("#FAB617"));
+                searchtaptext.setTextColor(Color.parseColor("#e26e6e"));
                 searchtapimage.setImageResource(R.drawable.searchorange);
                 break;
             case 2:
                 timetabletext.setTypeface(null, Typeface.BOLD);
-                timetabletext.setTextColor(Color.parseColor("#FAB617"));
+                timetabletext.setTextColor(Color.parseColor("#e26e6e"));
                 timetableimage.setImageResource(R.drawable.scheduleorange);
                 break;
             case 3:
                 boardtaptext.setTypeface(null, Typeface.BOLD);
-                boardtaptext.setTextColor(Color.parseColor("#FAB617"));
+                boardtaptext.setTextColor(Color.parseColor("#e26e6e"));
                 boardtapimage.setImageResource(R.drawable.boardorange);
                 break;
             case 4:
                 mytaptext.setTypeface(null, Typeface.BOLD);
-                mytaptext.setTextColor(Color.parseColor("#FAB617"));
+                mytaptext.setTextColor(Color.parseColor("#e26e6e"));
                 mytapimage.setImageResource(R.drawable.myorange);
                 break;
         }

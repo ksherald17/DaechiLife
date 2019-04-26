@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:layout_marginTop="-1000dp"
+    tools:layout_marginTop="0dp"
     android:layout_width="match_parent"
     android:scrollbars="vertical"
     android:scrollbarFadeDuration="2"
@@ -389,8 +389,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="25dp"
+                            android:paddingTop="20dp"
+                            android:paddingBottom="15dp"
                             android:background="#ffffff">
 
                             <TextView
@@ -459,7 +459,8 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
+                                android:layout_marginTop="20dp"
+                                android:paddingBottom="15dp"
                                 android:background="#ffffff">
 
                                 <TextView
@@ -475,18 +476,6 @@
                                     android:textColor="#ff8a80"
                                     android:textSize="14sp"
                                     android:textStyle="bold" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="25dp">
-
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="1dp"
-                                    android:background="#DCDCDC" />
 
                             </LinearLayout>
 
@@ -511,13 +500,13 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.249"
                                 android:text="국어"
+                                android:fontFamily="@font/nanumgodic"
                                 android:gravity="center"
-                                android:textSize="16sp"
-                                android:textColor="#707070"
+                                android:textSize="15sp"
                                 />
 
                             <View
-                                android:layout_width="1dp"
+                                android:layout_width="0.5dp"
                                 android:layout_height="match_parent"
                                 android:background="#ededed"/>
 
@@ -526,13 +515,13 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.249"
                                 android:text="수학"
+                                android:fontFamily="@font/nanumgodic"
                                 android:gravity="center"
-                                android:textSize="16sp"
-                                android:textColor="#707070"
+                                android:textSize="15sp"
                                 />
 
                             <View
-                                android:layout_width="1dp"
+                                android:layout_width="0.5dp"
                                 android:layout_height="match_parent"
                                 android:background="#ededed"/>
 
@@ -541,29 +530,25 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.249"
                                 android:text="영어"
+                                android:fontFamily="@font/nanumgodic"
                                 android:gravity="center"
-                                android:textSize="16sp"
-                                android:textColor="#707070"
+                                android:textSize="15sp"
                                 />
 
                             <View
-                                android:layout_width="1dp"
+                                android:layout_width="0.5dp"
                                 android:layout_height="match_parent"
                                 android:background="#ededed"/>
+
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.249"
                                 android:text="과탐"
+                                android:fontFamily="@font/nanumgodic"
                                 android:gravity="center"
-                                android:textSize="16sp"
-                                android:textColor="#707070"
+                                android:textSize="15sp"
                                 />
-
-                            <View
-                                android:layout_width="1dp"
-                                android:layout_height="match_parent"
-                                android:background="#ededed"/>
 
 
                         </LinearLayout>
@@ -584,9 +569,9 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.249"
                                 android:text="고1"
+                                android:fontFamily="@font/nanumgodic"
                                 android:gravity="center"
-                                android:textSize="16sp"
-                                android:textColor="#707070"
+                                android:textSize="15sp"
                                 />
 
                             <View
@@ -599,13 +584,13 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.249"
                                 android:text="고2"
+                                android:fontFamily="@font/nanumgodic"
                                 android:gravity="center"
-                                android:textSize="16sp"
-                                android:textColor="#707070"
+                                android:textSize="15sp"
                                 />
 
                             <View
-                                android:layout_width="1dp"
+                                android:layout_width="0.5dp"
                                 android:layout_height="match_parent"
                                 android:background="#ededed"/>
 
@@ -614,29 +599,26 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.249"
                                 android:text="고3"
+                                android:fontFamily="@font/nanumgodic"
                                 android:gravity="center"
-                                android:textSize="16sp"
-                                android:textColor="#707070"
+                                android:textSize="15sp"
                                 />
 
                             <View
-                                android:layout_width="1dp"
+                                android:layout_width="0.5dp"
                                 android:layout_height="match_parent"
                                 android:background="#ededed"/>
+
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.249"
                                 android:text="서울대생"
+                                android:fontFamily="@font/nanumgodic"
                                 android:gravity="center"
-                                android:textSize="16sp"
+                                android:textSize="15sp"
                                 android:textColor="#707070"
                                 />
-
-                            <View
-                                android:layout_width="1dp"
-                                android:layout_height="match_parent"
-                                android:background="#ededed"/>
 
 
                         </LinearLayout>
