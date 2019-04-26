@@ -1,9 +1,18 @@
 package com.softfinger.seunghyun.daechilife.HomeFragment;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -49,6 +58,8 @@ public class HomeFragment extends android.support.v4.app.Fragment {
     DLClassRecommendAdapter dlClassRecommendAdapter;
     DLBoardHotElementAdapter dlBoardHotElementAdapter;
     DLBoardIkMyungAdapter dlBoardIkMyungAdapter;
+    TabLayout maincharttab;
+    ImageView mainbanner;
 
     List<TeacherElement> sampledb;
     List<ClassRecommendElement> samplecrdb;
@@ -95,6 +106,13 @@ public class HomeFragment extends android.support.v4.app.Fragment {
 
     //메인 홈 차트 출력 함수
     public void sethomeDLchart(){
+
+        mainbanner = homepage.findViewById(R.id.mainbanner);
+        Resources res = getResources();
+        Bitmap src = BitmapFactory.decodeResource(res, R.mipmap.mainbanner1);
+        RoundedBitmapDrawable dr = RoundedBitmapDrawableFactory.create(res, src);
+        dr.setCornerRadius(15);
+        mainbanner.setImageDrawable(dr);
 
         //연습용 DB세팅
         sampledb = new ArrayList<>();
@@ -191,6 +209,7 @@ public class HomeFragment extends android.support.v4.app.Fragment {
             homedlclassrecommend = homepage.findViewById(R.id.homedlclassrecommendRV);
             homedlHotBoard = homepage.findViewById(R.id.homeboardhotRV);
             homedlIkmyungBoard = homepage.findViewById(R.id.hometalkRV);
+            maincharttab = homepage.findViewById(R.id.maincharttab);
 
             sethomeDLchart();
             sethomeDLClassRecommend();
@@ -201,6 +220,7 @@ public class HomeFragment extends android.support.v4.app.Fragment {
         @Override
         protected void onPostExecute(Boolean result) {
             //setSlider();
+            wrapTabIndicatorToTitle(maincharttab, 1, 2);
         }
 
         @Override
@@ -210,6 +230,49 @@ public class HomeFragment extends android.support.v4.app.Fragment {
 
 
             return true;
+        }
+    }
+
+    public void wrapTabIndicatorToTitle(TabLayout tabLayout, int externalMargin, int internalMargin) {
+        View tabStrip = tabLayout.getChildAt(0);
+        if (tabStrip instanceof ViewGroup) {
+            ViewGroup tabStripGroup = (ViewGroup) tabStrip;
+            int childCount = ((ViewGroup) tabStrip).getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View tabView = tabStripGroup.getChildAt(i);
+                //set minimum width to 0 for instead for small texts, indicator is not wrapped as expected
+                tabView.setMinimumWidth(0);
+                // set padding to 0 for wrapping indicator as title
+                tabView.setPadding(0, tabView.getPaddingTop(), 0, tabView.getPaddingBottom());
+                // setting custom margin between tabs
+                if (tabView.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) tabView.getLayoutParams();
+                    if (i == 0) {
+                        // left
+                        settingMargin(layoutParams, externalMargin, internalMargin);
+                    } else if (i == childCount - 1) {
+                        // right
+                        settingMargin(layoutParams, internalMargin, externalMargin);
+                    } else {
+                        // internal
+                        settingMargin(layoutParams, internalMargin, internalMargin);
+                    }
+                }
+            }
+
+            tabLayout.requestLayout();
+        }
+    }
+
+    private void settingMargin(ViewGroup.MarginLayoutParams layoutParams, int start, int end) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            layoutParams.setMarginStart(start);
+            layoutParams.setMarginEnd(end);
+            layoutParams.leftMargin = start;
+            layoutParams.rightMargin = end;
+        } else {
+            layoutParams.leftMargin = start;
+            layoutParams.rightMargin = end;
         }
     }
 

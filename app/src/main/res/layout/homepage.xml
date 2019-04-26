@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:layout_marginTop="0dp"
+    tools:layout_marginTop="-1000dp"
     android:layout_width="match_parent"
     android:scrollbars="vertical"
     android:scrollbarFadeDuration="2"
@@ -27,61 +27,119 @@
                 android:layout_height="wrap_content"
                 app:cardElevation="1dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ffffff"
-                android:orientation="horizontal"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="1dp"
-                    android:src="@mipmap/buildingred"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="대칫"
-                    android:layout_marginLeft="8dp"
-                    android:fontFamily="@font/kbizr"
-                    android:textColor="#ff3333"
-                    android:textSize="21dp"
-                    android:gravity="center"/>
-
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="15dp"
-                        android:gravity="right"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/searchred"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="#ffffff"
+                        android:orientation="horizontal"
+                        android:paddingTop="7dp"
+                        android:paddingBottom="10dp"
+                        android:gravity="center_vertical">
 
-                </RelativeLayout>
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="17dp"
+                            android:src="@mipmap/menured"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Daechi IT"
+                            android:fontFamily="@font/titlefont"
+                            android:textColor="#e26e6e"
+                            android:textSize="29dp"
+                            android:gravity="center"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="10dp"
+                            android:gravity="right"
+                            android:layout_height="match_parent"
+                            android:src="@mipmap/bellred"/>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:background="@drawable/redcorner"
+                            android:gravity="center">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="5dp"
+                                android:background="#ffffff">
+
+                                <EditText
+                                    android:layout_marginTop="1dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textSize="15sp"
+                                    android:textColor="#181818"
+                                    android:fontFamily="@font/nanumgodic"
+                                    android:textColorHint="#707070"
+                                    android:hint="선생님, 학원, 학교명으로 수업을 검색하세요."
+                                    android:focusedByDefault="false"
+                                    android:background="@android:color/transparent"/>
+
+                                <ImageView
+                                    android:layout_width="21dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="5dp"
+                                    android:src="@mipmap/searchred"/>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
 
 
-            </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
 
             </android.support.v7.widget.CardView>
 
+
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="180dp"
+                android:orientation="vertical"
+                >
 
                 <ImageView
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/mainbanner"
                     android:layout_width="match_parent"
-                    android:layout_height="175dp"
-                    android:background="@mipmap/hot5"/>
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/mainbanner1"
+                    android:background="#ffffff"
+                    android:scaleType="fitXY" />
+
 
             </LinearLayout>
 
@@ -92,74 +150,126 @@
                 app:cardElevation="0dp"
                 >
 
-            <LinearLayout
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ffffff">
-
-                <android.support.design.widget.TabLayout
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="10dp"
-                android:layout_width="350dp"
-                android:layout_height="35dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                app:tabIndicatorColor="#e26e6e"
-                app:tabIndicatorHeight="2dp"
-                app:tabTextColor="#A0A0A0"
-                app:tabMode="fixed"
-                app:tabGravity="fill"
-                app:tabSelectedTextColor="#e26e6e"
-                app:tabTextAppearance="@style/tab_text"
-                android:weightSum="1">
-
-                <android.support.design.widget.TabItem
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.25"
-                    android:gravity="center"
-                    android:text="TOP"/>
+                    android:orientation="vertical">
 
-                <android.support.design.widget.TabItem
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_weight="0.12"
-                    android:text="국어"/>
+                    <LinearLayout
+                        android:layout_marginTop="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                <android.support.design.widget.TabItem
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_weight="0.12"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="인기차트"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginBottom="5dp"
+                            android:textColor="#181818"
+                            android:textSize="20sp"/>
 
-                    android:text="수학"/>
+                        <LinearLayout
+                            android:paddingBottom="8dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="right|center_vertical">
 
-                <android.support.design.widget.TabItem
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_weight="0.12"
-                    android:text="영어"/>
+                            <ImageView
+                                android:layout_width="14dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_height="match_parent"
+                                android:src="@mipmap/clock2"/>
 
-                <android.support.design.widget.TabItem
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_weight="0.12"
-                    android:text="과탐"/>
+                            <TextView
+                                android:layout_marginRight="18dp"
+                                android:textColor="#A0A0A0"
 
-                <android.support.design.widget.TabItem
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_weight="0.12"
-                    android:text="사탐"/>
+                                android:gravity="center"
+                                android:fontFamily="@font/sregular"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:textSize="13sp"
+                                android:text="4월 26일"/>
 
-            </android.support.design.widget.TabLayout>
 
-            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginLeft="12dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff">
+
+                        <android.support.design.widget.TabLayout
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_width="320dp"
+                            android:layout_height="35dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            app:tabIndicatorColor="#e26e6e"
+                            app:tabIndicatorHeight="1dp"
+                            app:tabTextColor="#A0A0A0"
+                            app:tabMode="fixed"
+                            app:tabSelectedTextColor="#e26e6e"
+                            app:tabTextAppearance="@style/tab_text"
+                            android:id="@+id/maincharttab"
+                            android:weightSum="1">
+
+                            <android.support.design.widget.TabItem
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.25"
+                                android:gravity="center"
+                                android:text="TOP"/>
+
+                            <android.support.design.widget.TabItem
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_weight="0.12"
+                                android:text="국어"/>
+
+                            <android.support.design.widget.TabItem
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_weight="0.12"
+
+                                android:text="수학"/>
+
+                            <android.support.design.widget.TabItem
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_weight="0.12"
+                                android:text="영어"/>
+
+                            <android.support.design.widget.TabItem
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_weight="0.12"
+                                android:text="과탐"/>
+
+                            <android.support.design.widget.TabItem
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_weight="0.12"
+                                android:text="사탐"/>
+
+                        </android.support.design.widget.TabLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
             </android.support.v7.widget.CardView>
 
@@ -177,6 +287,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingTop="5dp"
+                        android:paddingBottom="15dp"
                         android:orientation="vertical"
                         android:background="#ffffff">
 
@@ -191,7 +302,19 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        >
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="0dp"
+                        android:layout_marginBottom="1dp"
                         android:layout_width="match_parent"
                         android:layout_height="155dp"
                         android:background="#EEF2F9"
@@ -209,10 +332,12 @@
 
                     </LinearLayout>
 
+
                     <LinearLayout
+                        android:layout_marginTop="2dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ffffff"
+
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -234,9 +359,9 @@
                                     android:layout_centerVertical="true"
                                     android:layout_marginLeft="20dp"
                                     android:fontFamily="@font/godoroundedl"
-                                    android:text="대칫 수다방"
+                                    android:text="학부모 수다방"
                                     android:textColor="#000000"
-                                    android:textSize="18sp"
+                                    android:textSize="20sp"
                                      />
 
                                 <TextView
@@ -264,7 +389,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="25dp"
                             android:background="#ffffff">
 
                             <TextView
@@ -277,103 +403,282 @@
                                 android:gravity="center"
                                 android:padding="8dp"
                                 android:text="더보기"
-                                android:textColor="#FAB617"
+                                android:textColor="#ff8a80"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
                         </LinearLayout>
 
 
+
+                    </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp">
+
+                                <TextView
+                                    android:id="@+id/titlehometalk"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="20dp"
+                                    android:fontFamily="@font/godoroundedl"
+                                    android:text="익명토크"
+                                    android:textColor="#000000"
+                                    android:textSize="20sp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_toRightOf="@id/titlehometalk"
+                                    android:fontFamily="@font/godoroundedl"
+                                    android:text="따끈따끈한 익명 질문들"
+                                    android:textColor="#424242"
+                                    android:textSize="13sp" />
+
+                            </RelativeLayout>
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/hometalkRV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="#ffffff">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="18dp"
+                                    android:layout_marginRight="18dp"
+                                    android:background="@drawable/seemoretext"
+                                    android:fontFamily="@font/nanumgodic"
+                                    android:gravity="center"
+                                    android:padding="8dp"
+                                    android:text="질문하러 가기"
+                                    android:textColor="#ff8a80"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="25dp">
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="#DCDCDC" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="25dp">
+                        android:layout_marginTop="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:orientation="vertical"
+                        android:background="#ffffff">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="39dp"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.249"
+                                android:text="국어"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:textColor="#707070"
+                                />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="#ededed"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.249"
+                                android:text="수학"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:textColor="#707070"
+                                />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="#ededed"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.249"
+                                android:text="영어"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:textColor="#707070"
+                                />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="#ededed"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.249"
+                                android:text="과탐"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:textColor="#707070"
+                                />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="#ededed"/>
+
+
+                        </LinearLayout>
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="#DCDCDC" />
+                            android:background="#ededed"/>
 
-                    </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:background="#ffffff"
-                        android:orientation="vertical">
-
-                        <RelativeLayout
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp">
+                            android:layout_height="39dp"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
 
                             <TextView
-                                android:id="@+id/titlehometalk"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_marginLeft="20dp"
-                                android:fontFamily="@font/godoroundedl"
-                                android:text="익명토크"
-                                android:textColor="#000000"
-                                android:textSize="18sp"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.249"
+                                android:text="고1"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:textColor="#707070"
                                 />
 
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="#ededed"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.249"
+                                android:text="고2"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:textColor="#707070"
+                                />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="#ededed"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.249"
+                                android:text="고3"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:textColor="#707070"
+                                />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="#ededed"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.249"
+                                android:text="서울대생"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:textColor="#707070"
+                                />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="#ededed"/>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:orientation="vertical"
+                        android:background="#ffffff">
+
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_marginLeft="10dp"
-                                android:layout_toRightOf="@id/titlehometalk"
-                                android:fontFamily="@font/godoroundedl"
-                                android:text="따끈따끈한 익명 질문들"
-                                android:textColor="#424242"
-                                android:textSize="13sp" />
+                                android:text="최신수업"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginBottom="2dp"
+                                android:textColor="#181818"
+                                android:textSize="20sp"/>
 
-                        </RelativeLayout>
+                        </LinearLayout>
 
                         <android.support.v7.widget.RecyclerView
-                            android:id="@+id/hometalkRV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp" />
-
-                        <LinearLayout
+                            android:layout_marginTop="3dp"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="#ffffff">
+                            android:layout_height="wrap_content">
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="18dp"
-                                android:layout_marginRight="18dp"
-                                android:background="@drawable/seemoretext"
-                                android:fontFamily="@font/nanumgodic"
-                                android:gravity="center"
-                                android:padding="8dp"
-                                android:text="질문하러 가기"
-                                android:textColor="#FAB617"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
+                        </android.support.v7.widget.RecyclerView>
 
-                        </LinearLayout>
+                    </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="25dp">
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#DCDCDC" />
-
-                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -383,11 +688,6 @@
 
             </LinearLayout>
 
-
-        </LinearLayout>
-
-
-    </LinearLayout>
 
 
 </android.support.v4.widget.NestedScrollView>

@@ -33,31 +33,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:orientation="horizontal"
+                android:paddingBottom="2dp"
                 android:weightSum="1">
-
-                <TextView
-                    android:layout_marginLeft="10dp"
-                    android:id="@+id/dlchartnumbertext"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:textSize="22dp"
-                    android:layout_weight="0.04"
-                    android:textColor="#000000"
-                    android:gravity="center_vertical|right"
-                    android:fontFamily="@font/kbizr"
-                    android:text="1"/>
 
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_weight="0.15"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
                     >
 
                     <RelativeLayout
                         android:id="@+id/dlchartsubjectlayout"
                         android:layout_centerInParent="true"
-                        android:layout_marginLeft="0dp"
+                        android:layout_marginLeft="2dp"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/roundedcorner"
@@ -68,7 +58,7 @@
                             android:layout_margin="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/grayperson"
+                            android:src="@mipmap/person"
                             />
 
                     </RelativeLayout>
@@ -82,70 +72,58 @@
 
                 </RelativeLayout>
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_marginLeft="18dp"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.59"
-                    android:gravity="center"
                     android:orientation="vertical"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginBottom="5dp"
                     >
 
                     <TextView
-                        android:id="@+id/dlchartteachername"
-                        android:textSize="16dp"
-                        android:textColor="#000000"
-                        android:fontFamily="@font/kbizr"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="이지정 선생님"/>
-
-                    <TextView
+                        android:gravity="top"
+                        android:layout_alignParentBottom="true"
                         android:id="@+id/dlchartacademyname"
-                        android:textColor="#808080"
-                        android:textSize="12dp"
-                        android:layout_marginTop="1dp"
+                        android:textColor="#888888"
+                        android:textSize="14dp"
+                        android:layout_marginTop="0dp"
                         android:layout_marginLeft="1dp"
-                        android:fontFamily="@font/kbizb"
+                        android:fontFamily="@font/sregular"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
                         android:text="KNS어학원"/>
 
-                </LinearLayout>
+                    <TextView
+                        android:id="@+id/dlchartteachername"
 
-                <LinearLayout
-                    android:id="@+id/expandlinearlayout"
-                    android:layout_width="0dp"
-                    android:layout_marginLeft="40dp"
+                        android:textSize="16dp"
+                        android:textColor="#000000"
+                        android:fontFamily="@font/sregular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="5dp"
+                        android:text="이지정 선생님"/>
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/dlchartnumbertext"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:textSize="22dp"
                     android:layout_weight="0.20"
-                    android:gravity="center|right">
-
-                    <ImageView
-                        android:id="@+id/chartelementexpand"
-                        android:layout_marginRight="8dp"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/expandgray"
-                        />
-
-                </LinearLayout>
+                    android:textColor="#181818"
+                    android:gravity="center_vertical|right"
+                    android:fontFamily="@font/kbizr"
+                    android:text="1"/>
 
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@mipmap/greygradient">
-
-
-
-
-            </LinearLayout>
 
         </LinearLayout>
 

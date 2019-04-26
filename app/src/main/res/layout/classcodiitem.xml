@@ -31,7 +31,7 @@
             android:layout_toRightOf="@id/codifirsttext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#a1887f"
+            android:textColor="#909090"
             android:fontFamily="@font/kbizr"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
@@ -141,7 +141,7 @@
                 android:layout_width="wrap_content"
                 android:textSize="12sp"
                 android:layout_height="wrap_content"
-                android:textColor="#a1887f"
+                android:textColor="#909090"
                 android:fontFamily="@font/nanumgodic"
                 android:text="#김종성"/>
 
@@ -156,7 +156,7 @@
                 android:layout_width="wrap_content"
                 android:textSize="12sp"
                 android:layout_height="wrap_content"
-                android:textColor="#a1887f"
+                android:textColor="#909090"
                 android:fontFamily="@font/nanumgodic"
                 android:text="#현우진"/>
 
@@ -170,7 +170,7 @@
                 android:layout_width="wrap_content"
                 android:textSize="12sp"
                 android:layout_height="wrap_content"
-                android:textColor="#a1887f"
+                android:textColor="#909090"
                 android:fontFamily="@font/nanumgodic"
                 android:text="#한석원"/>
 
@@ -184,7 +184,7 @@
                 android:layout_width="wrap_content"
                 android:textSize="12sp"
                 android:layout_height="wrap_content"
-                android:textColor="#a1887f"
+                android:textColor="#909090"
                 android:fontFamily="@font/nanumgodic"
                 android:text="#이창무"/>
 

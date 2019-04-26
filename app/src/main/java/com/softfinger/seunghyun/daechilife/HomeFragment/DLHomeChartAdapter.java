@@ -56,8 +56,6 @@ public class DLHomeChartAdapter extends RecyclerView.Adapter<DLHomeChartAdapter.
             number = itemView.findViewById(R.id.dlchartnumbertext);
             teachername = itemView.findViewById(R.id.dlchartteachername);
             academy = itemView.findViewById(R.id.dlchartacademyname);
-            expand = itemView.findViewById(R.id.chartelementexpand);
-            expandlayout = itemView.findViewById(R.id.expandlinearlayout);
             //songname = itemView.findViewById(R.id.cbtitle);
         }
 
@@ -97,38 +95,9 @@ public class DLHomeChartAdapter extends RecyclerView.Adapter<DLHomeChartAdapter.
         //final TextView subjectbackground = teacherViewHolder.subjectbackground;
         final TextView academy = teacherViewHolder.academy;
         final ImageView updown = teacherViewHolder.updown;
-        final ImageView expand = teacherViewHolder.expand;
         final int pos = position;
         final CardView chartcard = teacherViewHolder.chartcard;
-        final LinearLayout expandlayout = teacherViewHolder.expandlayout;
 
-
-
-        expandlayout.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-
-                if(teacherElement.getExpand() == 0){
-                    chartcard.setCardElevation(0f);
-                    teacherElement.setExpand();
-                    expand.setImageResource(R.drawable.expandgray);
-                    final float scale = context.getResources().getDisplayMetrics().density;
-                    int pixels = (int) (60 * scale + 0.5f);
-                    elementlayout.getLayoutParams().height = pixels;
-                }
-
-                else if(teacherElement.getExpand() == 1){
-                    chartcard.setCardElevation(4f);
-                    teacherElement.cancelExpand();
-                    expand.setImageResource(R.drawable.expandup);
-                    final float scale = context.getResources().getDisplayMetrics().density;
-                    int pixels = (int) (200 * scale + 0.5f);
-                    elementlayout.getLayoutParams().height = pixels;
-                }
-
-                notifyDataSetChanged();
-            }
-        });
 
         number.setText(Integer.toString(pos + 1));
         teachername.setText(teacherElement.getTeachername() + " 선생님");
