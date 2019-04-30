@@ -81,7 +81,7 @@
                             android:layout_marginLeft="2dp"
                             android:textStyle="bold"
                             android:fontFamily="@font/titlebold"
-                            android:text="DL"/>
+                            android:text="DI"/>
 
                         <TextView
                             android:id="@+id/titlekumsek"

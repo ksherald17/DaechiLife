@@ -31,7 +31,7 @@
             android:layout_toRightOf="@id/codifirsttext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#909090"
+            android:textColor="#e26e6e"
             android:fontFamily="@font/kbizr"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
@@ -69,7 +69,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="30dp">
 
@@ -121,7 +121,7 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="6dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
