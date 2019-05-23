@@ -15,8 +15,10 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -26,22 +28,25 @@ import com.softfinger.seunghyun.daechilife.DataModel.LectureClass;
 import com.softfinger.seunghyun.daechilife.FirstActivity;
 import com.softfinger.seunghyun.daechilife.HomeFragment.DLClassRecommendAdapter;
 import com.softfinger.seunghyun.daechilife.HomeFragment.HomeFragment;
+import com.softfinger.seunghyun.daechilife.PageShow.MainPage;
 import com.softfinger.seunghyun.daechilife.R;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
+import static android.content.Context.INPUT_METHOD_SERVICE;
+
 //개발 유의사항: TimeTableFragment에 ArrayList<LectureClass>에 해당하는 시간표에 저장된 함수는 TimeTable로 부터 가져와야하며 DB에서 꺼내오는 함수.
 //추가 개발필요사항: 검색창, 새로운 시간표 창, 삭제 코드
 
-public class TimeTableFragment extends android.support.v4.app.Fragment {
+public class TimeTableFragment extends android.support.v4.app.Fragment{
 
     /*액티비티, 콘텍스트*/
     static Context context;
     static View timetablepage;
-    RecyclerView daycellRV, timecellRV, timetablecellRV;
-    DayCellAdapter dayCellAdapter;
+    static RecyclerView daycellRV, timecellRV, timetablecellRV;
+    static DayCellAdapter dayCellAdapter;
     TimeCellAdapter timeCellAdapter;
     TimeTableCellAdapter timeTableCellAdapter;
     ImageView addclassplus;
@@ -49,8 +54,9 @@ public class TimeTableFragment extends android.support.v4.app.Fragment {
     /*시간표 구조*/
     //크기와 레이아웃과 관련된 변수
     static int timecellheight, timecellwidth, daycellheight, daycellwidth, timetablecellheight, timetablecellwidth;
+    static int actionBarHeight;
     static ArrayList<String> day, time, timetable;
-    RelativeLayout firstcell;
+    static RelativeLayout firstcell;
     static RelativeLayout timetablelayout;
 
     //시간표 정보와 관련된 변수
@@ -60,14 +66,30 @@ public class TimeTableFragment extends android.support.v4.app.Fragment {
     static int textviewid= 0; //혹시나 중복 문제가 발생시 여기서 생길 가능성이 큼.
     static ArrayList<Integer> idtempsublist; //중복 저장이 안되기 위해 임시로 잠시 저장해두는함수.
 
-    //임의로 잠시 시간 추가하는 함수와 관련된 변수
+    //임의로 시간 추가하는 함수와 관련된 변수
     static ArrayList<LectureClass> templecuturelist; //시간표에 보여지는 수업 리스트
     static ArrayList<Integer> tempidlist; //textView의 idlist <위 ArrayList와 함께 움직여야 함>
     static int temptextviewid= 0; //혹시나 중복 문제가 발생시 여기서 생길 가능성이 큼.
+    static RelativeLayout topbanner;
 
     //시간표 색상
     static ArrayList<String> colorhexcodelist;
     static int currentlecturesize = 0; //지우기 떄 -하는 것을 주의, 시간표 변경시 무조건 초기화 요구 static이기 떄문
+
+    //드래그시 시간 추가할때 관련된 변수
+    static int tempstartweek;
+    static int tempstarttime;
+    static ArrayList<Integer> tempsublist;
+    static int temptextid = 555;
+    static int tempstart;
+    static int templength;
+    static int detbeg = 0; //드래그 작동중인지를 확인하는 코드
+
+    //드래그시 임시 저장
+    static ArrayList<Integer> savedidtemp;
+    static ArrayList<ArrayList<Integer>> timetemp;
+
+    int position = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -78,6 +100,218 @@ public class TimeTableFragment extends android.support.v4.app.Fragment {
         new IAmABackgroundTask().execute();
 
         return timetablepage;
+    }
+
+    //빈 공간을 선택하면 작동하는 함수
+    public static void initiatenewLecture(int position){
+
+        //initiate variables
+        tempstart = 0;
+        templength = 0;
+        detbeg = 0;
+        tempstartweek = 0;
+        tempstarttime = 0;
+
+        Log.e("POS", Integer.toString(position));
+        tempsublist = new ArrayList<>();
+        tempstartweek = position%7;
+        tempstarttime = (position/7); //time/2 + 8 is the lecture time
+
+    }
+
+    //손가락이 움직일때 따라서 만드는 함수
+    public static void followfinger(int position){
+
+        tempstart = position%7;
+        int tempstarttime2 = (position/7); //열만 찾아내면 됨;
+        templength = 0;
+        int beginparameter;
+
+        if(detbeg == 0){
+            detbeg = 1;
+            beginparameter = tempstarttime;
+            buildtemporarylecture(beginparameter, tempstart, 1); //initiate code
+        }
+
+        if(tempstarttime2 > tempstarttime){ //더 긴시간 설정
+            detbeg = 1;
+            templength = tempstarttime2 - tempstarttime;
+            beginparameter = tempstarttime;
+            for(int i = 0; i < tempsublist.size(); i++){
+                TextView textView = timetablelayout.findViewById(tempsublist.get(i));
+                timetablelayout.removeView(textView);
+                Log.e("제거id", Integer.toString(tempsublist.get(i)));
+            }
+
+            tempsublist = new ArrayList<>();
+            Log.e("초기화", Integer.toString(tempsublist.size()));
+            buildtemporarylecture(beginparameter, tempstart, templength);
+
+
+        }
+        else if(tempstarttime2 < tempstarttime){  //이전것들을 다 지워야 해
+
+            detbeg = 1;
+            templength = tempstarttime - tempstarttime2;
+            beginparameter = tempstarttime2;
+
+            for(int i = 0; i < tempsublist.size(); i++){
+                TextView textView = timetablelayout.findViewById(tempsublist.get(i));
+                timetablelayout.removeView(textView);
+            }
+            tempsublist = new ArrayList<>();
+            buildtemporarylecture(beginparameter, tempstart, templength);
+
+            tempstarttime = tempstarttime2;
+        }
+
+        else if(tempstarttime2 == tempstarttime || templength == 0){
+
+        }
+    }
+
+    public static String changeinttoday(int day1){
+
+        String day="";
+
+        switch (day1){
+            case 0:
+                day = "월";
+                break;
+            case 1:
+                day = "화";
+                break;
+            case 2:
+                day = "수";
+                break;
+            case 3:
+                day = "목";
+                break;
+            case 4:
+                day = "금";
+                break;
+            case 5:
+                day = "토";
+                break;
+            case 6:
+                day = "일";
+                break;
+        }
+        return day;
+    }
+
+    //손가락을 땔때 그정보를 저장하는 함수
+    public static void savefingerprint(){
+
+        if(tempsublist == null || tempsublist.size() == 0){
+            return;
+        }
+        int textviewid = tempsublist.get(0); //그 뒤 초기화될 것임.
+        savedidtemp.add(new Integer(textviewid));
+
+        ArrayList<Integer> timeinfo = new ArrayList<>(); //요일, 시작시간,시작분, 끝시간, 끝분
+
+        int dayI = tempstart; //요일 0: 월
+
+        /* 요일 */
+        String day = changeinttoday(dayI);
+        timeinfo.add(dayI); //index 0: 요일
+
+        /* 시작시간 */
+        int starthour = (tempstarttime/2) + 8;
+        int startmin = 0;
+        if(Math.round(tempstarttime/2) - tempstarttime != 0){
+            startmin = 30;
+        };
+        timeinfo.add(starthour); //index 1: 시작시간
+        timeinfo.add(startmin); //index 2: 시작분
+        String starttime = Integer.toString(starthour) + "시 : " + Integer.toString(startmin) + "분";
+
+
+        int endtime = tempstarttime + templength;
+        int endhour = (endtime/2) + 8;
+        int endmin = 0;
+        if(Math.round(endtime/2) - endtime != 0){
+            endmin = 30;
+        };
+
+        timeinfo.add(endhour); //index 3: 끝시간
+        timeinfo.add(endmin); //index 4: 끝분
+        String endingtime = Integer.toString(endhour) + "시 : " + Integer.toString(endmin) + "분";
+
+        Toast.makeText(context, day + ": " + starthour + "시 " + startmin + "분 ~ " + endhour + "시 " + endmin +"분",
+                Toast.LENGTH_SHORT).show();
+
+
+    }
+
+    //Finger Processing Function. Synchronize. 손가락의 위치와 이미 수업이 있는지, 또 어디에 있는지를 세부적으로 조절해주는 함수
+    public static void fingerprocessing(){
+
+    }
+
+    //모든 정보를 지우고 초기화하는 함수
+    public static void vanishtemporarylecture(){
+
+        for(int i = 0; i < tempsublist.size(); i++){
+            TextView textView = timetablelayout.findViewById(tempsublist.get(i));
+            timetablelayout.removeView(textView);
+            Log.e("vanish", "제거id: " + Integer.toString(tempsublist.get(i)));
+        }
+
+        tempsublist = new ArrayList<>();
+        Log.e("제거코드 종료", Integer.toString(tempsublist.size()));
+
+        /* init ids */
+        detbeg = 0;
+        temptextid = 555;
+        tempsublist = null;
+        tempstarttime = 0;
+        tempstartweek = 0;
+        savedidtemp = new ArrayList<>();
+        timetemp = new ArrayList<>();
+    }
+
+
+    //손가락에 따라 생성되는 임시 코드를 작성
+    public static void buildtemporarylecture(int topparameter, int leftparameter, int heightsize){
+
+        TextView addclassTV = new TextView(context);
+        addclassTV.setId(temptextid);
+        //addclassTV.setText(classname);
+        Typeface face = Typeface.createFromAsset(FirstActivity.getActivity().getAssets(),
+                "fonts/nanumgodic.ttf");
+        addclassTV.setTypeface(face);
+        addclassTV.setTextColor(Color.parseColor("#ffffff"));
+        addclassTV.setBackgroundColor(Color.parseColor("#e0e0e0"));
+        addclassTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12); //textsize
+        tempsublist.add(new Integer(temptextid));
+        ++temptextid;
+
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+                timetablecellwidth,
+                timetablecellheight*heightsize); //*4를 변경하면 됨
+
+        int margintop, marginbottom, marginleft, marginright;
+
+        margintop = daycellheight + timetablecellheight * topparameter; //24를 변경하면 됨
+        marginleft = timecellwidth + timetablecellwidth * leftparameter; //0을 switch문으로 변경하면 됨.
+        marginright = 0;
+        marginbottom = 0;
+
+        lp.setMargins(marginleft, margintop, marginright, marginbottom);
+        addclassTV.setLayoutParams(lp);
+        addclassTV.setGravity(Gravity.CENTER);
+        timetablelayout.addView(addclassTV);
+        Log.e("추가ID", Integer.toString(temptextid-1));
+    }
+
+    public int turnpxtoweek(float width){
+        return (int)((width - timecellwidth)/timetablecellwidth);
+    }
+
+    public int turnpxtotime(float height){
+        return (int)((height - actionBarHeight - daycellheight) / timetablecellheight);
     }
 
     /*수업 추가*/
@@ -328,7 +562,7 @@ public class TimeTableFragment extends android.support.v4.app.Fragment {
         }
 
         if(position == 1000){ //지우려는 강의를 못찾았을 때.
-            Toast.makeText(context, "오류가 발생했습니다.", Toast.LENGTH_SHORT);
+            Toast.makeText(context, "오류가 발생했습니다.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -358,7 +592,7 @@ public class TimeTableFragment extends android.support.v4.app.Fragment {
         }
 
         if(position == 10000){ //지우려는 강의를 못찾았을 때.
-            Toast.makeText(context, "오류가 발생했습니다.", Toast.LENGTH_SHORT);
+            Toast.makeText(context, "오류가 발생했습니다.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -404,7 +638,7 @@ public class TimeTableFragment extends android.support.v4.app.Fragment {
         }
 
         if(position == 10000){ //지우려는 강의를 못찾았을 때.
-            Toast.makeText(context, "오류가 발생했습니다.", Toast.LENGTH_SHORT);
+            Toast.makeText(context, "오류가 발생했습니다.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -441,7 +675,7 @@ public class TimeTableFragment extends android.support.v4.app.Fragment {
         int totalwidthPixel = FirstActivity.getActivity().getWindowManager().getDefaultDisplay().getWidth();
         int totalheightPixel = FirstActivity.getActivity().getWindowManager().getDefaultDisplay().getHeight();
 
-        int actionBarHeight = 40;
+        actionBarHeight = 40;
 
         TypedValue tv = new TypedValue();
         if (FirstActivity.getActivity().getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
@@ -454,7 +688,7 @@ public class TimeTableFragment extends android.support.v4.app.Fragment {
 
         timetablecellheight = heightPX/2;
         heightPX = timetablecellheight*2;
-        daycellheight = heightPX-dpToPx(pxToDp(10));
+        daycellheight = heightPX-10;
         daycellwidth = (int)totalwidthPixel*2/15;
         timecellheight = heightPX;
         timecellwidth = widthDX;
@@ -487,6 +721,7 @@ public class TimeTableFragment extends android.support.v4.app.Fragment {
 
     //리싸이클러뷰를 컨트롤. 총 day, time, timetablecell로 나눠져있음.
     public void setTimeTableArchitectureRecyclerView(){
+
         daycellRV.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         daycellRV.setLayoutManager(llm);
@@ -503,6 +738,83 @@ public class TimeTableFragment extends android.support.v4.app.Fragment {
         timetablecellRV.setLayoutManager(new GridLayoutManager(context, 7));
         timeTableCellAdapter =  new TimeTableCellAdapter(timetable, context);
         timetablecellRV.setAdapter(timeTableCellAdapter);
+        Log.e("흠>?", "뭐야");
+        timetablecellRV.setOnTouchListener(new View.OnTouchListener() {
+
+            //기존에 있는 수업을 선택시 관리하는 함수
+            @Override
+            public boolean onTouch(View view, MotionEvent e) {
+
+                if(MainPage.getAcademyinputstatus() == 1 || MainPage.getTeacherinputstatus() == 1 || MainPage.getCategoryinputstatus() == 1){
+
+                    return false;
+                }
+
+                float x = e.getRawX();
+                float y = e.getRawY();
+                float max = 30*timetablecellheight + actionBarHeight + daycellheight;
+
+                switch (e.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+
+                        if(y > max){
+                            return true;
+                        }
+
+                        int day = turnpxtoweek(x);
+                        int time = turnpxtotime(y);
+                        position = day+time*7;
+                        Log.e("손가락 누름 상태", Integer.toString(position));
+                        initiatenewLecture(position);
+
+                        break;
+
+                    case MotionEvent.ACTION_MOVE:
+
+                        if(y > max + timetablecellheight){
+                            if(detbeg == 0){
+                                savefingerprint();
+                                detbeg = 1;
+                            }
+                            position = 0;
+                            break;
+                        }
+
+                        Log.e("움직임 감지", Integer.toString(position));
+                        int day1 = turnpxtoweek(x);
+                        int time1 = turnpxtotime(y);
+
+                        if(position != (day1 + time1 * 7) || detbeg == 0){
+                            Log.e("움직임시작", Integer.toString(position));
+                            position = day1 + time1*7;
+                            followfinger(position);
+                            Log.e("움직임완료", Integer.toString(position));
+                        }
+
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        Log.e("손가락 뗌", Integer.toString(position));
+                        //vanishtemporarylecture();
+                        if(detbeg == 0){
+                            savefingerprint();
+                            detbeg = 1;
+                        }
+
+                        MainPage.showTimeTableAddTab();
+
+                        position = 0;
+                        break;
+
+                    default:
+                        break;
+                }
+                return true;
+            }
+
+        });
+
+
     }
 
     //기본 타임테이블 세팅
@@ -521,6 +833,7 @@ public class TimeTableFragment extends android.support.v4.app.Fragment {
 
     }
 
+
     /* AsyncTask */
     class IAmABackgroundTask extends
             AsyncTask<String, Integer, Boolean> {
@@ -534,15 +847,18 @@ public class TimeTableFragment extends android.support.v4.app.Fragment {
             timetablecellRV = timetablepage.findViewById(R.id.timetablecellRV);
             addclassplus = timetablepage.findViewById(R.id.addclassplus);
             timetablelayout = timetablepage.findViewById(R.id.timetablerelativelayout);
+            topbanner = timetablepage.findViewById(R.id.timetablebanner);
 
             //setTimetable
             setColorList();
             setTimeTableArchitecture();
             setTimeTableFirst();
-
+            savedidtemp = new ArrayList<>();
+            timetemp = new ArrayList<>();
 
             //setaddClass
             setAddClass();
+
         }
 
         @Override
@@ -555,6 +871,14 @@ public class TimeTableFragment extends android.support.v4.app.Fragment {
 
             return true;
         }
+    }
+
+    public static void setDayCellAdapter(){
+
+        daycellRV.setHasFixedSize(true);
+        dayCellAdapter =  new DayCellAdapter(day, context);
+        daycellRV.setAdapter(dayCellAdapter);
+
     }
 
     /* NotifyDataStateChanged for all adapter */
@@ -610,4 +934,11 @@ public class TimeTableFragment extends android.support.v4.app.Fragment {
         return timetablepage;
     }
 
+    public static RelativeLayout getTopbanner() {return topbanner;}
+
+    public static void setDaycellheight(int height){daycellheight = height;}
+
+    public static DayCellAdapter getDaycellAdapter(){ return dayCellAdapter; }
+
+    public static RelativeLayout getFirstCell(){return firstcell;}
 }

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/schoolrecommendon"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="20dp"
+    android:layout_height="80dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="10dp"
+    android:background="#eeeeee">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.75"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/srcolor"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#F08080"
+                android:padding="1dp">
+
+                <TextView
+                    android:id="@+id/srsubject"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:background="#ffffff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/kbizr"
+                    android:textColor="#F08080"
+                    android:text="국어"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/srdescript"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:fontFamily="@font/nanumgodic"
+                android:textColor="#181818"
+                android:text="김선화, 고1 경기고 내신강의"/>
+
+            <TextView
+                android:id="@+id/srtime"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="@font/nanumgodic"
+                android:textColor="#696969"
+                android:text="수요일 6:00 ~ 10:00"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="#181818"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.25"
+            android:background="@mipmap/miraetamgu"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

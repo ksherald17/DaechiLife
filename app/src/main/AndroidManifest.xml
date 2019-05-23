@@ -26,6 +26,7 @@
             android:windowSoftInputMode="stateHidden"
             android:theme="@style/Theme.AppCompat.Translucent" ></activity>
         <activity android:name=".TimeTableFragment.AddClassTimeTableActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize"
             android:theme="@style/noAnimTheme"></activity>
         <activity android:name=".BoardFragment.board"></activity>
         <activity android:name=".BoardFragment.articledetail"></activity>

@@ -6,24 +6,40 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.softfinger.seunghyun.daechilife.FirstActivity;
 import com.softfinger.seunghyun.daechilife.R;
+import com.softfinger.seunghyun.daechilife.TimeTableFragment.DayCellAdapter;
+import com.softfinger.seunghyun.daechilife.TimeTableFragment.TimeTableFragment;
 
 import java.lang.reflect.Type;
+import java.sql.Time;
+import java.util.ArrayList;
+
+import static android.content.Context.INPUT_METHOD_SERVICE;
 
 public class MainPage extends android.support.v4.app.Fragment {
 
@@ -45,6 +61,18 @@ public class MainPage extends android.support.v4.app.Fragment {
     static ImageView hometapimage, searchtapimage, boardtapimage, timetableimage, mytapimage;
     static int next, prev;
 
+    /* 하단 탭 전환 및 시간표 탭 함수 */
+    static EditText teacher, academy, category;
+    static LinearLayout defaultbottom, timetablebottom;
+    static TextView disabletimetableadd;
+    static LinearLayout timetableadd;
+    static DisplayMetrics metrics;
+
+    static int academyinputstatus = 0;
+    static int teacherinputstatus = 0;
+    static int categoryinputstatus = 0;
+    static int doneacademy, doneteacher, donecategory = 0; //need initialization
+    static ImageView imA, imT, imR;
 
 
     @Override
@@ -80,11 +108,252 @@ public class MainPage extends android.support.v4.app.Fragment {
         timetableimage = mainp.findViewById(R.id.timetabletapimage);
         mytapimage = mainp.findViewById(R.id.mypagetapimage);
 
+        //탭 id
+        defaultbottom = mainp.findViewById(R.id.defaulttoolbarbottom);
+        timetablebottom = mainp.findViewById(R.id.timetableaddtoolbar);
+
+        //추가 id
+        disabletimetableadd = mainp.findViewById(R.id.disableaddtimetable);
+        teacher = mainp.findViewById(R.id.addLectureTeacherET);
+        academy = mainp.findViewById(R.id.addLectureAcademyET);
+        category = mainp.findViewById(R.id.addLectureSubjectET);
+        timetableadd = mainp.findViewById(R.id.addCLectureToTimeTable);
+        imA = mainp.findViewById(R.id.imageA);
+        imT = mainp.findViewById(R.id.imageT);
+        imR = mainp.findViewById(R.id.imageR);
     }
 
     public void setTap(int prev, int next){
         setTapDefault(prev);
         setTapNext(next);
+    }
+
+    //시간표 임의 추가시 나타내는 하단 탭
+    public static void showTimeTableAddTab(){
+        TimeTableFragment.setDaycellheight(TimeTableFragment.getDaycellheight()/2);
+        TimeTableFragment.setDayCellAdapter();
+        TimeTableFragment.getDaycellAdapter().notifyDataSetChanged();
+        TimeTableFragment.getFirstCell().getLayoutParams().height = TimeTableFragment.getDaycellheight();
+        metrics = context.getResources().getDisplayMetrics();
+        float dp = 180 * (metrics.densityDpi / 160f);
+        TimeTableFragment.getTopbanner().setLayoutParams(new LinearLayout.LayoutParams(0,0));
+        defaultbottom.setLayoutParams(new AppBarLayout.LayoutParams(0, 0));
+        timetablebottom.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, (int)dp));
+    }
+
+
+    //임의 추가에 관해 종합적으로 관리하는 코드
+    public static void setTimeTableArbitraryAdd(){
+
+        final InputMethodManager imm = (InputMethodManager)context.getSystemService(INPUT_METHOD_SERVICE);
+
+        //학원 입력에 관해 관리하는 코드
+        academy.setOnTouchListener(new View.OnTouchListener() {
+
+            //기존에 있는 수업을 선택시 관리하는 함수
+            @Override
+            public boolean onTouch(View view, MotionEvent e) {
+
+                switch (e.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        academyinputstatus = 1;
+                        float dp = 400 * (metrics.densityDpi / 160f);
+                        timetablebottom.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, (int)dp));
+                        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                        academy.requestFocus();
+                        break;
+
+                    default:
+                        break;
+                }
+                return true;
+            }
+
+        });
+
+        academy.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                //Enter key Action
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    imA.setImageResource(R.mipmap.checkred);
+                    doneacademy = 1;
+                    Log.e("검토중", teacher.getText().toString());
+                    if(doneteacher == 0){
+                        teacher.requestFocus();
+                        academyinputstatus = 0;
+                        teacherinputstatus = 1;
+                        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                    }
+                    else{
+                        academy.clearFocus();
+                        academyinputstatus = 0;
+                        imm.hideSoftInputFromWindow(academy.getWindowToken(), 0);
+                        float dp = 180 * (metrics.densityDpi / 160f);
+                        timetablebottom.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, (int)dp));
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        //선생님 입력 관리하는 코드
+        teacher.setOnTouchListener(new View.OnTouchListener() {
+
+            //기존에 있는 수업을 선택시 관리하는 함수
+            @Override
+            public boolean onTouch(View view, MotionEvent e) {
+
+                switch (e.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        if(doneacademy == 0 && donecategory == 0){
+                            float dp = 400 * (metrics.densityDpi / 160f);
+                            timetablebottom.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, (int)dp));
+                            teacherinputstatus = 1;
+                            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                        }
+                        else{
+                            teacherinputstatus = 1;
+                            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                        }
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+
+                        break;
+
+                    default:
+                        break;
+                }
+                return true;
+            }
+
+        });
+
+
+        teacher.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                //Enter key Action
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    doneteacher = 1;
+                    imT.setImageResource(R.mipmap.checkred);
+                    if(doneacademy == 0){
+                        academy.requestFocus();
+                        academyinputstatus = 1;
+                        teacherinputstatus = 0;
+                        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+
+                    }
+
+                    else if(donecategory == 0){
+                        category.requestFocus();
+                        categoryinputstatus = 1;
+                        teacherinputstatus = 0;
+                        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                    }
+
+                    else{
+                        teacher.clearFocus();
+                        teacherinputstatus = 0;
+                        imm.hideSoftInputFromWindow(teacher.getWindowToken(), 0);
+                        float dp = 180 * (metrics.densityDpi / 160f);
+                        timetablebottom.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, (int)dp));
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        //과목/단원 입력에 관해 관리하는 코드
+        category.setOnTouchListener(new View.OnTouchListener() {
+
+            //기존에 있는 수업을 선택시 관리하는 함수
+            @Override
+            public boolean onTouch(View view, MotionEvent e) {
+
+                switch (e.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+
+                        categoryinputstatus = 1;
+                        if(doneacademy == 0 || doneteacher == 0){
+                            float dp = 400 * (metrics.densityDpi / 160f);
+                            timetablebottom.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, (int)dp));
+                        }
+                        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                        category.requestFocus();
+                        break;
+
+                    default:
+                        break;
+                }
+                return true;
+            }
+
+        });
+
+        category.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                //Enter key Action
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    imT.setImageResource(R.mipmap.checkred);
+                    donecategory = 1;
+                    Log.e("검토중", teacher.getText().toString());
+                    if(doneteacher == 0){
+                        teacher.requestFocus();
+                        academyinputstatus = 0;
+                        teacherinputstatus = 1;
+                        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                    }
+                    else{
+                        academy.clearFocus();
+                        academyinputstatus = 0;
+                        imm.hideSoftInputFromWindow(academy.getWindowToken(), 0);
+                        float dp = 180 * (metrics.densityDpi / 160f);
+                        timetablebottom.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, (int)dp));
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
+        /* 생성 취소와 관련된 항목 */
+
+        //취소 버튼 눌렀을 때 동작하는 함수
+        disabletimetableadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDefaultTab();
+                TimeTableFragment.vanishtemporarylecture();
+                doneacademy = 0; doneteacher = 0; donecategory = 0; //initialize
+            }
+        });
+        //시간표 추가 버튼을 눌렀을 때 동작하는 함수
+        timetableadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDefaultTab();
+                TimeTableFragment.vanishtemporarylecture();
+                doneacademy = 0; doneteacher = 0; donecategory = 0; //initialize
+            }
+        });
+    }
+
+    public static void showDefaultTab(){
+        TimeTableFragment.setDaycellheight(TimeTableFragment.getDaycellheight()*2);
+        TimeTableFragment.setDayCellAdapter();
+        TimeTableFragment.getDaycellAdapter().notifyDataSetChanged();
+        TimeTableFragment.getFirstCell().getLayoutParams().height = TimeTableFragment.getDaycellheight();
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        float dp = 45 * (metrics.densityDpi / 160f);
+        TimeTableFragment.getTopbanner().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,(int)dp));
+        defaultbottom.setLayoutParams(new AppBarLayout.LayoutParams(AppBarLayout.LayoutParams.MATCH_PARENT, AppBarLayout.LayoutParams.WRAP_CONTENT));
+        timetablebottom.setLayoutParams(new FrameLayout.LayoutParams(0, 0));
     }
 
     //눌렸던 탭을 원상복구 시키는 코드
@@ -277,6 +546,30 @@ public class MainPage extends android.support.v4.app.Fragment {
 
     }
 
+    public static int getAcademyinputstatus(){
+        return academyinputstatus;
+    }
+
+    public static int getTeacherinputstatus(){
+        return teacherinputstatus;
+    }
+
+    public static void setAcademyinputstatus(int a){
+        academyinputstatus = a;
+    }
+
+    public static void setTeacherinputstatus(int a){
+        teacherinputstatus = a;
+    }
+
+    public static int getCategoryinputstatus(){
+        return categoryinputstatus;
+    }
+
+    public static void setCategoryinputstatus(int a){
+        categoryinputstatus = a;
+    }
+
     class IAmABackgroundTask extends
             AsyncTask<String, Integer, Boolean> {
 
@@ -299,12 +592,13 @@ public class MainPage extends android.support.v4.app.Fragment {
             prev = 0;
             next = 0;
             setTapNext(0);
+
         }
 
         @Override
         protected void onPostExecute(Boolean result) {
 
-
+            setTimeTableArbitraryAdd();
 
         }
 
@@ -315,6 +609,8 @@ public class MainPage extends android.support.v4.app.Fragment {
             return true;
         }
     }
+
+
 
 
 

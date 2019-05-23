@@ -28,6 +28,7 @@ import com.smarteist.autoimageslider.SliderView;
 import com.softfinger.seunghyun.daechilife.BoardFragment.BoardFragment;
 import com.softfinger.seunghyun.daechilife.DataModel.BoardHotElement;
 import com.softfinger.seunghyun.daechilife.DataModel.ClassRecommendElement;
+import com.softfinger.seunghyun.daechilife.DataModel.HomeRecommendLecture;
 import com.softfinger.seunghyun.daechilife.DataModel.TeacherElement;
 import com.softfinger.seunghyun.daechilife.FirstActivity;
 import com.softfinger.seunghyun.daechilife.MyFragment.MyFragment;
@@ -53,21 +54,25 @@ public class HomeFragment extends android.support.v4.app.Fragment {
     SliderLayout slider;
 
     /*홈 차트 화면*/
-    RecyclerView homedlchart, homedlclassrecommend, homedlHotBoard, homedlIkmyungBoard;
+    RecyclerView homedlchart, homedlclassrecommend, homedlHotBoard, homedlIkmyungBoard, homeschoolrecommendrv;
+    DLSchoolRecommendAdapter dlSchoolRecommendAdapter;
     DLHomeChartAdapter dlHomeChartAdapter;
     DLClassRecommendAdapter dlClassRecommendAdapter;
     DLBoardHotElementAdapter dlBoardHotElementAdapter;
     DLBoardIkMyungAdapter dlBoardIkMyungAdapter;
+    DLEnterAdapter dlEnterAdapter;
     TabLayout maincharttab;
     ImageView mainbanner;
 
     List<TeacherElement> sampledb;
     List<ClassRecommendElement> samplecrdb;
     List<BoardHotElement> samplehotboarddb, sampleIkMyungBoardDB;
+    List<HomeRecommendLecture> sampleHRdb;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         context = getContext();
         LayoutInflater myInflater = LayoutInflater.from(getContext());
         homepage = myInflater.inflate(R.layout.homepage, null);
@@ -131,20 +136,26 @@ public class HomeFragment extends android.support.v4.app.Fragment {
 
     }
 
-    //메인 홈 수업 추천 함수
-    public void sethomeDLClassRecommend(){
-        samplecrdb = new ArrayList<>();
-        String a1 = "인기많은 고1 수학 선생님들입니다.";
-        ArrayList<String> result = new ArrayList<>();
-        result.add("#현우진");result.add("#이창무");result.add("#권경수");result.add("#현우진");
-        samplecrdb.add(new ClassRecommendElement("이승철", a1, result));
-        samplecrdb.add(new ClassRecommendElement("남예진", a1, result));
+    //메인 홈 경기고 학부모 추천 강의
+    public void setHomeRecommendSchool(){
+        sampleHRdb = new ArrayList<>();
+        HomeRecommendLecture l1 = new HomeRecommendLecture();
+        l1.setAcademy("대찬학원");l1.setCategory("국어");l1.setTeacher("김선화 시 총정리");l1.setTime("일요일 13:00~15:00");
+        HomeRecommendLecture l2 = new HomeRecommendLecture();
+        l2.setAcademy("영독학원");l2.setCategory("영어");l2.setTeacher("영독인 고3 내신 강의");l2.setTime("월요일 18:00~22:00");
+        HomeRecommendLecture l3 = new HomeRecommendLecture();
+        l3.setAcademy("개념상상");l3.setCategory("수학");l3.setTeacher("이승철 고2 내신 강의");l3.setTime("수 18:30~22:00, 토 18:30~22:00");
+        HomeRecommendLecture l4 = new HomeRecommendLecture();
+        l4.setAcademy("미래탐구");l4.setCategory("과학");l4.setTeacher("최수준 서바이벌 모의고사");l4.setTime("일요일 15:00~18:00");
+        sampleHRdb.add(l1);sampleHRdb.add(l2);sampleHRdb.add(l3);sampleHRdb.add(l4);
 
-        homedlclassrecommend.setHasFixedSize(true);
-        LinearLayoutManager llm = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
-        homedlclassrecommend.setLayoutManager(llm);
-        dlClassRecommendAdapter =  new DLClassRecommendAdapter(samplecrdb, context);
-        homedlclassrecommend.setAdapter(dlClassRecommendAdapter);
+        homeschoolrecommendrv.setHasFixedSize(true); //recyclerView has fixed size
+        LinearLayoutManager llm = new LinearLayoutManager(context); //리스트를 생성하는 역할을 한다.
+        homeschoolrecommendrv.setLayoutManager(llm);
+        dlSchoolRecommendAdapter = new DLSchoolRecommendAdapter(sampleHRdb, context);
+        homeschoolrecommendrv.setAdapter(dlSchoolRecommendAdapter);
+
+
     }
 
     //메인 홈 유명게시판 추천 함수
@@ -198,6 +209,23 @@ public class HomeFragment extends android.support.v4.app.Fragment {
 
     }
 
+    //대학입학전형 차트
+    public void sethomeEntranceRV(){
+
+        List<String> schoolname = new ArrayList<>();
+        List<Integer> schoolimage = new ArrayList<>();
+        schoolname.add("서울대학교"); schoolname.add("연세대학교");schoolname.add("이화여대");schoolname.add("고려대학교");
+        schoolname.add("카이스트");schoolname.add("성균관대학교");
+        schoolimage.add(R.mipmap.seoul);schoolimage.add(R.mipmap.akaraka);schoolimage.add(R.mipmap.ewha);
+        schoolimage.add(R.mipmap.godae);schoolimage.add(R.mipmap.kaist);
+        schoolimage.add(R.mipmap.seoungyunkwan);
+        RecyclerView entranceRV = homepage.findViewById(R.id.entranceRV);
+        entranceRV.setHasFixedSize(true); //recyclerView has fixed size
+        dlEnterAdapter = new DLEnterAdapter(schoolname, schoolimage, context);
+        entranceRV.setAdapter(dlEnterAdapter);
+
+    }
+
     class IAmABackgroundTask extends
             AsyncTask<String, Integer, Boolean> {
 
@@ -206,15 +234,16 @@ public class HomeFragment extends android.support.v4.app.Fragment {
 
             //slider = homepage.findViewById(R.id.bannerSlider);
             homedlchart = homepage.findViewById(R.id.dlhomechart);
-            homedlclassrecommend = homepage.findViewById(R.id.homedlclassrecommendRV);
             homedlHotBoard = homepage.findViewById(R.id.homeboardhotRV);
             homedlIkmyungBoard = homepage.findViewById(R.id.hometalkRV);
             maincharttab = homepage.findViewById(R.id.maincharttab);
+            homeschoolrecommendrv = homepage.findViewById(R.id.homerecommendschoolRV);
 
             sethomeDLchart();
-            sethomeDLClassRecommend();
             sethomeDLHotBoard();
             sethomeDLIkMyungBoard();
+            sethomeEntranceRV();
+            setHomeRecommendSchool();
         }
 
         @Override
@@ -225,8 +254,6 @@ public class HomeFragment extends android.support.v4.app.Fragment {
 
         @Override
         protected Boolean doInBackground(String... params) {
-
-
 
 
             return true;

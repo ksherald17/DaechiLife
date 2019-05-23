@@ -7,7 +7,9 @@ import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -22,6 +24,7 @@ import com.softfinger.seunghyun.daechilife.DataModel.TeacherElement;
 import java.util.List;
 
 public class TimeTableCellAdapter extends RecyclerView.Adapter<TimeTableCellAdapter.TimeTableViewHolder> { //데이터와 아이템에 대한 뷰를 생성하는 역할
+
     //implements Filterable
     static List<String> timetable_real;
     private List<String> timetable_lists;
@@ -65,6 +68,7 @@ public class TimeTableCellAdapter extends RecyclerView.Adapter<TimeTableCellAdap
         return timetable_lists.size();
     }
 
+
     @Override
     public TimeTableCellAdapter.TimeTableViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) { //time when viewholder needs to be initialized
         context = viewGroup.getContext();
@@ -85,12 +89,6 @@ public class TimeTableCellAdapter extends RecyclerView.Adapter<TimeTableCellAdap
 
         final int pos = position;
 
-        celllayout.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-
-            }
-        });
 
         cellTV.setText(cell);
     }
