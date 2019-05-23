@@ -112,12 +112,12 @@ public class HomeFragment extends android.support.v4.app.Fragment {
     //메인 홈 차트 출력 함수
     public void sethomeDLchart(){
 
-        mainbanner = homepage.findViewById(R.id.mainbanner);
-        Resources res = getResources();
-        Bitmap src = BitmapFactory.decodeResource(res, R.mipmap.mainbanner1);
-        RoundedBitmapDrawable dr = RoundedBitmapDrawableFactory.create(res, src);
-        dr.setCornerRadius(15);
-        mainbanner.setImageDrawable(dr);
+        //mainbanner = homepage.findViewById(R.id.mainbanner);
+        //Resources res = getResources();
+        //Bitmap src = BitmapFactory.decodeResource(res, R.mipmap.mainbanner1);
+        //RoundedBitmapDrawable dr = RoundedBitmapDrawableFactory.create(res, src);
+        //dr.setCornerRadius(15);
+        //mainbanner.setImageDrawable(dr);
 
         //연습용 DB세팅
         sampledb = new ArrayList<>();
