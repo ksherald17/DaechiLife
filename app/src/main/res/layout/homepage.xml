@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:layout_marginTop="-500dp"
+    tools:layout_marginTop="0dp"
     android:layout_width="match_parent"
     android:scrollbars="vertical"
     android:scrollbarFadeDuration="2"
@@ -28,7 +28,6 @@
                 app:cardElevation="1dp">
 
                 <LinearLayout
-                    android:paddingTop="4dp"
                     android:layout_width="match_parent"
                     android:background="#ffffff"
                     android:layout_height="wrap_content"
@@ -36,33 +35,34 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="#ffffff"
+                        android:layout_height="55dp"
+                        android:background="#f5f5f5"
                         android:orientation="horizontal"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="7dp"
+                        android:paddingTop="12dp"
                         android:gravity="center_vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
+                            android:layout_marginBottom="10dp"
                             android:orientation="horizontal">
 
                             <TextView
-                                android:layout_marginLeft="20dp"
+                                android:layout_marginLeft="15dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="Daechi IT"
-                                android:fontFamily="@font/titlefont"
-                                android:textColor="#ed1d24"
-                                android:textSize="28dp"
+                                android:text="Daechi IT! "
+                                android:fontFamily="@font/rustico"
+                                android:textColor="#DC143C"
+                                android:textSize="22dp"
+                                android:paddingBottom="5dp"
                                 android:gravity="center"/>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
-                                android:layout_marginLeft="15dp"
+                                android:layout_marginLeft="12dp"
                                 android:layout_marginRight="8dp"
                                 android:background="@drawable/redcorner"
                                 android:gravity="center">
@@ -70,8 +70,8 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_marginTop="3dp"
-                                    android:layout_marginBottom="3dp"
+                                    android:layout_marginTop="1dp"
+                                    android:layout_marginBottom="1dp"
                                     android:layout_marginLeft="8dp"
                                     android:layout_marginRight="5dp"
                                     android:background="#ffffff">
@@ -84,7 +84,7 @@
                                         android:textColor="#181818"
                                         android:fontFamily="@font/nanumgodic"
                                         android:textColorHint="#707070"
-                                        android:hint="선생님, 학원, 학교명으로 수업을 검색하세요."
+                                        android:hint="대치동의 수업들을 검색해보세요."
                                         android:focusedByDefault="false"
                                         android:background="@android:color/transparent"/>
 
@@ -105,15 +105,13 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="155dp"
+                        android:layout_height="160dp"
                         android:orientation="vertical"
                         >
 
                         <ImageView
                             android:layout_marginLeft="0dp"
                             android:layout_marginRight="0dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp"
                             android:id="@+id/mainbanner2"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -127,7 +125,7 @@
                     <LinearLayout
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="13dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:weightSum="1"
@@ -143,14 +141,14 @@
 
                             <ImageView
                                 android:layout_marginTop="2dp"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@mipmap/korean"/>
 
                             <TextView
-                                android:layout_marginTop="3dp"
+                                android:layout_marginTop="5dp"
                                 android:textColor="#181818"
-                                android:textSize="15sp"
+                                android:textSize="13sp"
                                 android:layout_width="wrap_content"
                                 android:fontFamily="@font/nanumgodic"
                                 android:layout_height="wrap_content"
@@ -167,14 +165,14 @@
 
                             <ImageView
                                 android:layout_marginTop="2dp"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="27dp"
+                                android:layout_height="30dp"
                                 android:src="@mipmap/mathicon"/>
 
                             <TextView
-                                android:layout_marginTop="3dp"
+                                android:layout_marginTop="5dp"
                                 android:textColor="#181818"
-                                android:textSize="15sp"
+                                android:textSize="13sp"
                                 android:layout_width="wrap_content"
                                 android:fontFamily="@font/nanumgodic"
                                 android:layout_height="wrap_content"
@@ -191,14 +189,14 @@
 
                             <ImageView
                                 android:layout_marginTop="2dp"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@mipmap/englishicon"/>
 
                             <TextView
-                                android:layout_marginTop="3dp"
+                                android:layout_marginTop="5dp"
                                 android:textColor="#181818"
-                                android:textSize="15sp"
+                                android:textSize="13sp"
                                 android:layout_width="wrap_content"
                                 android:fontFamily="@font/nanumgodic"
                                 android:layout_height="wrap_content"
@@ -215,14 +213,14 @@
 
                             <ImageView
                                 android:layout_marginTop="2dp"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@mipmap/scienceicon"/>
 
                             <TextView
-                                android:layout_marginTop="3dp"
+                                android:layout_marginTop="5dp"
                                 android:textColor="#181818"
-                                android:textSize="15sp"
+                                android:textSize="13sp"
                                 android:layout_width="wrap_content"
                                 android:fontFamily="@font/nanumgodic"
                                 android:layout_height="wrap_content"
@@ -239,14 +237,14 @@
 
                             <ImageView
                                 android:layout_marginTop="2dp"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@mipmap/socialicon"/>
 
                             <TextView
-                                android:layout_marginTop="3dp"
+                                android:layout_marginTop="5dp"
                                 android:textColor="#181818"
-                                android:textSize="15sp"
+                                android:textSize="13sp"
                                 android:layout_width="wrap_content"
                                 android:fontFamily="@font/nanumgodic"
                                 android:layout_height="wrap_content"
@@ -276,14 +274,14 @@
 
                             <ImageView
                                 android:layout_marginTop="2dp"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
-                                android:src="@mipmap/one"/>
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@mipmap/firsticon"/>
 
                             <TextView
-                                android:layout_marginTop="3dp"
+                                android:layout_marginTop="5dp"
                                 android:textColor="#181818"
-                                android:textSize="15sp"
+                                android:textSize="13sp"
                                 android:layout_width="wrap_content"
                                 android:fontFamily="@font/nanumgodic"
                                 android:layout_height="wrap_content"
@@ -300,14 +298,14 @@
 
                             <ImageView
                                 android:layout_marginTop="2dp"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@mipmap/two"/>
 
                             <TextView
-                                android:layout_marginTop="3dp"
+                                android:layout_marginTop="5dp"
                                 android:textColor="#181818"
-                                android:textSize="15sp"
+                                android:textSize="13sp"
                                 android:layout_width="wrap_content"
                                 android:fontFamily="@font/nanumgodic"
                                 android:layout_height="wrap_content"
@@ -324,14 +322,14 @@
 
                             <ImageView
                                 android:layout_marginTop="2dp"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@mipmap/three"/>
 
                             <TextView
-                                android:layout_marginTop="3dp"
+                                android:layout_marginTop="5dp"
                                 android:textColor="#181818"
-                                android:textSize="15sp"
+                                android:textSize="13sp"
                                 android:layout_width="wrap_content"
                                 android:fontFamily="@font/nanumgodic"
                                 android:layout_height="wrap_content"
@@ -348,14 +346,14 @@
 
                             <ImageView
                                 android:layout_marginTop="2dp"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@mipmap/best"/>
 
                             <TextView
-                                android:layout_marginTop="3dp"
+                                android:layout_marginTop="5dp"
                                 android:textColor="#181818"
-                                android:textSize="15sp"
+                                android:textSize="13sp"
                                 android:layout_width="wrap_content"
                                 android:fontFamily="@font/nanumgodic"
                                 android:layout_height="wrap_content"
@@ -372,14 +370,14 @@
 
                             <ImageView
                                 android:layout_marginTop="2dp"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
-                                android:src="@mipmap/team"/>
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@mipmap/teamicon"/>
 
                             <TextView
-                                android:layout_marginTop="3dp"
+                                android:layout_marginTop="5dp"
                                 android:textColor="#181818"
-                                android:textSize="15sp"
+                                android:textSize="13sp"
                                 android:layout_width="wrap_content"
                                 android:fontFamily="@font/nanumgodic"
                                 android:layout_height="wrap_content"
@@ -396,29 +394,8 @@
 
             </android.support.v7.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:orientation="vertical"
-                >
-
-                <ImageView
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginRight="0dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:id="@+id/mainbanner"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@mipmap/mainbanner2"
-                    android:background="#ffffff"
-                    android:scaleType="fitXY" />
-
-
-            </LinearLayout>
-
             <android.support.v7.widget.CardView
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="0dp"
@@ -438,7 +415,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="랭킹"
+                            android:text="실시간 인기순위"
                             android:layout_marginLeft="15dp"
                             android:layout_marginBottom="5dp"
                             android:textColor="#181818"
@@ -453,6 +430,7 @@
 
                             <ImageView
                                 android:layout_width="14dp"
+                                android:paddingTop="2dp"
                                 android:layout_marginRight="5dp"
                                 android:layout_gravity="center_vertical"
                                 android:layout_height="match_parent"
@@ -578,71 +556,91 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_marginTop="8dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="450dp"
-                        android:background="#ffffff"
-                        >
+                <LinearLayout
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="465dp"
+                    android:background="#ffffff"
+                    >
 
-                        <RelativeLayout
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
                             android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:background="#DC143C"
+                            >
+
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:id="@+id/homerecommendschool"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="22sp"
+                            android:fontFamily="@font/nanumgodic"
+                            android:layout_marginLeft="20dp"
+                            android:textStyle=""
+                            android:layout_marginTop="55dp"
+                            android:textColor="#ffffff"
+                            android:text="경기고 학부모's CHOICE"/>
+
+                        <TextView
+                            android:layout_below="@id/homerecommendschool"
+                            android:id="@+id/homerecommendschooldes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/nanumgodic"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#ffffff"
+                            android:text="현재 경기고생들이 가장 관심 가지고 있는 수업들!"/>
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/homerecommendschoolRV"
+                            android:layout_below="@id/homerecommendschooldes"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="5dp"
                             android:layout_height="match_parent">
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="130dp"
-                                android:background="#DC143C"
-                                >
 
-                            </LinearLayout>
-
-
-                            <TextView
-                                android:id="@+id/homerecommendschool"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="22sp"
-                                android:fontFamily="@font/nanumgodic"
-                                android:layout_marginLeft="20dp"
-                                android:textStyle=""
-                                android:layout_marginTop="55dp"
-                                android:textColor="#ffffff"
-                                android:text="경기고 학부모's CHOICE"/>
-
-                            <TextView
-                                android:layout_below="@id/homerecommendschool"
-                                android:id="@+id/homerecommendschooldes"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="14sp"
-                                android:fontFamily="@font/nanumgodic"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginTop="5dp"
-                                android:textColor="#ffffff"
-                                android:text="현재 경기고생들이 가장 관심 가지고 있는 수업들!"/>
-
-                            <android.support.v7.widget.RecyclerView
-                                android:id="@+id/homerecommendschoolRV"
-                                android:layout_below="@id/homerecommendschooldes"
-                                android:layout_width="match_parent"
-                                android:layout_marginTop="5dp"
-                                android:layout_height="match_parent">
-
-
-                            </android.support.v7.widget.RecyclerView>
+                        </android.support.v7.widget.RecyclerView>
 
 
 
 
-                        </RelativeLayout>
+                    </RelativeLayout>
 
 
-                    </LinearLayout>
+                </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:orientation="vertical"
+                    >
+
+                    <ImageView
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="0dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/mainbanner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/mainbanner2"
+                        android:background="#ffffff"
+                        android:scaleType="fitXY" />
+
+
+                </LinearLayout>
 
                     <LinearLayout
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="0dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -823,184 +821,10 @@
 
                         </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_marginTop="8dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:orientation="vertical"
-                        android:background="#ffffff">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="39dp"
-                            android:orientation="horizontal"
-                            android:weightSum="1">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.249"
-                                android:text="국어"
-                                android:fontFamily="@font/nanumgodic"
-                                android:gravity="center"
-                                android:textSize="15sp"
-                                />
-
-                            <View
-                                android:layout_width="0.5dp"
-                                android:layout_height="match_parent"
-                                android:background="#ededed"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.249"
-                                android:text="수학"
-                                android:fontFamily="@font/nanumgodic"
-                                android:gravity="center"
-                                android:textSize="15sp"
-                                />
-
-                            <View
-                                android:layout_width="0.5dp"
-                                android:layout_height="match_parent"
-                                android:background="#ededed"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.249"
-                                android:text="영어"
-                                android:fontFamily="@font/nanumgodic"
-                                android:gravity="center"
-                                android:textSize="15sp"
-                                />
-
-                            <View
-                                android:layout_width="0.5dp"
-                                android:layout_height="match_parent"
-                                android:background="#ededed"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.249"
-                                android:text="과탐"
-                                android:fontFamily="@font/nanumgodic"
-                                android:gravity="center"
-                                android:textSize="15sp"
-                                />
-
-
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="#ededed"/>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="39dp"
-                            android:orientation="horizontal"
-                            android:weightSum="1">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.249"
-                                android:text="고1"
-                                android:fontFamily="@font/nanumgodic"
-                                android:gravity="center"
-                                android:textSize="15sp"
-                                />
-
-                            <View
-                                android:layout_width="0.5dp"
-                                android:layout_height="match_parent"
-                                android:background="#ededed"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.249"
-                                android:text="고2"
-                                android:fontFamily="@font/nanumgodic"
-                                android:gravity="center"
-                                android:textSize="15sp"
-                                />
-
-                            <View
-                                android:layout_width="0.5dp"
-                                android:layout_height="match_parent"
-                                android:background="#ededed"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.249"
-                                android:text="고3"
-                                android:fontFamily="@font/nanumgodic"
-                                android:gravity="center"
-                                android:textSize="15sp"
-                                />
-
-                            <View
-                                android:layout_width="0.5dp"
-                                android:layout_height="match_parent"
-                                android:background="#ededed"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.249"
-                                android:text="서울대생"
-                                android:fontFamily="@font/nanumgodic"
-                                android:gravity="center"
-                                android:textSize="15sp"
-                                android:textColor="#707070"
-                                />
-
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
 
 
                 </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="8dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:orientation="vertical"
-                        android:background="#ffffff">
-
-                        <LinearLayout
-                            android:layout_marginTop="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="최신수업"
-                                android:layout_marginLeft="15dp"
-                                android:layout_marginBottom="2dp"
-                                android:textColor="#181818"
-                                android:textSize="20sp"/>
-
-                        </LinearLayout>
-
-                        <android.support.v7.widget.RecyclerView
-                            android:layout_marginTop="3dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                        </android.support.v7.widget.RecyclerView>
-
-                    </LinearLayout>
 
 
                     </LinearLayout>
