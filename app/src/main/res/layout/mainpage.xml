@@ -24,6 +24,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:elevation="3dp"
                 android:id="@+id/tablayout">
 
                 <android.support.design.widget.AppBarLayout
@@ -66,10 +67,6 @@
                                 android:layout_height="match_parent"
                                 android:orientation="vertical">
 
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0.5dp"
-                                    android:background="#BEBEBE"/>
 
 
                                 <LinearLayout
@@ -101,6 +98,7 @@
                                             android:layout_width="match_parent"
                                             android:layout_height="0dp"
                                             android:layout_weight="0.6"
+                                            android:padding="2dp"
                                             android:src="@drawable/home"/>
 
                                         <TextView
@@ -115,8 +113,6 @@
                                             android:text="@string/hometap"/>
 
                                     </LinearLayout>
-
-
 
                                     <LinearLayout
                                         android:id="@+id/searchtaplayout"
@@ -135,6 +131,7 @@
                                             android:layout_marginRight="3dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="0dp"
+                                            android:padding="2dp"
                                             android:layout_weight="0.6"
                                             android:src="@drawable/searchtap"/>
 
@@ -166,6 +163,7 @@
                                             android:layout_marginTop="5dp"
                                             android:layout_marginLeft="3dp"
                                             android:layout_marginRight="3dp"
+                                            android:padding="2dp"
                                             android:layout_width="match_parent"
                                             android:layout_height="0dp"
                                             android:layout_weight="0.6"
@@ -202,6 +200,7 @@
                                             android:layout_width="match_parent"
                                             android:layout_height="0dp"
                                             android:layout_weight="0.6"
+                                            android:padding="2dp"
                                             android:src="@drawable/boardtap"/>
 
                                         <TextView
@@ -228,6 +227,7 @@
                                         android:weightSum="1">
 
                                         <ImageView
+                                            android:padding="2dp"
                                             android:id="@+id/mypagetapimage"
                                             android:layout_marginTop="5dp"
                                             android:layout_marginLeft="3dp"
@@ -319,6 +319,7 @@
                                     android:textSize="15sp"
                                     android:textColorHint="#A0A0A0"
                                     android:hint="대칫학원"
+                                    android:focusableInTouchMode="true"
                                     android:layout_marginLeft="20dp"
                                     android:textColor="#808080"/>
 
@@ -376,6 +377,7 @@
                                     android:textSize="15sp"
                                     android:textColorHint="#A0A0A0"
                                     android:hint="홍길동"
+                                    android:focusableInTouchMode="true"
                                     android:layout_marginLeft="20dp"
                                     android:textColor="#808080"/>
 
@@ -425,6 +427,7 @@
                                     android:fontFamily="@font/sregular"/>
 
                                 <EditText
+                                    android:focusableInTouchMode="true"
                                     android:id="@+id/addLectureSubjectET"
                                     android:layout_width="match_parent"
                                     android:fontFamily="@font/sregular"
@@ -484,6 +487,7 @@
                                     android:fontFamily="@font/sregular"/>
 
                                 <TextView
+                                    android:id="@+id/addcustomtime"
                                     android:layout_width="match_parent"
                                     android:fontFamily="@font/sregular"
                                     android:layout_height="wrap_content"
@@ -508,7 +512,7 @@
                                     android:fontFamily="@font/sregular"
                                     android:textColor="#ef9a9a"
                                     android:gravity="right|center_vertical"
-                                    android:text="드래그 및 요일 탭"/>
+                                    android:text="드래그, 요일 탭으로 추가"/>
 
                             </LinearLayout>
 

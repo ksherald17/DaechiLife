@@ -38,6 +38,7 @@ import com.softfinger.seunghyun.daechilife.TimeTableFragment.TimeTableFragment;
 import java.lang.reflect.Type;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.List;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
@@ -64,13 +65,12 @@ public class MainPage extends android.support.v4.app.Fragment {
     /* 하단 탭 전환 및 시간표 탭 함수 */
     static EditText teacher, academy, category;
     static LinearLayout defaultbottom, timetablebottom;
-    static TextView disabletimetableadd;
+    static TextView disabletimetableadd, time;
     static LinearLayout timetableadd;
     static DisplayMetrics metrics;
+    static int tapheightodd = 0;
 
-    static int academyinputstatus = 0;
-    static int teacherinputstatus = 0;
-    static int categoryinputstatus = 0;
+    static List<Integer> enteringstatus;
     static int doneacademy, doneteacher, donecategory = 0; //need initialization
     static ImageView imA, imT, imR;
 
@@ -84,6 +84,7 @@ public class MainPage extends android.support.v4.app.Fragment {
         new MainPage.IAmABackgroundTask().execute();
         return mainp;
     }
+
 
     public void setTapViewID(){
 
@@ -121,7 +122,9 @@ public class MainPage extends android.support.v4.app.Fragment {
         imA = mainp.findViewById(R.id.imageA);
         imT = mainp.findViewById(R.id.imageT);
         imR = mainp.findViewById(R.id.imageR);
+        time = mainp.findViewById(R.id.addcustomtime);
     }
+
 
     public void setTap(int prev, int next){
         setTapDefault(prev);
@@ -130,24 +133,26 @@ public class MainPage extends android.support.v4.app.Fragment {
 
     //시간표 임의 추가시 나타내는 하단 탭
     public static void showTimeTableAddTab(){
-        TimeTableFragment.setDaycellheight(TimeTableFragment.getDaycellheight()/2);
-        TimeTableFragment.setDayCellAdapter();
-        TimeTableFragment.getDaycellAdapter().notifyDataSetChanged();
-        TimeTableFragment.getFirstCell().getLayoutParams().height = TimeTableFragment.getDaycellheight();
+
         metrics = context.getResources().getDisplayMetrics();
         float dp = 180 * (metrics.densityDpi / 160f);
         TimeTableFragment.getTopbanner().setLayoutParams(new LinearLayout.LayoutParams(0,0));
         defaultbottom.setLayoutParams(new AppBarLayout.LayoutParams(0, 0));
         timetablebottom.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, (int)dp));
-    }
+        enteringstatus = new ArrayList<>();
 
+        Log.e("머리가띵", TimeTableFragment.getTemptimesaved());
+        //여기서 시간 길어지는거에 대한 종합적인 관리가 필요
+        time.setText(TimeTableFragment.getTemptimesaved());
+
+    }
 
     //임의 추가에 관해 종합적으로 관리하는 코드
     public static void setTimeTableArbitraryAdd(){
 
         final InputMethodManager imm = (InputMethodManager)context.getSystemService(INPUT_METHOD_SERVICE);
 
-        //학원 입력에 관해 관리하는 코드
+        /*학원 입력에 관해 관리하는 코드*/
         academy.setOnTouchListener(new View.OnTouchListener() {
 
             //기존에 있는 수업을 선택시 관리하는 함수
@@ -156,38 +161,61 @@ public class MainPage extends android.support.v4.app.Fragment {
 
                 switch (e.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        academyinputstatus = 1;
-                        float dp = 400 * (metrics.densityDpi / 160f);
-                        timetablebottom.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, (int)dp));
-                        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-                        academy.requestFocus();
+
+                        //처음 누르는 상황이라면
+                        if(enteringstatus.size() == 0){
+                            float dp = 400 * (metrics.densityDpi / 160f);
+                            timetablebottom.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, (int)dp));
+                            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                            //academy.requestFocus();
+                            enteringstatus.add(0);enteringstatus.add(0);enteringstatus.add(0);
+                        }
+
+                        academy.setText("");
+                        enteringstatus.set(0,0);
+
+                        //다른 항목들을 입력한 상황이었다면
+                        if(teacher.getText().toString() != null && teacher.getText().toString() != ""){
+                            enteringstatus.set(1,1);
+                            imT.setImageResource(R.mipmap.checkred);
+                        }
+
+                        if(category.getText().toString() != null && category.getText().toString() != ""){
+                            enteringstatus.set(2,1);
+                            imR.setImageResource(R.mipmap.checkred);
+                        }
+
                         break;
 
                     default:
                         break;
                 }
                 return true;
+
             }
 
         });
 
+        //학원 입력 종료를 아는 방법?
         academy.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                //Enter key Action
+                //모든 입력창에 대한 관리가 있어야 해
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
                     imA.setImageResource(R.mipmap.checkred);
-                    doneacademy = 1;
-                    Log.e("검토중", teacher.getText().toString());
-                    if(doneteacher == 0){
+                    if(enteringstatus.get(1) == 0){
                         teacher.requestFocus();
-                        academyinputstatus = 0;
-                        teacherinputstatus = 1;
+                        enteringstatus.set(0, 1);
+                        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                    }
+                    else if(enteringstatus.get(2) == 0){
+                        category.requestFocus();
+                        enteringstatus.set(0, 1);
                         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
                     }
                     else{
                         academy.clearFocus();
-                        academyinputstatus = 0;
+                        enteringstatus.set(0, 1);
                         imm.hideSoftInputFromWindow(academy.getWindowToken(), 0);
                         float dp = 180 * (metrics.densityDpi / 160f);
                         timetablebottom.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, (int)dp));
@@ -207,17 +235,31 @@ public class MainPage extends android.support.v4.app.Fragment {
 
                 switch (e.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        if(doneacademy == 0 && donecategory == 0){
+
+                        //처음 누르는 상황이라면
+                        if(enteringstatus.size() == 0){
                             float dp = 400 * (metrics.densityDpi / 160f);
                             timetablebottom.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, (int)dp));
-                            teacherinputstatus = 1;
                             imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                            //academy.requestFocus();
+                            enteringstatus.add(0);enteringstatus.add(0);enteringstatus.add(0);
                         }
-                        else{
-                            teacherinputstatus = 1;
-                            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+
+                        teacher.setText("");
+                        enteringstatus.set(1,0);
+
+                        //다른 항목들을 입력한 상황이었다면
+                        if(enteringstatus.get(0) != 1) {
+                            if (academy.getText().toString() != null && academy.getText().toString() != "") {
+                                enteringstatus.set(0, 1);
+                                imA.setImageResource(R.mipmap.checkred);
+                            }
                         }
-                        break;
+
+                        if(category.getText().toString() != null && category.getText().toString() != ""){
+                            enteringstatus.set(2,1);
+                            imR.setImageResource(R.mipmap.checkred);
+                        }
 
                     case MotionEvent.ACTION_UP:
 
@@ -231,33 +273,26 @@ public class MainPage extends android.support.v4.app.Fragment {
 
         });
 
-
         teacher.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 //Enter key Action
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    doneteacher = 1;
-                    imT.setImageResource(R.mipmap.checkred);
-                    if(doneacademy == 0){
+                    imA.setImageResource(R.mipmap.checkred);
+                    if(enteringstatus.get(0) == 0){
                         academy.requestFocus();
-                        academyinputstatus = 1;
-                        teacherinputstatus = 0;
+                        enteringstatus.set(1, 1);
                         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-
                     }
-
-                    else if(donecategory == 0){
+                    else if(enteringstatus.get(2) == 0){
                         category.requestFocus();
-                        categoryinputstatus = 1;
-                        teacherinputstatus = 0;
+                        enteringstatus.set(1, 1);
                         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
                     }
-
                     else{
                         teacher.clearFocus();
-                        teacherinputstatus = 0;
-                        imm.hideSoftInputFromWindow(teacher.getWindowToken(), 0);
+                        enteringstatus.set(1, 1);
+                        imm.hideSoftInputFromWindow(academy.getWindowToken(), 0);
                         float dp = 180 * (metrics.densityDpi / 160f);
                         timetablebottom.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, (int)dp));
                     }
@@ -277,13 +312,34 @@ public class MainPage extends android.support.v4.app.Fragment {
                 switch (e.getAction()) {
                     case MotionEvent.ACTION_DOWN:
 
-                        categoryinputstatus = 1;
-                        if(doneacademy == 0 || doneteacher == 0){
+                        //처음 누르는 상황이라면
+                        if(enteringstatus.size() == 0){
                             float dp = 400 * (metrics.densityDpi / 160f);
                             timetablebottom.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, (int)dp));
+                            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                            //academy.requestFocus();
+                            enteringstatus.add(0);enteringstatus.add(0);enteringstatus.add(0);
                         }
-                        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-                        category.requestFocus();
+
+                        category.setText("");
+                        enteringstatus.set(2,0);
+
+                        //다른 항목들을 입력한 상황이었다면
+                        if(enteringstatus.get(0) == 0) {
+                            if (academy.getText().toString() != "" && academy.getText().toString() != null) {
+                                enteringstatus.set(0, 1);
+                                imA.setImageResource(R.mipmap.checkred);
+                            }
+                        }
+
+                        if(enteringstatus.get(1) == 0) {
+                            if (teacher.getText().toString() != "" && teacher.getText().toString() != null) {
+                                enteringstatus.set(1, 1);
+                                imR.setImageResource(R.mipmap.checkred);
+                            }
+                        }
+
+
                         break;
 
                     default:
@@ -299,18 +355,20 @@ public class MainPage extends android.support.v4.app.Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 //Enter key Action
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    imT.setImageResource(R.mipmap.checkred);
-                    donecategory = 1;
-                    Log.e("검토중", teacher.getText().toString());
-                    if(doneteacher == 0){
+                    imA.setImageResource(R.mipmap.checkred);
+                    if(enteringstatus.get(0) == 0){
+                        academy.requestFocus();
+                        enteringstatus.set(2, 1);
+                        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                    }
+                    else if(enteringstatus.get(1) == 0){
                         teacher.requestFocus();
-                        academyinputstatus = 0;
-                        teacherinputstatus = 1;
+                        enteringstatus.set(2, 1);
                         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
                     }
                     else{
-                        academy.clearFocus();
-                        academyinputstatus = 0;
+                        category.clearFocus();
+                        enteringstatus.set(2, 1);
                         imm.hideSoftInputFromWindow(academy.getWindowToken(), 0);
                         float dp = 180 * (metrics.densityDpi / 160f);
                         timetablebottom.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, (int)dp));
@@ -321,7 +379,6 @@ public class MainPage extends android.support.v4.app.Fragment {
             }
         });
 
-
         /* 생성 취소와 관련된 항목 */
 
         //취소 버튼 눌렀을 때 동작하는 함수
@@ -330,25 +387,32 @@ public class MainPage extends android.support.v4.app.Fragment {
             public void onClick(View v) {
                 showDefaultTab();
                 TimeTableFragment.vanishtemporarylecture();
-                doneacademy = 0; doneteacher = 0; donecategory = 0; //initialize
+                TimeTableFragment.setTemptimesaved(null);
+                enteringstatus = null;
             }
         });
-        //시간표 추가 버튼을 눌렀을 때 동작하는 함수
+
+        //시간표 추가 버튼을 눌렀을 때 동작하는 함수 <============ DB랑 연동이 되어야 해.
         timetableadd.setOnClickListener(new View.OnClickListener() {
+
+            String teacherT, academyT, categoryT;
+
+
             @Override
             public void onClick(View v) {
+
+                teacherT = teacher.getText().toString(); academyT = academy.getText().toString(); categoryT = category.getText().toString();
+
                 showDefaultTab();
                 TimeTableFragment.vanishtemporarylecture();
-                doneacademy = 0; doneteacher = 0; donecategory = 0; //initialize
+                enteringstatus = null;
+                TimeTableFragment.setTemptimesaved(null);
             }
         });
     }
 
+    //원상복귀 시키는 코드
     public static void showDefaultTab(){
-        TimeTableFragment.setDaycellheight(TimeTableFragment.getDaycellheight()*2);
-        TimeTableFragment.setDayCellAdapter();
-        TimeTableFragment.getDaycellAdapter().notifyDataSetChanged();
-        TimeTableFragment.getFirstCell().getLayoutParams().height = TimeTableFragment.getDaycellheight();
         DisplayMetrics metrics = context.getResources().getDisplayMetrics();
         float dp = 45 * (metrics.densityDpi / 160f);
         TimeTableFragment.getTopbanner().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,(int)dp));
@@ -546,30 +610,6 @@ public class MainPage extends android.support.v4.app.Fragment {
 
     }
 
-    public static int getAcademyinputstatus(){
-        return academyinputstatus;
-    }
-
-    public static int getTeacherinputstatus(){
-        return teacherinputstatus;
-    }
-
-    public static void setAcademyinputstatus(int a){
-        academyinputstatus = a;
-    }
-
-    public static void setTeacherinputstatus(int a){
-        teacherinputstatus = a;
-    }
-
-    public static int getCategoryinputstatus(){
-        return categoryinputstatus;
-    }
-
-    public static void setCategoryinputstatus(int a){
-        categoryinputstatus = a;
-    }
-
     class IAmABackgroundTask extends
             AsyncTask<String, Integer, Boolean> {
 
@@ -610,8 +650,7 @@ public class MainPage extends android.support.v4.app.Fragment {
         }
     }
 
-
-
-
-
+    public static List<Integer> getEnteringstatus() {
+        return enteringstatus;
+    }
 }

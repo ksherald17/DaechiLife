@@ -5,44 +5,73 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     android:orientation="vertical">
 
     <RelativeLayout
+        android:layout_marginTop="2dp"
         android:id="@+id/timetablebanner"
-        android:background="#e26e6e"
+        android:background="#ffffff"
         android:layout_width="match_parent"
-        android:layout_height="45dp">
+        android:layout_height="44dp">
 
 
         <RelativeLayout
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:weightSum="1">
 
-            <ImageView
+            <LinearLayout
                 android:layout_marginLeft="15dp"
-                android:layout_centerVertical="true"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@mipmap/whitebox"/>
-
-            <TextView
-                android:layout_centerInParent="true"
-                android:id="@+id/timetablename"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textSize="17sp"
-                android:textColor="#ffffff"
-                android:text="시간표"
-                android:textStyle="bold"
-                android:fontFamily="@font/nanumgodic"
-                android:gravity="center_vertical"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/timetablename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="#DC143C"
+                    android:text="학원시간표"
+                    android:fontFamily="@font/kbizr"
+                    android:gravity="center_vertical"/>
+
+                <LinearLayout
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="1dp"
+                    android:layout_gravity="center_vertical|bottom"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/timetablesetting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="11sp"
+                        android:textColor="#808080"
+                        android:text="최승현"
+                        android:fontFamily="@font/nanumgodic"
+                        android:gravity="center_vertical"/>
+
+                    <ImageView
+                        android:layout_marginLeft="2dp"
+                        android:layout_width="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="15dp"
+                        android:src="@mipmap/downgray"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
 
             <LinearLayout
-                android:layout_marginRight="8dp"
+                android:layout_marginRight="10dp"
                 android:layout_centerVertical="true"
                 android:gravity="center_vertical|right"
                 android:layout_width="match_parent"
@@ -51,29 +80,36 @@
 
                 <ImageView
                     android:id="@+id/addclassplus"
-                    android:layout_marginRight="12dp"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:src="@drawable/add_circle"/>
+                    android:layout_width="25dp"
+                    android:layout_height="23dp"
+                    android:src="@mipmap/add"/>
 
+                <ImageView
+                    android:layout_marginLeft="19dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@mipmap/plusfriend"/>
 
+                <ImageView
+                    android:layout_marginLeft="19dp"
+                    android:layout_width="25dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/box"/>
 
 
             </LinearLayout>
 
         </RelativeLayout>
 
-        <View
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="#BEBEBE">
-
-        </View>
-
     </RelativeLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#A9A9A9"/>
+
     <RelativeLayout
+        android:paddingTop="0dp"
         android:id="@+id/timetablerelativelayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -92,7 +128,7 @@
                     android:id="@+id/firstcell"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:background="#F5F5F5">
+                    android:background="#ffffff">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -115,6 +151,11 @@
                 </android.support.v7.widget.RecyclerView>
 
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#A9A9A9"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -157,7 +198,16 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="#BEBEBE"/>
+                android:background="#A9A9A9"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:layout_marginLeft="7dp"
+                android:fontFamily="@font/nanumgodic"
+                android:layout_marginTop="8dp"
+                android:text="* 손가락으로 드래그하면 임의 수업을 추가할 수 있습니다."/>
 
         </LinearLayout>
 

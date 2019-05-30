@@ -99,7 +99,7 @@ public class FirstActivity extends AppCompatActivity {
                     readytime = 2; //5초가 지났지만 데이터들이 로딩이 안됐을때는 원상복귀
                 }
             }
-        }, 4000);
+        }, 1500);
 
         new IAmABackgroundTask().execute();
     }

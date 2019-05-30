@@ -3,7 +3,7 @@
     android:id="@+id/daycelllayout"
     android:layout_width="30dp"
     android:layout_height="30dp"
-    android:background="#DCDCDC">
+    android:background="#ffffff">
 
     <TextView
         android:id="@+id/daycellTV"
@@ -13,7 +13,8 @@
         android:textSize="10sp"
         android:fontFamily="@font/nanumgodic"
         android:textColor="#181818"
-        android:gravity="center"
+        android:gravity="center_horizontal|bottom"
+        android:paddingBottom="2dp"
         android:layout_margin="0.5dp">
     </TextView>
 

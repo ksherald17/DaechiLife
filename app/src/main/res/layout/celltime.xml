@@ -16,7 +16,7 @@
         android:gravity="right|top"
         android:paddingTop="2dp"
         android:paddingRight="1dp"
-        android:layout_margin="0.5dp">
+        android:layout_margin="0.3dp">
     </TextView>
 
 </RelativeLayout>

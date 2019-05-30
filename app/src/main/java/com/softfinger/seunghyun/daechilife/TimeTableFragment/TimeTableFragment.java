@@ -84,6 +84,8 @@ public class TimeTableFragment extends android.support.v4.app.Fragment{
     static int tempstart;
     static int templength;
     static int detbeg = 0; //드래그 작동중인지를 확인하는 코드
+    static String temptimesaved;
+
 
     //드래그시 임시 저장
     static ArrayList<Integer> savedidtemp;
@@ -119,6 +121,14 @@ public class TimeTableFragment extends android.support.v4.app.Fragment{
 
     }
 
+    /*
+     *  손가락 움직임을 추적하고 해석하는 함수
+     *  1) 이 때 먼저, 있는 수업과 시간대가 겹칠때 대응하는 Case가 존재해야 함.
+     *  2) 같은 요일을 선택한 경우 대체하시겠습니까 라는 Dialog 문의
+     *  3) 요일을 탭한 경우 동일 시간대에 해당 강의가 생성되어야 함.
+     *
+     */
+
     //손가락이 움직일때 따라서 만드는 함수
     public static void followfinger(int position){
 
@@ -128,12 +138,15 @@ public class TimeTableFragment extends android.support.v4.app.Fragment{
         int beginparameter;
 
         if(detbeg == 0){
+
             detbeg = 1;
             beginparameter = tempstarttime;
             buildtemporarylecture(beginparameter, tempstart, 1); //initiate code
+
         }
 
-        if(tempstarttime2 > tempstarttime){ //더 긴시간 설정
+        if(tempstarttime2 > tempstarttime){ //더 긴시간 방향으로 움직일 때
+
             detbeg = 1;
             templength = tempstarttime2 - tempstarttime;
             beginparameter = tempstarttime;
@@ -147,8 +160,8 @@ public class TimeTableFragment extends android.support.v4.app.Fragment{
             Log.e("초기화", Integer.toString(tempsublist.size()));
             buildtemporarylecture(beginparameter, tempstart, templength);
 
-
         }
+
         else if(tempstarttime2 < tempstarttime){  //이전것들을 다 지워야 해
 
             detbeg = 1;
@@ -161,8 +174,8 @@ public class TimeTableFragment extends android.support.v4.app.Fragment{
             }
             tempsublist = new ArrayList<>();
             buildtemporarylecture(beginparameter, tempstart, templength);
-
             tempstarttime = tempstarttime2;
+
         }
 
         else if(tempstarttime2 == tempstarttime || templength == 0){
@@ -204,8 +217,10 @@ public class TimeTableFragment extends android.support.v4.app.Fragment{
     public static void savefingerprint(){
 
         if(tempsublist == null || tempsublist.size() == 0){
+            Log.e("흥2", "너가 문제니");
             return;
         }
+
         int textviewid = tempsublist.get(0); //그 뒤 초기화될 것임.
         savedidtemp.add(new Integer(textviewid));
 
@@ -220,27 +235,58 @@ public class TimeTableFragment extends android.support.v4.app.Fragment{
         /* 시작시간 */
         int starthour = (tempstarttime/2) + 8;
         int startmin = 0;
-        if(Math.round(tempstarttime/2) - tempstarttime != 0){
+        if(Math.round(((float)tempstarttime)/2.0f) - (int)(tempstarttime/2) != 0){
             startmin = 30;
         };
         timeinfo.add(starthour); //index 1: 시작시간
         timeinfo.add(startmin); //index 2: 시작분
-        String starttime = Integer.toString(starthour) + "시 : " + Integer.toString(startmin) + "분";
+
+        String starttime, endingtime;
+        if(starthour > 12){
+            if(startmin == 0){
+                starttime = Integer.toString(starthour-12) + " : " + Integer.toString(startmin) + "0";
+            }
+            else{
+                starttime = Integer.toString(starthour-12) + " : " + Integer.toString(startmin);
+            }
+
+        }else{
+            if(startmin == 0){
+                starttime = Integer.toString(starthour) + " : " + Integer.toString(startmin) + "0";
+            }
+            else{
+                starttime = Integer.toString(starthour) + " : " + Integer.toString(startmin);
+            }
+        }
 
 
         int endtime = tempstarttime + templength;
         int endhour = (endtime/2) + 8;
         int endmin = 0;
-        if(Math.round(endtime/2) - endtime != 0){
+        if(Math.round(((float)endtime)/2.0f) - (int)(endtime/2) != 0){
             endmin = 30;
         };
 
         timeinfo.add(endhour); //index 3: 끝시간
         timeinfo.add(endmin); //index 4: 끝분
-        String endingtime = Integer.toString(endhour) + "시 : " + Integer.toString(endmin) + "분";
 
-        Toast.makeText(context, day + ": " + starthour + "시 " + startmin + "분 ~ " + endhour + "시 " + endmin +"분",
-                Toast.LENGTH_SHORT).show();
+        if(endhour > 12){
+            if(endmin == 0){
+                endingtime = Integer.toString(endhour-12) + " : " + Integer.toString(endmin) + "0";
+            }
+            else{
+                endingtime = Integer.toString(endhour-12) + " : " + Integer.toString(endmin);
+            }
+        }else{
+            if(endmin == 0){
+                endingtime = Integer.toString(endhour) + " : " + Integer.toString(endmin) + "0";
+            }
+            else{
+                endingtime = Integer.toString(endhour) + " : " + Integer.toString(endmin);
+            }
+        }
+
+        setTemptimesaved(day + " " + starttime + " ~ " + endingtime);
 
 
     }
@@ -649,6 +695,7 @@ public class TimeTableFragment extends android.support.v4.app.Fragment{
 
     }
 
+    //강의 삭제 후 재조정 코드
     public static void setMyLectureAfterDelete(){
         for(int i = 0; i < mylecturelist.size(); i++){
             if(mylecturelist.get(i) == null){
@@ -688,7 +735,7 @@ public class TimeTableFragment extends android.support.v4.app.Fragment{
 
         timetablecellheight = heightPX/2;
         heightPX = timetablecellheight*2;
-        daycellheight = heightPX-10;
+        daycellheight = timetablecellheight-5;
         daycellwidth = (int)totalwidthPixel*2/15;
         timecellheight = heightPX;
         timecellwidth = widthDX;
@@ -739,14 +786,15 @@ public class TimeTableFragment extends android.support.v4.app.Fragment{
         timeTableCellAdapter =  new TimeTableCellAdapter(timetable, context);
         timetablecellRV.setAdapter(timeTableCellAdapter);
         Log.e("흠>?", "뭐야");
+
         timetablecellRV.setOnTouchListener(new View.OnTouchListener() {
 
             //기존에 있는 수업을 선택시 관리하는 함수
             @Override
             public boolean onTouch(View view, MotionEvent e) {
 
-                if(MainPage.getAcademyinputstatus() == 1 || MainPage.getTeacherinputstatus() == 1 || MainPage.getCategoryinputstatus() == 1){
-
+                if(MainPage.getEnteringstatus() != null && MainPage.getEnteringstatus().size() != 0){
+                    //우선은 이미 올라와 있는 상태에 대응하는 것을 유보하자고. 그다음으로 인식하는 상황이니 여기에 그 코딩을 진행하면 돼.
                     return false;
                 }
 
@@ -771,6 +819,7 @@ public class TimeTableFragment extends android.support.v4.app.Fragment{
 
                     case MotionEvent.ACTION_MOVE:
 
+                        //이동 최대거리 설정
                         if(y > max + timetablecellheight){
                             if(detbeg == 0){
                                 savefingerprint();
@@ -780,7 +829,7 @@ public class TimeTableFragment extends android.support.v4.app.Fragment{
                             break;
                         }
 
-                        Log.e("움직임 감지", Integer.toString(position));
+                        //Log.e("움직임 감지", Integer.toString(position));
                         int day1 = turnpxtoweek(x);
                         int time1 = turnpxtotime(y);
 
@@ -797,10 +846,11 @@ public class TimeTableFragment extends android.support.v4.app.Fragment{
                         Log.e("손가락 뗌", Integer.toString(position));
                         //vanishtemporarylecture();
                         if(detbeg == 0){
-                            savefingerprint();
-                            detbeg = 1;
+                            //잠깐 손 댔다가 떼는 case
+                            break;
                         }
 
+                        savefingerprint();
                         MainPage.showTimeTableAddTab();
 
                         position = 0;
@@ -941,4 +991,12 @@ public class TimeTableFragment extends android.support.v4.app.Fragment{
     public static DayCellAdapter getDaycellAdapter(){ return dayCellAdapter; }
 
     public static RelativeLayout getFirstCell(){return firstcell;}
+
+    public static String getTemptimesaved() {
+        return temptimesaved;
+    }
+
+    public static void setTemptimesaved(String temptimesave) {
+        temptimesaved = temptimesave;
+    }
 }

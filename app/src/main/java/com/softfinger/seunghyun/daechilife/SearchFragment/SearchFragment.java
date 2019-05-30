@@ -85,13 +85,12 @@ public class SearchFragment extends android.support.v4.app.Fragment {
     public void setId(){
         //setID
         searchtext = searchpage.findViewById(R.id.searchresulttext);
-        title1 = searchpage.findViewById(R.id.gohomefromsearch);
-        title2 = searchpage.findViewById(R.id.titlekumsek);
+        //title1 = searchpage.findViewById(R.id.gohomefromsearch);
+        //title2 = searchpage.findViewById(R.id.titlekumsek);
         searchimage = searchpage.findViewById(R.id.searchimgicon);
-        searchtoplayout = searchpage.findViewById(R.id.searchtaptoplayout);
+        //searchtoplayout = searchpage.findViewById(R.id.searchtaptoplayout);
         searchbelowlayout = searchpage.findViewById(R.id.searchtapbelow);
         searchtoolbar = searchpage.findViewById(R.id.searchtoolbarlayout);
-        toolbarbottom = searchpage.findViewById(R.id.searchtoolbarbottom);
         tab_layoutsearch = searchpage.findViewById(R.id.tab_layoutsearch);
         searchcontainer = searchpage.findViewById(R.id.searchcontainer);
     }
@@ -187,7 +186,7 @@ public class SearchFragment extends android.support.v4.app.Fragment {
                     case EditorInfo.IME_ACTION_DONE:
                         startHomeResult(searchtext.getText().toString());
                         //searchtext.setText("");
-                        searchtext.setHint("선생님, 학원명, 학교명을 입력하세요.");
+                        searchtext.setHint("선생님, 학원명, 학교명으로 수업을 검색하세요.");
                         return true;
 
                     default:
@@ -204,7 +203,7 @@ public class SearchFragment extends android.support.v4.app.Fragment {
                     // Perform action on key press
                     startHomeResult(searchtext.getText().toString());
                     //searchtext.setText("");
-                    searchtext.setHint("선생님, 학원명, 학교명을 입력하세요.");
+                    searchtext.setHint("선생님, 학원명, 학교명으로 수업을 검색하세요.");
                     return true;
                 }
                 return false;
@@ -223,6 +222,7 @@ public class SearchFragment extends android.support.v4.app.Fragment {
         });
 
         //DL검색 누르면 다시 첫화면으로 복귀
+        /*
         title1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -241,12 +241,12 @@ public class SearchFragment extends android.support.v4.app.Fragment {
                 startHomeMain();
 
             }
-        });
+        });*/
     }
 
     /* 검색하는 화면 창 정교 컨트롤 : x표시로 삭제, 글씨 제한 기능 if possible 자동완성? */
     public static void setSearchEditTool(){
-        searchtext.setHint("선생님, 학원명, 학교명을 입력하세요.");
+        searchtext.setHint("선생님, 학원명, 학교명으로 수업을 검색하세요.");
     }
 
     //need 치면 x표시 및 삭제 그리고 글씨제한 기능 자동완성?
